@@ -1,6 +1,86 @@
 \documentclass[12pt]{article}
-\begin{document}
-unigrid orangepaper
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{xcolor}
+\usepackage[pdftex,
+    pdfauthor={Evan Green, Unigrid organization},
+    pdftitle={Unigrid: A foundation for a decentralized, consensus-driven, segmented blockchain-based Internet},
+    pdfsubject={Orange Paper},
+    pdfkeywords={blockchain;internet;bitcoin;unigrid;sharding;segmentation;consensus;decentralized;governance;gridnode},
+    pdfproducer={Latex with hyperref, or other system},
+    pdfcreator={pdflatex, or other tool}]{hyperref}
 
-2021
+
+\author{Evan Green, The Unigrid Organization}
+\title{Unigrid: A foundation for a decentralized, consensus-driven, segmented blockchain-based Internet}
+\date{Version 1.0 (\today)}
+
+\begin{document}
+
+\maketitle
+
+
+\newpage
+\thispagestyle{fancy}
+
+\begin{abstract}
+The original Internet was envisioned to become an open and distributed network that was scalable and fair, allowing access to data and services without surveillance or security concerns. However, in recent years, the network has become increasingly centralized and controlled by big businesses running huge data centers. This centralization has given big entities and businesses unprecedented control of the traffic and data of the network.
+
+As a remedy to this deteriorating trend, we suggest the inception of a decentralized and consensus-driven segmented blockchain network based on a striped storage solution. The protocol allows for a completely decentralized and secure blockchain-based Internet where anybody, including private persons, can host an income-generating service node, aiding the network with compute cycles, bandwidth and storage space. To allow for complete utilization of the network, an access layer is provided, allowing for the development of protocols, services and infrastructure.
+
+\end{abstract}
+
+\newpage
+\section*{Problem}
+The current internet is dominated by large multinational conglomerates. With names like Google, Microsoft and Amazon taking up vast sums of the total market. Amazon Web Services (AWS) is said to have 49.4\% market share. We for one see this as problematic.
+
+For one, almost 50\% of all internet data is stored on servers owned by a single entity. This also means that 50\% of the internet traffic is routed through Amazons servers. For privacy and security reasons this solution is just not sustainable as hackers become more advanced and governments infringe on your data privacy.
+
+According to the research company Gartner the total market share for IaaS cloud infrastructure in 2019 was \$38.9 billion with a projected growth to \$76.6 billion by 2022. If we look at these numbers you can not only see how much Amazon is earning per year (\$18.67), you also see the potential for competition.
+
+
+\section*{Background}
+Our first goal with UNIGRID is to implement decentralized data storage with compute cycles. We believe that not only will private individuals want to take advantage of this but also businesses who require secure data to function. One example would be the health industry. We believe it should be the consumer only who allows this data to be accessed and shared. Something that is just not possible with their current model of how they collect your data and share it.
+
+\subsection*{Gridnodes}
+
+
+How will a UNIGRID gridnode fit into all of this? A gridnode is similar in function to a masternode which runs on blockchains like DASH. On the UNIGRID network we will have both masternodes and gridnodes. The main difference being there are no strict requirments to run a masternode. With a gridnode there will be requirements to participate in the network. Examples would be amount of RAM, storage cpacity, processing speed, and network connection. With each of these gridnodes will be scored based on how they rank compared to other gridnodes.
+
+In a regular masternode scoring and rewards is based off a list. The network simply stores this list into memory and will cycle through each block to select the next winner. With the UNIGRID network and gridnodes scoring and rewards will function a little bit differently. For example when a request is made to store data on the network there will be a check on all active gridnodes. This check will see which gridnode has received the last reward plus scan the scores of each gridnode. Once a winner is selected this gridnode will perform the task of collecting the data submitted and working with the other gridnodes to shard it across the network. This sharding will allow our network to scale very easily.
+
+From first contact with the network your data is encrypted and then sharded making it practically impossible for anyone else to access this data without a key.
+
+\subsection*{Side chains}
+Each task performed will be handled by a side chain. For example data storage will be on one chain then compute cycles on another. 
+
+\subsection*{Data storage}
+You will be able to store large amounts of data on chain and access it at anytime. The data will have two types of either public or private. Public will be viewable by anyone and private will require a key to view.
+
+\subsection*{Sharding}
+Already covered in gridnodes
+
+\subsection*{Compute cycles}
+As the network grows and more gridnodes come online so will it's compute power. Since the requirements of the network to run a gridnode will be high this also means there will be a large amount of computational power available to the network.
+
+One use case of this could be a scientific study that needs to run some very complex computationally intensive tasks. These compute cycles will be available to rent on the network in return those gridnodes being used are awarded in unigrid.
+
+\subsection*{Domain registry}
+Since at it's core unigrid is it's own network users will also be able to secure domain names. The registration fees for a domain will in turn be allocated to gridnodes that handle the tasks.
+
+\subsection*{Migration }
+SOCKS proxy similar to TOR
+
+\subsection*{Governance}
+Control of the network itself and what is allowed and not allowed will be given to the gridnodes. A voting system will be put in place to allow of scrabling data the network does not deem fit to be on chain. Any major updates to the network itself will be voted on by the girdnodes as well.
+
+\section*{Solution}
+
+\section*{Conclusion}
+
+\section*{References}
+
+
 \end{document}
