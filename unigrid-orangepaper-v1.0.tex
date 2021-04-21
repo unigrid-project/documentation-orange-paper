@@ -1,9 +1,11 @@
 \documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{amsfonts}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\usepackage{xcolor}
+\usepackage[table]{xcolor}
+\graphicspath{ {./images/} }
 \usepackage[pdftex,
     pdfauthor={Evan Green, Unigrid organization},
     pdftitle={Unigrid: A foundation for a decentralized, consensus-driven, segmented blockchain-based Internet},
@@ -16,6 +18,8 @@
 \author{Evan Green, The Unigrid Organization}
 \title{Unigrid: A foundation for a decentralized, consensus-driven, segmented blockchain-based Internet}
 \date{Version 1.0 (\today)}
+
+\renewcommand{\familydefault}{\sfdefault}
 
 \begin{document}
 
@@ -32,32 +36,47 @@ As a remedy to this deteriorating trend, we suggest the inception of a decentral
 
 \end{abstract}
 
+\includegraphics[scale=0.12]{lights}
+
 \newpage
 \section*{Problem}
-The current internet is dominated by large multinational conglomerates. With names like Google, Microsoft and Amazon taking up vast sums of the total market. Amazon Web Services (AWS) is said to have 49.4\% market share. We for one see this as problematic.
 
-For one, almost 50\% of all internet data is stored on servers owned by a single entity. This also means that 50\% of the internet traffic is routed through Amazons servers. For privacy and security reasons this solution is just not sustainable as hackers become more advanced and governments infringe on your data privacy.
+The current internet is dominated by large multinational conglomerates. With names like Google, Microsoft and Amazon taking up vast sums of the total market. Amazon Web Services (AWS) is said to have 49.4\% market share\cite{jeb2019}.
 
-According to the research company Gartner the total market share for IaaS cloud infrastructure in 2019 was \$38.9 billion with a projected growth to \$76.6 billion by 2022. If we look at these numbers you can not only see how much Amazon is earning per year (\$18.67), you also see the potential for competition.
+For one, almost 50\% of all internet data is stored on servers owned by a single entity\cite{jeb2019}. This also means that 50\% of the internet traffic is routed through Amazons servers\cite{jeb2019}. 
 
+In some countries internet censorship is so heavy handed that the public is limited to what news resources they are allowed to access and view\cite{wiki2021}. The original intention of the internet was to be an open source of all information for everyone no matter where they are from.
+
+For privacy and security reasons this solution is just not sustainable as hackers become more advanced and governments infringe on your data privacy.
 
 \section*{Background}
-Our first goal with UNIGRID is to implement decentralized data storage with compute cycles. We believe that not only will private individuals want to take advantage of this but also businesses who require secure data to function. One example would be the health industry. We believe it should be the consumer only who allows this data to be accessed and shared. Something that is just not possible with their current model of how they collect your data and share it.
+Our first goal with unigrid is to implement decentralized data storage with compute cycles. We believe that not only will private individuals want to take advantage of this but also businesses who require secure data to function. 
+
+One example would be the health industry. Sensitive medical records can be stored on chain and only shared with who the patients wants or needs to share it with. The data can be shared using a key which has an expire timer so the patient never needs to worry about it being accessed by an unwanted party. We believe it should be the consumer who allows this data to be accessed and shared. Something that is just not possible with their current model of how they collect your data and share it.
 
 \subsection*{Gridnodes}
 
 
-How will a UNIGRID gridnode fit into all of this? A gridnode is similar in function to a masternode which runs on blockchains like DASH. On the UNIGRID network we will have both masternodes and gridnodes. The main difference being there are no strict requirments to run a masternode. With a gridnode there will be requirements to participate in the network. Examples would be amount of RAM, storage cpacity, processing speed, and network connection. With each of these gridnodes will be scored based on how they rank compared to other gridnodes.
+How will a unigrid gridnode fit into all of this? A gridnode is similar in function to a masternode initially conceived by DASH where you can setup a node on a server with X amount of coins. These masternodes provide a service to the network similar to miners on the Bitcoin network. For this work done in return the nodes are rewarded in tokens.
 
-In a regular masternode scoring and rewards is based off a list. The network simply stores this list into memory and will cycle through each block to select the next winner. With the UNIGRID network and gridnodes scoring and rewards will function a little bit differently. For example when a request is made to store data on the network there will be a check on all active gridnodes. This check will see which gridnode has received the last reward plus scan the scores of each gridnode. Once a winner is selected this gridnode will perform the task of collecting the data submitted and working with the other gridnodes to shard it across the network. This sharding will allow our network to scale very easily.
+On the unigrid network we will have both masternodes and gridnodes. The main difference being there are no strict requirements to run a masternode. With a gridnode there will be requirements to participate in the network. Examples would be amount of RAM, storage capacity, processing speed, and network connection. With each of these gridnodes will be scored based on how they rank compared to other gridnodes.
 
-From first contact with the network your data is encrypted and then sharded making it practically impossible for anyone else to access this data without a key.
+In a regular masternode scoring and rewards is based off a list. The network simply stores this list into memory and will cycle through each block to select the next winner. With the unigrid network and gridnodes scoring and rewards will function a little bit differently. For example when a request is made to store data on the network there will be a check on all active gridnodes. This check will see which gridnode has received the last reward plus scan the scores of each gridnode. Once a winner is selected this gridnode will perform the task of collecting the data submitted and working with the other gridnodes to shard it across the network. This sharding will allow our network to scale very easily.
+
 
 \subsection*{Side chains}
-Each task performed will be handled by a side chain. For example data storage will be on one chain then compute cycles on another. 
+Each task performed will be handled by a side chain. For example data storage will be on one chain then compute cycles on another. Each chain is in itself it's own blockchain. They are independent of the other chains and would allow for faster lookup of data depending on the request. 
 
 \subsection*{Data storage}
 You will be able to store large amounts of data on chain and access it at anytime. The data will have two types of either public or private. Public will be viewable by anyone and private will require a key to view.
+
+Cloud data storage is projected to reach \$297.54 billion by 2027\cite{fort2021}.
+
+NFTs (Non Fungible Tokens) are a one of a kind token where there can only be in existence. These allow for proof of ownership of a digital asset. The problem with the current system is that the part stored on the blockchain that is permanent is only the proof of ownership. The actual asset that the NFT proves you own is actually stored on a normal web server. This means that if that web server ever shutdown or moved how would you still prove it's you who owns that asset?
+
+Unigrid, a home for NFTs and digital assets. With unigrid you will be able to store an asset whether for sale or storage on chain that will always exist so long the network is still running. This would provide for a much more long term solution to where assets that in some cases cost millions of dollars are permanently stored.
+
+The NFT market has absolutely exploded in the past year. According to Joseph Young of Forbes the market cap has grown an astounding 1758\%\cite{young2021}.
 
 \subsection*{Sharding}
 Already covered in gridnodes
@@ -70,17 +89,124 @@ One use case of this could be a scientific study that needs to run some very com
 \subsection*{Domain registry}
 Since at it's core unigrid is it's own network users will also be able to secure domain names. The registration fees for a domain will in turn be allocated to gridnodes that handle the tasks.
 
+As more domains are registered on the network it also makes sense to allow for people to trade these domains. A domain market will be created to allow for users to buy and trade domain names. This will function similar to an NFT auction where you can bid on domains and set expire of sale times.
+
+According to John Levine at CircleID \cite{john2018} the domain registrar business is at \$3 to \$5 billion per year and growing. 
+
+
 \subsection*{Migration }
 SOCKS proxy similar to TOR
 
 \subsection*{Governance}
-Control of the network itself and what is allowed and not allowed will be given to the gridnodes. A voting system will be put in place to allow of scrabling data the network does not deem fit to be on chain. Any major updates to the network itself will be voted on by the girdnodes as well.
+Control of the network itself and what is allowed and not allowed will be given to the gridnodes. A voting system will be put in place to allow scrambling of data the network does not deem fit to be on chain. Any major updates to the network itself will be voted on by the gridnodes as well.
 
-\section*{Solution}
 
 \section*{Conclusion}
 
-\section*{References}
+Since the advent of the internet in the 1960's\cite{int1997} the internet has been nodes(computers) communicating with each other. What we plan on doing with unigrid is decentralizing these nodes to where anyone can partake in being a host node on the internet. From first contact with the network your data is encrypted and then sharded making it practically impossible for anyone else to access this data without a key. Browsing across the network is also anonymous by default securing your privacy rights. 
 
+Gridnodes are the backbone to the network and an integral role to how the system functions. For the services provided they will rewarded. According to the research company Gartner the total market share for IaaS cloud infrastructure in 2019 was \$38.9 billion with a projected growth to \$76.6 billion by 2022\cite{gartner2019}. If we look at these numbers you can see the potential an open source decentralized network could play here.
+
+\vspace{5mm} %5mm vertical space
+{\rowcolors{3}{green!80!yellow!50}{green!70!yellow!40}
+\begin{tabular}{ |p{6cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}| }
+ \hline
+ \multicolumn{6}{|c|}{Worldwide Public Cloud Service Revenue Forecast (Billions of U.S. Dollars)} \\
+ \hline
+  & 2018 &2019 &2020 &2021 &2022\\
+ \hline
+ Cloud Business Process Services (BPaaS)   
+ &45.8
+ &49.3
+ &53.1
+ &57.0
+ &61.1\\
+  \hline
+ Cloud Application Infrastructure Services (PaaS)
+ &15.6
+ &19.0
+ &23.0
+ &27.5
+ &31.8\\
+  \hline
+ Cloud Application Services (SaaS) 
+ &80.0
+ &94.8
+ &110.5
+ &126.7
+ &143.7\\
+  \hline
+ Cloud Management and Security Services     	
+ &10.5
+ &12.2
+ &14.1
+ &16.0
+ &17.9\\
+  \hline
+ Cloud System Infrastructure Services (IaaS)
+ &30.5
+ &38.9
+ &49.1
+ &61.9
+ &76.6\\
+  \hline
+ Total Market
+ &182.4
+ &214.3
+ &249.8
+ &289.1
+ &331.2\\
+ \hline
+\end{tabular}
+\cite{gartner2019}
+
+\newpage
+\begin{thebibliography}{999}
+\bibitem{john2018}
+    John Levine, CircleID,
+    \emph{"How Big Is The Domain Business"},
+    \href{https://www.circleid.com/posts/20180813_how_big_is_the_domain_business/}{www.circleid.com},
+    2018.
+
+\bibitem{jeb2019}
+    Jeb Su, Forbes,
+    \emph{"Amazon Owns Nearly Half Of The Public-Cloud Infrastructure Market Worth Over \$32 Billion: Report"},
+    \href{https://www.forbes.com/sites/jeanbaptiste/2019/08/02/amazon-owns-nearly-half-of-the-public-cloud-infrastructure-market-worth-over-32-billion-report/ }{www.forbes.com},
+    2019. 
+ 
+\bibitem{gartner2019}
+    Gartner, Gartner,
+    \emph{"Gartner Forecasts Worldwide Public Cloud Revenue to Grow 17.5 Percent in 2019"},
+    \href{https://www.gartner.com/en/newsroom/press-releases/2019-04-02-gartner-forecasts-worldwide-public-cloud-revenue-to-g}{www.gartner.com},
+    2019.   
+
+\bibitem{young2021}
+    Joseph Young, Forbes,
+    \emph{"NFT Market Rages On: NFTs Market Cap Grow 1,785\% In 2021 As Demand Explodes"},
+    \href{https://www.forbes.com/sites/youngjoseph/2021/03/29/nft-market-rages-on-nfts-market-cap-grow-1785-in-2021-as-demand-explodes/
+}{www.gartner.com},
+    2021.    
+  
+\bibitem{wiki2021}
+    Wikipedia,
+    \emph{"Internet censorship in China"},
+    \href{https://www.wikipedia.org/wiki/Internet_censorship_in_China}{www.wikipedia.org},
+    2021.    
+    
+\bibitem{int1997}
+    Barry M. Leiner, Vinton G. Cerf, David D. Clark, Robert E. Kahn, Leonard Kleinrock, Daniel C. Lynch, Jon Postel, Larry G. Roberts, Stephen Wolff,
+    \emph{"Origins of the Internet"},
+    \href{https://www.internetsociety.org/internet/history-internet/brief-history-internet}{www.internetsociety.org},
+    1997.    
+
+\bibitem{fort2021}
+    Fortune Business Insights,
+    \emph{"Cloud Storage Market Size"},
+    \href{https://www.fortunebusinessinsights.com/cloud-storage-market-102773}{www.fortunebusinessinsights.com},
+    2021. 
+    
+
+     
+\end{thebibliography}
 
 \end{document}
