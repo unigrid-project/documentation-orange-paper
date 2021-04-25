@@ -32,7 +32,7 @@
 \begin{abstract}
 The original Internet was envisioned to become an open and distributed network that was scalable and fair, allowing access to data and services without surveillance or security concerns. However, in recent years, the network has become increasingly centralized and controlled by big businesses running huge data centers. This centralization has given big entities and businesses unprecedented control of the traffic and data of the network.
 
-As a remedy to this deteriorating trend, we suggest the inception of a decentralized and consensus-driven segmented blockchain network based on a striped storage solution. The protocol allows for a completely decentralized and secure blockchain-based Internet where anybody, including private persons, can host an income-generating service node, aiding the network with compute cycles, bandwidth and storage space. To allow for complete utilization of the network, an access layer is provided, allowing for the development of protocols, services and infrastructure.
+With ownership of the majority of resources on the internet owned by a minority of corporations, they're able to maintain a high cost to value ratio along with making your personal data less secure. As a remedy to this deteriorating trend, we suggest the inception of a decentralized and consensus-driven segmented blockchain network based on a striped storage solution. The protocol allows for a completely decentralized and secure blockchain-based Internet where anybody, including private persons, can host an income-generating service node, aiding the network with compute cycles, bandwidth, and storage space. To allow for complete utilization of the network, an access layer is provided, allowing for the development of protocols, services, and infrastructure.
 
 \end{abstract}
 
@@ -41,71 +41,87 @@ As a remedy to this deteriorating trend, we suggest the inception of a decentral
 \newpage
 \section*{Problem}
 
-The current internet is dominated by large multinational conglomerates. With names like Google, Microsoft and Amazon taking up vast sums of the total market. Amazon Web Services (AWS) is said to have 49.4\% market share\cite{jeb2019}.
+The current internet is dominated by large multinational conglomerates. With names like Google, Microsoft, and Amazon taking up vast sums of the total market. Amazon Web Services (AWS) is said to have 49.4\% market share\cite{jeb2019}.
 
-For one, almost 50\% of all internet data is stored on servers owned by a single entity\cite{jeb2019}. This also means that 50\% of the internet traffic is routed through Amazons servers\cite{jeb2019}. 
+For one, almost 50\% of all internet data is stored on servers owned by a single entity\cite{jeb2019}. This also means that 50\% of the internet traffic is routed through Amazon’sAmazons servers\cite{jeb2019}.
 
-In some countries internet censorship is so heavy handed that the public is limited to what news resources they are allowed to access and view\cite{wiki2021}. The original intention of the internet was to be an open source of all information for everyone no matter where they are from.
+In some countries, internet censorship is so heavy-handedheavy handed that the public is limited to what news resources they are allowed to access and view\cite{wiki2021}. The original intention of the internet was to be an open-sourceopen source of all information for everyone no matter where they are from.
 
 For privacy and security reasons this solution is just not sustainable as hackers become more advanced and governments infringe on your data privacy.
 
-\section*{Background}
-Our first goal with unigrid is to implement decentralized data storage with compute cycles. We believe that not only will private individuals want to take advantage of this but also businesses who require secure data to function. 
 
-One example would be the health industry. Sensitive medical records can be stored on chain and only shared with who the patients wants or needs to share it with. The data can be shared using a key which has an expire timer so the patient never needs to worry about it being accessed by an unwanted party. We believe it should be the consumer who allows this data to be accessed and shared. Something that is just not possible with their current model of how they collect your data and share it.
+\section*{Background}
+Our first goal with unigrid is to implement decentralized data storage with compute cycles. We believe that not only will private individuals want to take advantage of this but also businesses thatwho require secure data to function.
+
+One example would be the health industry. Sensitive medical records can be stored on-chainon chain and only shared with who the patients wantwants or needs to share it with. The data can be shared using a key thatwhich has an expirationexpire timer so the patient never needs to worry about it being accessed by an unwanted party. We believe it should be the consumer who allows this data to be accessed and shared. Something that is just not possible with their current model of how they collect your data and share it.
+
+Another example is the growing IoTIot (Internet Of Things) market. On a blockchainblackchain the ledgerlegder is tamper-prooftamper proof which removes the need for trust between two parties. Utilizing a blockchain network like unigrid would add a layer of trust to the large amounts of IoT data being transmitted. On top of the data itself, there needs to be a network capable of scaling along with the billions of IoT-connectedIoT connected devices. As mentioned by Shruti Jain of Deloitte\cite{jain2021}, blockchain or distributed ledger technology (DLT), has the potential to help address some of the IoT security and scalability challenges.
+
 
 \subsection*{Gridnodes}
 
 
-How will a unigrid gridnode fit into all of this? A gridnode is similar in function to a masternode initially conceived by DASH where you can setup a node on a server with X amount of coins. These masternodes provide a service to the network similar to miners on the Bitcoin network. For this work done in return the nodes are rewarded in tokens.
+A gridnode is similar in function to a masternode initially conceived by DASH where you can set-up a node on a server with X amount of coins. These masternodes provide a service to the network similar to miners on the Bitcoin network. For this work done in return, the nodes are rewarded in tokens.
 
-On the unigrid network we will have both masternodes and gridnodes. The main difference being there are no strict requirements to run a masternode. With a gridnode there will be requirements to participate in the network. Examples would be amount of RAM, storage capacity, processing speed, and network connection. With each of these gridnodes will be scored based on how they rank compared to other gridnodes.
+On the unigrid network, we will have both masternodes and gridnodes. The main difference being there are no strict requirements to run a masternode. With a gridnode there will be requirements to participate in the network. Examples would be amount of RAM, storage capacity, processing speed, and network connection. With each of these gridnodes will be scored based on how they rank compared to other gridnodes.
 
 In a regular masternode scoring and rewards is based off a list. The network simply stores this list into memory and will cycle through each block to select the next winner. With the unigrid network and gridnodes scoring and rewards will function a little bit differently. For example when a request is made to store data on the network there will be a check on all active gridnodes. This check will see which gridnode has received the last reward plus scan the scores of each gridnode. Once a winner is selected this gridnode will perform the task of collecting the data submitted and working with the other gridnodes to shard it across the network. This sharding will allow our network to scale very easily.
 
 
+
 \subsection*{Side chains}
-Each task performed will be handled by a side chain. For example data storage will be on one chain then compute cycles on another. Each chain is in itself it's own blockchain. They are independent of the other chains and would allow for faster lookup of data depending on the request. 
+Each task performed will be handled by a side chain. For example, data storage will be on one chain then compute cycles on another. Each chain is in itself its own blockchain. They are independent of the other chains and would allow for a faster lookup of data depending on the request.
 
 \subsection*{Data storage}
-You will be able to store large amounts of data on chain and access it at anytime. The data will have two types of either public or private. Public will be viewable by anyone and private will require a key to view.
+Large amounts of data on-chain and access it at any time. The data will have two types of either public or private. Public will be viewable by anyone and private will require a key to view.
 
 Cloud data storage is projected to reach \$297.54 billion by 2027\cite{fort2021}.
 
-NFTs (Non Fungible Tokens) are a one of a kind token where there can only be in existence. These allow for proof of ownership of a digital asset. The problem with the current system is that the part stored on the blockchain that is permanent is only the proof of ownership. The actual asset that the NFT proves you own is actually stored on a normal web server. This means that if that web server ever shutdown or moved how would you still prove it's you who owns that asset?
+NFTs (Non-Fungible Tokens) is a one-of-a-kind token where there can only be in existence. These allow for proof of ownership of a digital asset. The problem with the current system is that the part stored on the blockchain that is permanent is only the proof of ownership. The actual asset that the NFT proves you own is actually stored on a normal web server. This means that if that web server ever shut down or moved how would you still prove it's you who owns that asset?
 
-Unigrid, a home for NFTs and digital assets. With unigrid you will be able to store an asset whether for sale or storage on chain that will always exist so long the network is still running. This would provide for a much more long term solution to where assets that in some cases cost millions of dollars are permanently stored.
+Unigrid, a home for NFTs and digital assets. With unigrid you will be able to store an asset whether for sale or storage on the chain that will always exist so long the network is still running. This would provide for a much more long-term solution to where assets that in some cases cost millions of dollars are permanently stored.
 
-The NFT market has absolutely exploded in the past year. According to Joseph Young of Forbes the market cap has grown an astounding 1758\%\cite{young2021}.
+The NFT market has absolutely exploded in the past year. According to Joseph Young of Forbes, the market cap has grown an astounding 1758\%\cite{young2021}.
+
 
 \subsection*{Sharding}
-Already covered in gridnodes
+In a typical blockchain, data is stored in a vertical structure with each new block being appended to the previous block. To obtain the lowest latency network, this solution is not ideal for fast data access and transfers. The unigrid network will shard this data across multiple nodes for redundancy, speed, security, and the ability to scale.
+
+Sharding is a database architecture pattern related to horizontal partitioning - the practice of separating one table’s rows into multiple different tables, known as partitions\cite{mark2019}. Data on the unigrid network will be sharded across nodes into group swarms. What this allows for is the network to be in effect a self-replicating CDN (Content Delivery Network) where data is always pulled from the nearest location. This in turn also cuts down on network latency currently experienced on the modern web where you may be loading from a webpage in one centrally installed location.
+
+In a shard group, you will also be able to run a container or VPS(Virtual Private Server) utilizing the resources available in this group. These containers can be auto deployed on the network utilizing Kubernetes (an open-source system for automating deployment, scaling, and management of containerized applications).
+
+An example market that could take advantage of these speeds is a video streaming service. As the video stored on the network would be sharded, users viewing the video would always be loaded from the closest gridnode swarm to their location.
+   
 
 \subsection*{Compute cycles}
-As the network grows and more gridnodes come online so will it's compute power. Since the requirements of the network to run a gridnode will be high this also means there will be a large amount of computational power available to the network.
+As the network grows and more gridnodes come online so will it's compute power. Since the requirements of the network to run a gridnode will be high this also means there will be a large amount of computational power available to the network. Organizations and or users will be able to rent compute cycles. 
 
 One use case of this could be a scientific study that needs to run some very complex computationally intensive tasks. These compute cycles will be available to rent on the network in return those gridnodes being used are awarded in unigrid.
 
 \subsection*{Domain registry}
-Since at it's core unigrid is it's own network users will also be able to secure domain names. The registration fees for a domain will in turn be allocated to gridnodes that handle the tasks.
+Since at its core unigrid is its own network users will also be able to secure domain names. The registration fees for a domain will in turn be allocated to gridnodes that handle the tasks.
 
-As more domains are registered on the network it also makes sense to allow for people to trade these domains. A domain market will be created to allow for users to buy and trade domain names. This will function similar to an NFT auction where you can bid on domains and set expire of sale times.
+As more domains are registered on the network it also makes sense to allow for people to trade these domains. A domain market will be created to allow users to buy and trade domain names. This will function similarly to an NFT auction where you can bid on domains and set expire of sale times.
 
-According to John Levine at CircleID \cite{john2018} the domain registrar business is at \$3 to \$5 billion per year and growing. 
+According to John Levine at CircleID \cite{john2018} the domain registrar business is at \$3 to \$5 billion per year and growing.
 
 
 \subsection*{Migration }
-SOCKS proxy similar to TOR
+Connecting to the internet exposes personal data about you and your personal information to nefarious parties. In order to protect yourself from this a lot of people choose to use a VPN(Virtual Private Network). This helps protect your personal data by creating an encrypted tunnel to the internet.
+
+With the unigrid network, a connection is made with a proxy and a fingerprint is assigned. A gridnode will pick this up and act as the "outlet" for that connection. With this fingerprint, the network knows this traffic is meant for the network. In this method, there is no way to know who the originating user is or where they are from. The data being sent is also encrypted through this proxy tunnel. The gridnodes themselves act as a swarm of proxies, unlike TOR which more resembles a chain.
+
 
 \subsection*{Governance}
-Control of the network itself and what is allowed and not allowed will be given to the gridnodes. A voting system will be put in place to allow scrambling of data the network does not deem fit to be on chain. Any major updates to the network itself will be voted on by the gridnodes as well.
+Control of the network itself and what is allowed and not allowed will be given to the gridnodes. A voting system will be put in place to allow scrambling of data the network does not deem fit to be on the chain. Any major updates to the network itself will be voted on by the gridnodes as well.
 
 
 \section*{Conclusion}
 
-Since the advent of the internet in the 1960's\cite{int1997} the internet has been nodes(computers) communicating with each other. What we plan on doing with unigrid is decentralizing these nodes to where anyone can partake in being a host node on the internet. From first contact with the network your data is encrypted and then sharded making it practically impossible for anyone else to access this data without a key. Browsing across the network is also anonymous by default securing your privacy rights. 
+Since the advent of the internet in the 1960's\cite{int1997} the internet has been nodes(computers) communicating with each other. What we plan on doing with unigrid is decentralizing these nodes to where anyone can partake in being a host node on the internet. From the first contact with the network, your data is encrypted and then sharded making it practically impossible for anyone else to access this data without a key. Browsing across the network is also anonymous by default securing your privacy rights.
 
-Gridnodes are the backbone to the network and an integral role to how the system functions. For the services provided they will rewarded. According to the research company Gartner the total market share for IaaS cloud infrastructure in 2019 was \$38.9 billion with a projected growth to \$76.6 billion by 2022\cite{gartner2019}. If we look at these numbers you can see the potential an open source decentralized network could play here.
+Gridnodes are the backbone to the network and an integral role in how the system functions. For the services provided, they will be rewarded. According to the research company, Gartner the total market share for IaaS cloud infrastructure in 2019 was \$38.9 billion with a projected growth to \$76.6 billion by 2022\cite{gartner2019}. If we look at these numbers you can see the potential an open-source decentralized network could play here.
 
 \vspace{5mm} %5mm vertical space
 {\rowcolors{3}{green!80!yellow!50}{green!70!yellow!40}
@@ -205,8 +221,19 @@ Gridnodes are the backbone to the network and an integral role to how the system
     \href{https://www.fortunebusinessinsights.com/cloud-storage-market-102773}{www.fortunebusinessinsights.com},
     2021. 
     
+ \bibitem{jain2021}
+    Shruti Jain ,Deloitte,
+    \emph{"Can blockchain accelerate Internet of Things (IoT) adoption?"},
+    \href{https://www2.deloitte.com/ch/en/pages/innovation/articles/blockchain-accelerate-iot-adoption.html}{www.deloitte.com},
+    2021.    
 
-     
+\bibitem{mark2019}
+    Mark Drake ,Digital Ocean,
+    \emph{"Understanding Database Sharding"},
+    \href{https://www.digitalocean.com/community/tutorials/understanding-database-sharding}{www.digitalocean.com},
+    2019. 
+    
+
 \end{thebibliography}
 
 \end{document}
