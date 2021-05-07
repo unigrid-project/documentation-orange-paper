@@ -51,7 +51,7 @@ For privacy and security reasons this solution is just not sustainable as hacker
 
 
 \section*{Background}
-Our first goal with unigrid is to implement decentralized data storage with compute cycles. We believe that not only will private individuals want to take advantage of this but also businesses that require secure data to function.
+Our first goal with unigrid is to implement decentralized data storage with compute cycles. We believe that private individuals will want to take advantage of this and businesses that require secure data to function.
 
 One example would be the health industry. Sensitive medical records can be stored on-chain and only shared with who the patients want or needs to share it with. The data can be shared using a key that which has an expiration timer so the patient never needs to worry about it being accessed by an unwanted party. We believe it should be the consumer who allows this data to be accessed and shared. Something that is just not possible with their current model of how they collect your data and share it.
 
@@ -60,13 +60,11 @@ Another example is the growing IoT(Internet Of Things) market. On a blockchain t
 
 \subsection*{Gridnodes}
 
-
-A gridnode is similar in function to a masternode initially conceived by DASH where you can set-up a node on a server with X amount of coins. These masternodes provide a service to the network similar to miners on the Bitcoin network. For this work done in return, the nodes are rewarded in tokens.
+A gridnode is similar in function to a masternode initially conceived by Darkcoin where you can set-up a node on a server with X amount of coins. These masternodes provide a service to the network similar to miners on the Bitcoin network. For this work done in return, the nodes are rewarded in tokens.
 
 On the unigrid network, we will have both masternodes and gridnodes. The main difference being there are no strict requirements to run a masternode. With a gridnode there will be requirements to participate in the network. Examples would be amount of RAM, storage capacity, processing speed, and network connection. With each of these gridnodes will be scored based on how they rank compared to other gridnodes.
 
-In a regular masternode scoring and rewards is based off a list. The network simply stores this list into memory and will cycle through each block to select the next winner. With the unigrid network and gridnodes scoring and rewards will function a little bit differently. For example when a request is made to store data on the network there will be a check on all active gridnodes. This check will see which gridnode has received the last reward plus scan the scores of each gridnode. Once a winner is selected this gridnode will perform the task of collecting the data submitted and working with the other gridnodes to shard it across the network. This sharding will allow our network to scale very easily.
-
+In a regular masternode scoring and rewards is based off a list. The network simply stores this list into memory and will cycle through each block to select the next winner. With the unigrid network and gridnodes scoring and rewards will function a little bit differently. For example when a request is made to store data on the network there will be a check on all active gridnodes. This check will see which gridnode has received the last reward plus scan the scores of each gridnode. Once a winner is selected, this gridnode will collect the data submitted and work with the other gridnodes to shard it across the network. This sharding will allow our network to scale very easily.
 
 
 \subsection*{Side chains}
@@ -81,7 +79,7 @@ NFTs (Non-Fungible Tokens) is a one-of-a-kind token where there can only be in e
 
 Unigrid, a home for NFTs and digital assets. With unigrid you will be able to store an asset whether for sale or storage on the chain that will always exist so long the network is still running. This would provide for a much more long-term solution to where assets that in some cases cost millions of dollars are permanently stored.
 
-The NFT market has absolutely exploded in the past year. According to Joseph Young of Forbes, the market cap has grown an astounding 1758\%\cite{young2021}.
+The NFT market has exploded in the past year. According to Joseph Young of Forbes, the market cap has grown an astounding 1758\%\cite{young2021}.
 
 
 \subsection*{Sharding}
@@ -108,9 +106,9 @@ According to John Levine at CircleID \cite{john2018} the domain registrar busine
 
 
 \subsection*{Migration }
-Connecting to the internet exposes personal data about you and your personal information to nefarious parties. In order to protect yourself from this a lot of people choose to use a VPN(Virtual Private Network). This helps protect your personal data by creating an encrypted tunnel to the internet.
+Connecting to the internet exposes personal data about you and your personal information to nefarious parties. To protect yourself from this a lot of people choose to use a VPN(Virtual Private Network). This helps protect your personal data by creating an encrypted tunnel to the internet.
 
-With the unigrid network, a connection is made with a proxy and a fingerprint is assigned. A gridnode will pick this up and act as the "outlet" for that connection. With this fingerprint, the network knows this traffic is meant for the network. In this method, there is no way to know who the originating user is or where they are from. The data being sent is also encrypted through this proxy tunnel. The gridnodes themselves act as a swarm of proxies, unlike TOR which more resembles a chain.
+With the unigrid network, a connection is made with a proxy and a fingerprint is assigned. A gridnode will pick this up and act as the "outlet" for that connection. With this fingerprint, the network knows this traffic is meant for the network. There is no way to know who the originating user is or where they are from in this method. The data being sent is also encrypted through this proxy tunnel. The gridnodes themselves act as a swarm of proxies, unlike TOR which more resembles a chain.
 
 
 \subsection*{Governance}
