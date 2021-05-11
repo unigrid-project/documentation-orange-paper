@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.4.20)  28 APR 2021 15:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.4.20)  11 MAY 2021 17:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -330,76 +330,76 @@ This may cause the page layout to be inconsistent, however.
 
 [2 <./images/lights.jpg>] [3]
 LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 
-76.
+78.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd
 File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [4] [5] [6]
-Overfull \hbox (28.38683pt too wide) in paragraph at lines 120--121
+) [4] [5] [6] [7]
+Overfull \hbox (28.38683pt too wide) in paragraph at lines 149--150
 \OT1/cmss/m/n/12 Since the ad-vent of the in-ter-net in the 1960's[[]] the in-t
 er-net has been nodes(computers)
  []
 
 
-Underfull \hbox (badness 1199) in paragraph at lines 132--133
+Underfull \hbox (badness 1199) in paragraph at lines 161--162
 []|\OT1/cmss/m/n/12 Cloud Busi-ness Pro-cess Ser-vices
  []
 
 
-Underfull \hbox (badness 4242) in paragraph at lines 139--140
+Underfull \hbox (badness 4242) in paragraph at lines 168--169
 []|\OT1/cmss/m/n/12 Cloud Ap-pli-ca-tion In-fras-truc-ture
  []
 
 
-Overfull \hbox (15.40501pt too wide) in paragraph at lines 126--176
+Overfull \hbox (15.40501pt too wide) in paragraph at lines 155--205
 [][]
  []
 
-[7]
+[8] [9]
 LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <12> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 181.
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 210.
 
 
-Underfull \hbox (badness 7685) in paragraph at lines 180--184
+Underfull \hbox (badness 7685) in paragraph at lines 209--213
 []\OT1/cmss/m/n/12 John Levine, Cir-cleID, \OT1/cmss/m/sl/12 "How Big Is The Do
 -main Busi-ness"\OT1/cmss/m/n/12 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 217--221
+Underfull \hbox (badness 10000) in paragraph at lines 246--250
 []\OT1/cmss/m/n/12 Fortune Busi-ness In-sights, \OT1/cmss/m/sl/12 "Cloud Stor-a
 ge Mar-ket Size"\OT1/cmss/m/n/12 ,
  []
 
 
-Underfull \hbox (badness 3312) in paragraph at lines 229--233
+Underfull \hbox (badness 3312) in paragraph at lines 258--262
 []\OT1/cmss/m/n/12 Mark Drake ,Dig-i-tal Ocean, \OT1/cmss/m/sl/12 "Un-der-stand
 -ing Database Shard-ing"\OT1/cmss/m/n/12 ,
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 237.
-[8]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 237.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 266.
+[10]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 266.
  (./unigrid-orangepaper-v1.1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 237.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 237.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 266.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 266.
 Package rerunfilecheck Info: File `unigrid-orangepaper-v1.1.out' has not change
 d.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 237.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 266.
  )
 (\end occurred inside a group at level 1)
 
-### simple group (level 1) entered at line 125 ({)
+### simple group (level 1) entered at line 154 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 6063 strings out of 483183
- 91420 string characters out of 5966292
- 356134 words of memory out of 5000000
+ 6069 strings out of 483183
+ 91477 string characters out of 5966292
+ 357134 words of memory out of 5000000
  20936 multiletter control sequences out of 15000+600000
  543078 words of font info for 64 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 34i,11n,45p,797b,348s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,12n,45p,798b,348s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/evan/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec
 /tcsi1200.600pk> </home/evan/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec
 /tcss1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
@@ -408,10 +408,10 @@ fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb>
-Output written on unigrid-orangepaper-v1.1.pdf (8 pages, 1679608 bytes).
+Output written on unigrid-orangepaper-v1.1.pdf (10 pages, 1683561 bytes).
 PDF statistics:
- 126 PDF objects out of 1000 (max. 8388607)
- 105 compressed objects within 2 object streams
- 30 named destinations out of 1000 (max. 500000)
+ 139 PDF objects out of 1000 (max. 8388607)
+ 116 compressed objects within 2 object streams
+ 36 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
