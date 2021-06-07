@@ -142,14 +142,14 @@ The Unigrid network, is a perfect solution for handling NFTs and digital assets.
 
 The NFT market has exploded in the past year. According to Joseph Young of Forbes, the market cap has grown an astounding 1758\% \cite{young2021}.
 
-\subsection{Sharding}
-In a typical blockchain, data is stored in a vertical structure with each new block being appended to the previous block. To obtain the lowest latency network, this solution is not ideal for fast data access and transfers. The Unigrid network will shard this data across multiple nodes for redundancy, speed, security, and the ability to scale.
+\subsection{Sharding \& Parity Blocks}
+In a typical blockchain, data is stored in a vertical structure with each new block being appended to the previous block. However, this is not an ideal solution when yo want to create a low latency network capable of fast data access and transfers. The solution to solve this problem on the Unigrid network involves sharding data across multiple blockchains. Furthermore, parity blocks are introduced to achieve redundancy and fault tolerance. The result is a network built for speed, security and scalability.
 
-Sharding is a database architecture pattern related to horizontal partitioning - the practice of separating one table’s rows into multiple different tables, known as partitions\cite{mark2019}. Data on the Unigrid network will be sharded across nodes into group swarms. What this allows for is the network to be in effect a self-replicating CDN (Content Delivery Network) where data is always pulled from the nearest location. This in turn also cuts down on network latency currently experienced on the modern web where you may be loading from a webpage in one centrally installed location.
+Sharding is a database architecture pattern related to horizontal partitioning - the practice of separating one table’s rows into multiple different tables, known as partitions \cite{mark2019}. Data on the Unigrid network will be sharded across nodes into group swarms called shard groups. This allows the network to become a self-replicating CDN (Content Delivery Network) where data is preferably pulled from the most optimal location. This minimizes the network latency currently experienced on the modern web where you may be pulling data from a webpage in one centrally installed location.
 
-In a shard group, you will also be able to run a container or VPS (Virtual Private Server) utilizing the resources available in this group. These containers can be auto deployed on the network utilizing Kubernetes (an open-source system for automating deployment, scaling, and management of containerized applications).
+In a shard group, you will also be able to run a container or VPS (Virtual Private Server), utilizing the resources available in this group. These containers can be auto deployed on the network utilizing Kubernetes (an open-source system for automating deployment, scaling, and management of containerized applications).
 
-A video streaming service is a good example of what could take advantage of these speeds. As the video stored on the network would be sharded, users viewing the video would always be loaded from the fastest gridnode swarm with the lowest latency.
+A video streaming service is a good example of something that could take take advantage of the network and the available speeds. As the video stored on the network would be sharded and spread out on the network, users viewing the video would always loaded content from the fastest gridnode swarm with the lowest latency.
 
 \subsection{Compute cycles}
 As the network grows and more gridnodes come online so will it's compute power. Since the requirements of the network to run a gridnode will be high this also means there will be a large amount of computational power available to the network. Organizations and or users will be able to rent compute cycles. 
