@@ -14,7 +14,7 @@
 \usepackage{xcolor}
 \graphicspath{ {./images/} }
 \usepackage[pdftex,
-    pdfauthor={Evan Green, The Unigrid Foundation},
+    pdfauthor={Evan Green \& Adam Waldenberg, The Unigrid Foundation},
     pdftitle={Unigrid: A foundation for a decentralized, consensus-driven, segmented blockchain-based Internet},
     pdfsubject={Orange Paper},
     pdfkeywords={blockchain;internet;bitcoin;unigrid;sharding;segmentation;consensus;decentralized;governance;gridnode},
@@ -26,7 +26,7 @@
 \definecolor{txtcolor}{rgb}{0.88,0.88,0.88}
 \hypersetup{colorlinks = true, urlcolor = txtcolor, citecolor = txtcolor, linkcolor = txtcolor}
 
-\author{\emph{Evan Green, The Unigrid Foundation}}
+\author{\emph{Evan Green \& Adam Waldenberg, The Unigrid Foundation}}
 \title{
 	\makebox[\textwidth]{\hspace{600pt}\tikz \fill[orange] (18,1.4) rectangle (0,0);}
 	\vspace{60pt}
@@ -37,7 +37,7 @@
 	A foundation for a decentralized, consensus-driven, segmented blockchain-based Internet
 	\vspace{10pt}
 }
-\date{\emph{Version \gitRel (\today)}}
+\date{\emph{Version \gitRel\hspace{5pt}(\today)}}
 
 \definecolor{headerbg}{rgb}{0,0,0.18}
 \definecolor{headerbgl}{rgb}{0.07,0.07,0.24}
@@ -108,30 +108,30 @@
 \section{Problem}
 The current Internet is dominated by large multi-national conglomerates. With names like Google, Microsoft, and Amazon taking up vast segments of the total market. Amazon Web Services (AWS) is said to have 49.4\% market share\cite{jeb2019}.
 
-A near majority of all Internet data is stored on servers owned by a single entity\cite{jeb2019}. As a consequence, this results in a big amount of the current traffic to be routed through Amazon’s servers and data centers\cite{jeb2019}. This creates a situation where important routes often get overloaded during peak hours, slowing down services that results in a degraded user experience. In fact, routes regularly become so overloaded that if effectively makes servers on the other end of the communication queue unreachable - something most Internet users have experienced. If your provider goes offline or gets disrupted - your service and data does as well.
+A near majority of all Internet data is stored on servers owned by a single entity\cite{jeb2019}. As a consequence, this results in much of the current traffic being routed through Amazon’s servers and data centers\cite{jeb2019}. Because of this, important routes often get overloaded during peak hours, slowing down services - resulting in a degraded user experience. In fact, routes regularly become so overloaded that it effectively causes servers on the other end of the communication queue to be unreachable - something most Internet users have experienced. If your provider goes offline or gets disrupted - your service and data becomes unreachable.
 
-The centralized nature of the resource ownership on the Internet also results in under-utilization of servers, with idle CPU cycles and gigabytes or potentially terabytes of unused storage space on a single server. This is especially true when businesses choose to cost-optimize their operations and user dedicated servers rather than relying on even more expensive cloud providers.
+The centralized nature of the resource ownership on the Internet also results in under-utilization of servers, with idle CPU cycles and gigabytes or potentially terabytes of unused storage space on a single server. This is especially true when businesses choose to cost-optimize their operations and rely on their own dedicated servers, rather than relying on the more expensive cloud provider solutions.
 
-In some countries, Internet censorship is so prevalent that the public is limited to what news resources they are entitled to access and view\cite{wiki2021}. The original intention of the Internet was to create an open and globally accessible network, allowing everybody with access to view and take part of that information, regardless of their originating location.
+In some countries, Internet censorship is so prevalent that the public is limited to what news resources they are allowed to access and view\cite{wiki2021}. The original intention of the Internet was to create an open and globally accessible network, allowing everybody with access to view and take part of that information, regardless of their originating location.
 
 For privacy, cost and security reasons, this situation is not sustainable. Hackers, oppressive governments and monopolizing businesses continuously develop better tools to infringe on your data and privacy - creating a very vulnerable situation.
 
 \section{Background}
-The first goal with Unigrid is to implement decentralized communication and data storage with compute cycles. Private individuals and businesses that value privacy or simply require secure data storage as a use case are going to be able to take advantage oft his feature.
+The primary goal of Unigrid is to implement an anonymous and decentralized communication solution that offers data storage and compute cycle utilization. Private individuals and businesses that value privacy or require secure data storage as a use case can take advantage of his feature.
 
-Sensitive documents like for example, medical records, can be stored on-chain and only shared with whom the patients want or needs to share it with. The data can be shared using a key that has an expiration timer so that the patient never needs to worry about it being accessed by an unwanted party. We believe it should be the user who allows this data to be accessed and shared. Something that is just not possible with their current model of how they collect your data and share it.
+As an example, sensitive documents such as medical records, can be stored on-chain and only shared with selected individuals or entities. The data can be shared using a key that has an expiration timer, meaning that the sharing party never has to worry about the risk that the data will be exposed or accessed by an unwanted party. It should be the owning individual or business that controls how their private data is accessed and shared. It should never be in the control of a third party - something that is usually the case today. When the data is controlled by a third party, the risk of information leak increases dramatically. Sometimes data is stolen by hackers. Other times it is leaked or shared on purpose (in secrecy or otherwise). Whatever the reason - the Unigrid network gives the control back to the user or the party that actually owns the data.
 
-Another example is the growing IoT(Internet Of Things) market. On a blockchain the ledger is tamper-proof proof which removes the need for trust between two parties. Utilizing a blockchain network like Unigrid would add a layer of trust to the large amounts of IoT data being transmitted. On top of the data itself, there needs to be a network capable of scaling along with the billions of IoT-connected devices. As mentioned by Shruti Jain of Deloitte\cite{jain2021}, blockchain or distributed ledger technology (DLT) has the potential to help address some of the IoT security and scalability challenges.
+Another example is the growing IoT (Internet of Things) market. On a blockchain, the ledger is tamper-proof, removing the need for absolute trust between two communicating parties. Utilizing a blockchain network like Unigrid adds a layer of trust to the data being transmitted. On top of handling the integrity of the actual data, the network also needs to be capable of scaling without degradation when millions of IoT-connected devices join the network. As mentioned by Shruti Jain of Deloitte\cite{jain2021}, blockchain or distributed ledger technology (DLT) has the potential to help address some of the IoT security and scalability challenges.
 
 \subsection{Gridnodes}
-A gridnode is similar in function to a masternode initially conceived by Darkcoin where you can set-up a node on a server with X amount of coins. These masternodes provide a service to the network similar to miners on the Bitcoin network. For this work done in return, the nodes are rewarded in tokens.
+A gridnode is similar in function to a masternode as initially conceived by the Darkcoin project, where anybody can set-up a node on a server by locking up a certain amount of tokens to that node. These masternodes then provide a service to the network by contributing network bandwidth in the form of helping other nodes to synchronize and verify blocks on the network. Because these masternodes secure the network in this way, they are rewarded in tokens.
 
-On the Unigrid network, we will have both masternodes and gridnodes. The main difference being there are no strict requirements to run a masternode. With a gridnode there will be requirements to participate in the network. Examples would be amount of RAM, storage capacity, processing speed, and network connection. Each of these gridnodes will be scored based on how they rank compared to other gridnodes.
+The Unigrid takes this idea further and implements gridnodes. Gridnodes are scored by the quality of the service they provide to the network and it's nodes. For example, latency, the amount of available storage capacity, processing speed and network bandwidth are all taken into account. Each gridnode is then scored based on how they rank compared to other gridnodes.
 
-In a regular masternode scoring and rewards is based off a list. The network simply stores this list into memory and will cycle through each block to select the next winner. With the Unigrid network and gridnodes scoring and rewards will function a little bit differently. For example when a request is made to store data on the network there will be a check on all active gridnodes. This check will see which gridnode has received the last reward plus scan the scores of each gridnode. Once a winner is selected, this gridnode will collect the data submitted and work with the other gridnodes to shard it across the network. This sharding will allow our network to scale very easily.
+With a regular masternode, reward frequency and occurrence is based on a naively calculated list. The network simply stores this list into memory and will cycle through each block to select the next winner. With the Unigrid network and gridnodes, scoring and rewards work differently. For example, when a request is made to store data on the network, there will be a check performed - looking for the next gridnode candidate. This check will see which gridnode has received the last reward plus scan the scores of each gridnode. Once a winner is selected, this gridnode will collect the data submitted and work with the other gridnodes to shard it across the network. This sharding allows the network to scale efficiently.
 
 \subsection{Side chains}
-Each task performed will be handled by a side chain. For example, data storage will be on one chain and compute cycles on another. Each chain is in itself its own blockchain. They are independent of the other chains and would allow for a faster lookup of data depending on the request.
+The Unigrid network places work in appropriate side chains based on the type of work currently being sent by a communicating node. Each side chain is controlled by a group of gridnodes. A side chain is a specialized blockchain with very specific characteristics, optimized for the type of work it is meant for. For example, data storage and compute cycles don't need the brute speed that a direct communication channel requires. Therefore, the Unigrid network treats these workloads differently. The communication side chains are smaller and kept in-memory, using a very fast but less collision resistant hashing algorithm. The blockchains that handle compute cycles and storage, on the other hand, are more resistant to hash collisions - making them very secure. However, they can not handle the same throughput as the in-memory chains using the less resistant hashing variant.
 
 \subsection{Data storage}
 Large amounts of data on-chain can access it at any time. The data will have two types of either public or private. Public will be viewable by anyone and private will require a key to view.
