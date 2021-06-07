@@ -105,11 +105,16 @@
 \end{abstract}
 
 \newpage
+\center
+\includegraphics[width=200pt]{problem}
 \section{Problem}
 The current Internet is dominated by large multi-national conglomerates. With names like Google, Microsoft, and Amazon taking up vast segments of the total market. Amazon Web Services (AWS) is said to have 49.4\% market share \cite{jeb2019}.
 
 A near majority of all Internet data is stored on servers owned by a single entity \cite{jeb2019}. As a consequence, this results in much of the current traffic being routed through Amazon’s servers and data centers \cite{jeb2019}. Because of this, important routes often get overloaded during peak hours, slowing down services - resulting in a degraded user experience. In fact, routes regularly become so overloaded that it effectively causes servers on the other end of the communication queue to be unreachable - something most Internet users have experienced. If your provider goes offline or gets disrupted - your service and data becomes unreachable.
-
+\begin{mdframed}[style=textimage]
+	\includegraphics[width=345pt]{puzzle}
+\end{mdframed}
+\noindent
 The centralized nature of the resource ownership on the Internet also results in under-utilization of servers, with idle CPU cycles and gigabytes or potentially terabytes of unused storage space on a single server. This is especially true when businesses choose to cost-optimize their operations and rely on their own dedicated servers, rather than relying on the more expensive cloud provider solutions.
 
 In some countries, Internet censorship is so prevalent that the public is limited to what news resources they are allowed to access and view \cite{wiki2021}. The original intention of the Internet was to create an open and globally accessible network, allowing everybody with access to view and take part of that information, regardless of their originating location.
@@ -122,7 +127,9 @@ The primary goal of Unigrid is to implement an anonymous and decentralized commu
 As an example, sensitive documents such as medical records, can be stored on-chain and only shared with selected individuals or entities. The data can be shared using a key that has an expiration timer, meaning that the sharing party never has to worry about the risk that the data will be exposed or accessed by an unwanted party. It should be the owning individual or business that controls how their private data is accessed and shared. It should never be in the control of a third party - something that is usually the case today. When the data is controlled by a third party, the risk of information leak increases dramatically. Sometimes data is stolen by hackers. Other times it is leaked or shared on purpose (in secrecy or otherwise). Whatever the reason - the Unigrid network gives the control back to the user or the party that actually owns the data.
 
 Another example is the growing IoT (Internet of Things) market. On a blockchain, the ledger is tamper-proof, removing the need for absolute trust between two communicating parties. Utilizing a blockchain network like Unigrid adds a layer of trust to the data being transmitted. On top of handling the integrity of the actual data, the network also needs to be capable of scaling without degradation when millions of IoT-connected devices join the network. As mentioned by Shruti Jain of Deloitte \cite{jain2021}, blockchain or distributed ledger technology (DLT) has the potential to help address some of the IoT security and scalability challenges.
-
+\begin{mdframed}[style=textimage]
+	\includegraphics[width=345pt]{communication} 
+\end{mdframed}
 \subsection{Gridnodes}
 A gridnode is similar in function to a masternode as initially conceived by the Darkcoin project, where anybody can set-up a node on a server by locking up a certain amount of tokens to that node. These masternodes then provide a service to the network by contributing network bandwidth in the form of helping other nodes to synchronize and verify blocks on the network. Because these masternodes secure the network in this way, they are rewarded in tokens.
 
@@ -132,7 +139,9 @@ With a regular masternode, reward frequency and occurrence is based on a naively
 
 \subsection{Side chains}
 The Unigrid network places work in appropriate side chains based on the type of work currently being sent by a communicating node. Each side chain is controlled by a group of gridnodes. A side chain is a specialized blockchain with very specific characteristics, optimized for the type of work it is meant for. For example, data storage and compute cycles don't need the brute speed that a direct communication channel requires. Therefore, the Unigrid network treats these workloads differently. The communication side chains are smaller and kept in-memory, using a very fast but less collision resistant hashing algorithm. The blockchains that handle compute cycles and storage, on the other hand, are more resistant to hash collisions - making them very secure. However, they can not handle the same throughput as the in-memory chains using the less resistant hashing variant.
-
+\begin{mdframed}[style=textimage]
+	\includegraphics[width=345pt]{hard-drive}
+\end{mdframed}
 \subsection{Data storage}
 The design of the Unigrid network allows it to store large amounts of data on-chain that can be accessed at any time. The data stored on the network is either public or private. Public data is viewable by anybody with access to the network. Private data, on the other hand, is only be accessible via a private key and has to be decrypted in order to allow access to the data.
 
@@ -150,6 +159,9 @@ Sharding is a database architecture pattern related to horizontal partitioning -
 In a shard group, you will also be able to run a container or VPS (Virtual Private Server), utilizing the resources available in this group. These containers can be auto deployed on the network utilizing Kubernetes (an open-source system for automating deployment, scaling, and management of containerized applications).
 
 A video streaming service is a good example of something that could take take advantage of the network and the available speeds. As the video stored on the network would be sharded and spread out on the network, users viewing the video would always loaded content from the fastest gridnode swarm with the lowest latency.
+\begin{mdframed}[style=textimage]
+	\includegraphics[width=345pt]{compute}
+\end{mdframed}
 
 \subsection{Compute Cycles}
 As the network grows and more gridnodes come online, the compute power available on the network will continuously increase. The scoring algorithms on the network will encourage operators to run gridnodes with a lot of resources - resulting in a network with a constantly increasing storage capacity and available computational power. Using Unigrid tokens, organizations and users are then able to rent these compute cycles and use it them for custom workloads and data.
@@ -170,7 +182,9 @@ With the Unigrid network, a connection is made with a proxy and a fingerprint is
 
 \subsection{Governance}
 Control of the network itself and what is allowed and not allowed will be given to the gridnodes. A voting system will be put in place to allow scrambling of data the network does not deem fit to be on the chain. Any major updates to the network itself will be voted on by the gridnodes as well.
-
+\begin{mdframed}[style=textimage]
+	\includegraphics[width=345pt]{abstract-particles}
+\end{mdframed}
 \subsection{Decentralization Attempts}
 Many projects claim decentralization, but in reality most require specialized hardware and do not allow nodes to democratically contribute to the network - some even require written applications and employ a vetting process.
 
@@ -192,6 +206,9 @@ Data on the network is automatically backed up and spread across the network for
 
 On Unigrid your data will always be online and accessible. The network itself will never go offline so you always have access to your data and apps.
 
+\begin{mdframed}[style=textimage]
+	\includegraphics[width=345pt]{foundation}
+\end{mdframed}
 \subsection{Foundational Structure}
 Overseen by the county administrative board of the region, helping to ensure that assets are properly managed.
 
