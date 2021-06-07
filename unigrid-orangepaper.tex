@@ -151,13 +151,12 @@ The Unigrid network, is a perfect solution for handling NFTs and digital assets.
 The NFT market has exploded in the past year. According to Joseph Young of Forbes, the market cap has grown an astounding 1758\% \cite{young2021}.
 
 \subsection{Sharding \& Parity Blocks}
-In a typical blockchain, data is stored in a vertical structure with each new block being appended to the previous block. However, this is not an ideal solution when yo want to create a low latency network capable of fast data access and transfers. The solution to solve this problem on the Unigrid network involves sharding data across multiple blockchains. Furthermore, parity blocks are introduced to achieve redundancy and fault tolerance. The result is a network built for speed, security and scalability.
+In a typical blockchain, data is stored in a vertical structure with each new block being appended to the previous block. However, this is not an ideal solution when you want to create a low latency network capable of fast data access and transfers. The solution to solve this problem on the Unigrid network involves sharding data across multiple blockchains. Furthermore, parity blocks are introduced to achieve redundancy and fault tolerance. The result is a network built for speed, security and scalability.
 
-Sharding is a database architecture pattern related to horizontal partitioning - the practice of separating one table’s rows into multiple different tables, known as partitions \cite{mark2019}. Data on the Unigrid network will be sharded across nodes into group swarms called shard groups. This allows the network to become a self-replicating CDN (Content Delivery Network) where data is preferably pulled from the most optimal location. This minimizes the network latency currently experienced on the modern web where you may be pulling data from a webpage in one centrally installed location.
+Sharding is a database architecture pattern related to horizontal partitioning - the practice of separating one table’s rows into multiple different tables, known as partitions \cite{mark2019}. Data on the Unigrid network will be sharded across nodes into group swarms called shard groups. This allows the network to become a self-replicating CDN (Content Delivery Network) where data is often pulled from the most optimal location. This minimizes the network latency currently experienced on the modern web where you may be pulling data from a webpage in one centrally installed location.
 
-In a shard group, you will also be able to run a container or VPS (Virtual Private Server), utilizing the resources available in this group. These containers can be auto deployed on the network utilizing Kubernetes (an open-source system for automating deployment, scaling, and management of containerized applications).
+A video streaming service is a good example of something that could take advantage of the network and the available speeds and fault-tolerance. As he videos stored on the network would be sharded and spread out on the network, users viewing them would always load content from the fastest gridnode swarm with the lowest latency.
 
-A video streaming service is a good example of something that could take take advantage of the network and the available speeds. As the video stored on the network would be sharded and spread out on the network, users viewing the video would always loaded content from the fastest gridnode swarm with the lowest latency.
 \begin{mdframed}[style=textimage]
 	\includegraphics[width=345pt]{compute}
 \end{mdframed}
@@ -170,11 +169,13 @@ One use case appropriate for this could be a scientific study that needs to run 
 Another way to take advantage of the computational power on the network is to run a container or VPS (Virtual Private Server) on top of the shard groups. Thanks to the redundancy and parity blocks - the network allows for the deployment of containers and server instances that never go offline unintentionally.
 
 \subsection{Domain registry}
-Since at its core Unigrid is its own network users will also be able to secure domain names. The registration fees for a domain will in turn be allocated to gridnodes that handle the tasks.
+Since Unigrid is its own network, users will also be able to secure and register domain names on the network. The registration fees for a domain will in turn be allocated to gridnodes that handle the tasks. Domain names can even be tethered to a a specific Unigrid address - allowing for easy payments to human-readable addressesrather than having to enter a random Unigrid addresses (which is not very readable).
 
-As more domains are registered on the network it also makes sense to allow for people to trade these domains. A domain market will be created to allow users to buy and trade domain names. This will function similarly to an NFT auction where you can bid on domains and set expire of sale times.
+This opens up a market segment on the Unigrid network for external providers to develop domain market systems and websites. Systems like these would allow users to buy and trade Unigrid domain names. The network will also provide reverse proxies for ordinary Internet users to be able to access websites and services hosted on the Unigrid network. Rather than accessing \emph{www.someunigridsite.com}, an ordinary Internet user will be able to access the network via\\ \emph{proxy.unigrid.org/www.someunigridsite.com}.
 
 According to John Levine at CircleID \cite{john2018} the domain registrar business is at \$3 to \$5 billion per year and growing.
+
+To ease adoption and simplify the process of registering domain names, a simple domain registration interface is planned to be built into the Unigrid wallet and daemon.
 
 \subsection{Migration}
 Connecting to the Internet exposes personal data about you and your personal information to nefarious parties. To protect yourself from this a lot of people choose to use a VPN(Virtual Private Network). This helps protect your personal data by creating an encrypted tunnel to the Internet.
