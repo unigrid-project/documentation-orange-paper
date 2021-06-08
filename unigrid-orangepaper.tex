@@ -5,6 +5,7 @@
 \usepackage{amsfonts}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
+\usepackage[affil-it]{authblk}
 \usepackage[table]{xcolor}
 \usepackage{pagecolor}
 \usepackage{afterpage}
@@ -15,7 +16,7 @@
 \graphicspath{ {./images/} }
 \usepackage[pdftex,
     pdfauthor={Evan Green \& Adam Waldenberg, The Unigrid Foundation},
-    pdftitle={Unigrid: A foundation for a decentralized, consensus-driven, segmented blockchain-based Internet},
+    pdftitle={Unigrid: A foundation for a decentralized, consensus-driven, segmented, blockchain-based Internet},
     pdfsubject={Orange Paper},
     pdfkeywords={blockchain;internet;bitcoin;unigrid;sharding;segmentation;consensus;decentralized;governance;gridnode},
     pdfproducer={Latex with hyperref, or other system},
@@ -26,7 +27,10 @@
 \definecolor{txtcolor}{rgb}{0.88,0.88,0.88}
 \hypersetup{colorlinks = true, urlcolor = txtcolor, citecolor = orange, linkcolor = txtcolor}
 
-\author{\emph{Evan Green \& Adam Waldenberg, The Unigrid Foundation}}
+\author{\textit{Evan Green, \href{mailto:evan@unigrid.org}{evan@unigrid.org}}\\
+\textit{Adam Waldenberg, \href{mailto:adam@unigrid.org}{adam@unigrid.org}}}
+\affil{The Unigrid Foundation}
+
 \title{
 	\makebox[\textwidth]{\hspace{600pt}\tikz \fill[orange] (18,1.4) rectangle (0,0);}
 	\vspace{60pt}
