@@ -105,48 +105,57 @@
 \end{mdframed}
 
 \noindent With ownership of the majority of resources on the Internet owned by a minority of corporations, they're able to maintain a high cost to value ratio along with making your personal data less secure. As a remedy to this deteriorating trend, we suggest the inception of a decentralized and consensus-driven segmented blockchain network based on a striped storage solution. The protocol allows for a completely decentralized and secure blockchain-based Internet where any user, including private persons, can host an income-generating service node, aiding the network with compute cycles, bandwidth, and storage space. To allow for complete utilization of the network, an access layer is provided, allowing for the development of protocols, services, and infrastructure.
-
 \end{abstract}
 
 \newpage
-\begin{center}
-\includegraphics[width=55pt]{centralized}
-\hspace{1.5cm}
-\includegraphics[width=55pt]{unreliable}
-\hspace{1.5cm}
-\includegraphics[width=55pt]{unsecure}
-\end{center}
 \section{Problem}
 The current Internet is dominated by large multi-national conglomerates. With names like Google, Microsoft, and Amazon taking up vast segments of the total market share. Amazon Web Services (AWS) is said to have 49.4\% of the total market share \cite{jeb2019}.
 
-A near majority of all Internet data is stored on servers owned by a single entity \cite{jeb2019}. As a consequence, this results in much of the current traffic being routed through Amazon’s servers and data centers \cite{jeb2019}. Because of this, important routes often get overloaded during peak hours, slowing down services - resulting in a degraded user experience. In fact, routes regularly become so overloaded that it effectively causes servers on the other end of the communication queue to be unreachable - something most Internet users have experienced. If your provider goes offline or gets disrupted - your service and data becomes unreachable.
+\begin{center}
+\includegraphics[width=45pt]{centralized}
+\hspace{1.5cm}
+\includegraphics[width=45pt]{unreliable}
+\hspace{1.5cm}
+\includegraphics[width=45pt]{unsecure}
+\\
+\vspace{0.1cm}
+\hspace{0pt}\emph{Centralized}\hspace{51pt}\emph{Unreliable}\hspace{53pt}\emph{Unsecure}\hspace{5pt}
+\end{center}
+
+\noindent A near majority of all Internet data is stored on servers owned by a single entity \cite{jeb2019}. As a consequence, this results in much of the current traffic being routed through Amazon’s servers and data centers \cite{jeb2019}. Because of this, important routes often get overloaded during peak hours, slowing down services - resulting in a degraded user experience. In fact, routes regularly become so overloaded that it effectively causes servers on the other end of the communication queue to be unreachable - something most Internet users have experienced. If your provider goes offline or gets disrupted - your service and data becomes unreachable.
+
 \begin{mdframed}[style=textimage]
 	\includegraphics[width=345pt]{puzzle}
 \end{mdframed}
-\noindent
-The centralized nature of the resource ownership on the Internet also results in under-utilization of servers, with idle CPU cycles and gigabytes or potentially terabytes of unused storage space on a single server. This is especially true when businesses choose to cost-optimize their operations and rely on their own dedicated servers, rather than relying on the more expensive cloud provider solutions.
+
+\noindent The centralized nature of the resource ownership on the Internet also results in under-utilization of servers, with idle CPU cycles and gigabytes or potentially terabytes of unused storage space on a single server. This is especially true when businesses choose to cost-optimize their operations and rely on their own dedicated servers, rather than relying on the more expensive cloud provider solutions.
 
 In some countries, Internet censorship is so prevalent that the public is limited to what news resources they are allowed to access and view \cite{wiki2021}. The original intention of the Internet was to create an open and globally accessible network, allowing everybody with access to view and take part of that information, regardless of their originating location.
 
-For privacy, cost and security reasons, this situation is not sustainable. Hackers, oppressive governments and monopolizing businesses continuously develop better tools to infringe on your data and privacy - creating a very vulnerable situation.
-
-\begin{center}
-\includegraphics[width=55pt]{anonymous}
-\hspace{1.5cm}
-\includegraphics[width=55pt]{scalability}
-\hspace{1.5cm}
-\includegraphics[width=55pt]{security}
-\end{center}
+For privacy, cost and security reasons, this situation is not sustainable. Hackers, oppressive governments and monopolizing businesses continuously develop better tools that infringe on your data and privacy - creating a very vulnerable situation.
 
 \section{Background}
 The primary goal of Unigrid is to implement an anonymous and decentralized communication solution that offers data storage and compute cycle utilization. Private individuals and businesses that value privacy or require secure data storage as a use case can take advantage of his feature.
 
 As an example, sensitive documents such as medical records, can be stored on-chain and only shared with selected individuals or entities. The data can be shared using a key that has an expiration timer, meaning that the sharing party never has to worry about the risk that the data will be exposed or accessed by an unwanted party. It should be the owning individual or business that controls how their private data is accessed and shared. It should never be in the control of a third party - something that is usually the case today. When the data is controlled by a third party, the risk of information leak increases dramatically. Sometimes data is stolen by hackers. Other times it is leaked or shared on purpose (in secrecy or otherwise). Whatever the reason - the Unigrid network gives the control back to the user or the party that actually owns the data.
 
-Another example is the growing IoT (Internet of Things) market. On a blockchain, the ledger is tamper-proof, removing the need for absolute trust between two communicating parties. Utilizing a blockchain network like Unigrid adds a layer of trust to the data being transmitted. On top of handling the integrity of the actual data, the network also needs to be capable of scaling without degradation when millions of IoT-connected devices join the network. As mentioned by Shruti Jain of Deloitte \cite{jain2021}, blockchain or distributed ledger technology (DLT) has the potential to help address some of the IoT security and scalability challenges.
+\begin{center}
+\includegraphics[width=45pt]{anonymous}
+\hspace{1.5cm}
+\includegraphics[width=45pt]{scalability}
+\hspace{1.5cm}
+\includegraphics[width=45pt]{security}
+\\
+\vspace{0.1cm}
+\hspace{0pt}\emph{Anonymity}\hspace{50pt}\emph{Scalability}\hspace{57pt}\emph{Security}\hspace{10pt}
+\end{center}
+
+\noindent Another example is the growing IoT (Internet of Things) market. On a blockchain, the ledger is tamper-proof, removing the need for absolute trust between two communicating parties. Utilizing a blockchain network like Unigrid adds a layer of trust to the data being transmitted. On top of handling the integrity of the actual data, the network also needs to be capable of scaling without degradation when millions of IoT-connected devices join the network. As mentioned by Shruti Jain of Deloitte \cite{jain2021}, blockchain or distributed ledger technology (DLT) has the potential to help address some of the IoT security and scalability challenges.
+
 \begin{mdframed}[style=textimage]
 	\includegraphics[width=345pt]{communication} 
 \end{mdframed}
+
 \subsection{Gridnodes}
 A gridnode is similar in function to a masternode as initially conceived by the Darkcoin project, where anybody can set-up a node on a server by locking up a certain amount of tokens to that node. These masternodes then provide a service to the network by contributing network bandwidth in the form of helping other nodes to synchronize and verify blocks on the network. Because these masternodes secure the network in this way, they are rewarded in tokens.
 
@@ -154,18 +163,27 @@ The Unigrid takes this idea further and implements gridnodes. Gridnodes are scor
 
 With a regular masternode, reward frequency and occurrence is based on a naively calculated list. The network simply stores this list into memory and will cycle through each block to select the next winner. With the Unigrid network and gridnodes, scoring and rewards work differently. For example, when a request is made to store data on the network, there will be a check performed - looking for the next gridnode candidate. This check will see which gridnode has received the last reward plus scan the scores of each gridnode. Once a winner is selected, this gridnode will collect the data submitted and work with the other gridnodes to shard it across the network. This sharding allows the network to scale efficiently.
 
+\subsection{Side Chains}
+The Unigrid network places blocks in appropriate side chains based on the type of work currently being sent by a communicating node. Each side chain is controlled by a group of gridnodes. A side chain is a specialized blockchain with very specific characteristics, optimized for the type of work it is meant for. For example, data storage and compute cycles don't need the brute speed that a direct communication channel requires. Therefore, the Unigrid network treats these workloads differently. The communication side chains are smaller and kept in-memory, using a very fast but less collision resistant hashing algorithm. The blockchains that handle compute cycles and storage, on the other hand, are more resistant to hash collisions - making them very secure. However, they can not handle the same throughput as the in-memory chains using the less resistant hashing variant.
+
 \begin{center}
-\includegraphics[width=55pt]{efficiency}
+\vspace{0.1cm}
+\includegraphics[width=45pt]{efficiency}
 \hspace{1.5cm}
-\includegraphics[width=55pt]{segmented}
+\includegraphics[width=45pt]{segmented}
+\\
+\vspace{0.1cm}
+\hspace{10pt}\emph{Efficiency}\hspace{46pt}\emph{Segmentation}
 \end{center}
-\subsection{Side chains}
-The Unigrid network places work in appropriate side chains based on the type of work currently being sent by a communicating node. Each side chain is controlled by a group of gridnodes. A side chain is a specialized blockchain with very specific characteristics, optimized for the type of work it is meant for. For example, data storage and compute cycles don't need the brute speed that a direct communication channel requires. Therefore, the Unigrid network treats these workloads differently. The communication side chains are smaller and kept in-memory, using a very fast but less collision resistant hashing algorithm. The blockchains that handle compute cycles and storage, on the other hand, are more resistant to hash collisions - making them very secure. However, they can not handle the same throughput as the in-memory chains using the less resistant hashing variant.
+
+\noindent The Unigrid network can create side chains on demand. The network continously rebalances, with blockchains being created, removed and restructured as the members of them and their data changes. This is possible because the network has the ability uses parity and has the ability to rebuild side chains and throw away stale blocks.
+
+\subsection{Data Storage}
+The design of the Unigrid network allows it to store large amounts of data on-chain that can be accessed at any time. The data stored on the network is either public or private. Public data is viewable by anybody with access to the network. Private data, on the other hand, is only be accessible via a private key and has to be decrypted in order to allow access to the data.
+
 \begin{mdframed}[style=textimage]
 	\includegraphics[width=345pt]{hard-drive}
 \end{mdframed}
-\subsection{Data storage}
-The design of the Unigrid network allows it to store large amounts of data on-chain that can be accessed at any time. The data stored on the network is either public or private. Public data is viewable by anybody with access to the network. Private data, on the other hand, is only be accessible via a private key and has to be decrypted in order to allow access to the data.
 
 Cloud data storage is projected to reach a market size of \$297.54 billion by 2027 \cite{fort2021} and might even grow bigger if networks such as Unigrid reach big general adoption. Non-Fungible Tokens (NFTs) are tokens where only one specific token can be in existence at a given time. These allow for proof of ownership of a digital asset. The problem with the current system is that the only thing being stored on-chain is the actual proof of ownership. The asset itself that an NFT is tethered to is actually stored on a normal web server or some other means of storage. Consequently, if that web server or storage shuts down or is moved, the data for that NFT is lost.
 
@@ -173,23 +191,24 @@ The Unigrid network, is a perfect solution for handling NFTs and digital assets.
 
 The NFT market has exploded in the past year. According to Joseph Young of Forbes, the market cap has grown an astounding 1758\% \cite{young2021}.
 
-\begin{center}
-\includegraphics[width=55pt]{redundancy}
-\hspace{1.5cm}
-\includegraphics[width=55pt]{tolerance}
-\hspace{1.5cm}
-\includegraphics[width=55pt]{load-balance}
-\end{center}
 \subsection{Sharding \& Parity Blocks}
 In a typical blockchain, data is stored in a vertical structure with each new block being appended to the previous block. However, this is not an ideal solution when you want to create a low latency network capable of fast data access and transfers. The solution to solve this problem on the Unigrid network involves sharding data across multiple blockchains. Furthermore, parity blocks are introduced to achieve redundancy and fault tolerance. The result is a network built for speed, security and scalability.
 
 Sharding is a database architecture pattern related to horizontal partitioning - the practice of separating one table’s rows into multiple different tables, known as partitions \cite{mark2019}. Data on the Unigrid network will be sharded across nodes into group swarms called shard groups. This allows the network to become a self-replicating CDN (Content Delivery Network) where data is often pulled from the most optimal location. This minimizes the network latency currently experienced on the modern web where you may be pulling data from a webpage in one centrally installed location.
 
-A video streaming service is a good example of something that could take advantage of the network and the available speeds and fault-tolerance. As he videos stored on the network would be sharded and spread out on the network, users viewing them would always load content from the fastest gridnode swarm with the lowest latency.
+\begin{center}
+\vspace{0.1cm}
+\includegraphics[width=45pt]{redundancy}
+\hspace{1.5cm}
+\includegraphics[width=45pt]{tolerance}
+\hspace{1.5cm}
+\includegraphics[width=45pt]{load-balance}
+\\
+\vspace{0.1cm}
+\hspace{8pt}\emph{Redundancy}\hspace{38pt}\emph{Fault-Tolerance}\hspace{30pt}\emph{Load Balancing}
+\end{center}
 
-\begin{mdframed}[style=textimage]
-	\includegraphics[width=345pt]{compute}
-\end{mdframed}
+\noindent A video streaming service would be able to take advantage of the network and the available speeds and fault-tolerance. As he videos stored on the network would be sharded and spread out on the network, users viewing them would always load content from the fastest gridnode swarm with the lowest latency. The implementation needed from the actual video service would be simpler and could rely on the built in redundancy and fault-tolerance of the network.
 
 \subsection{Compute Cycles}
 As the network grows and more gridnodes come online, the compute power available on the network will continuously increase. The scoring algorithms on the network will encourage operators to run gridnodes with a lot of resources - resulting in a network with a constantly increasing storage capacity and available computational power. Using Unigrid tokens, organizations and users will then able to rent these compute cycles and use them for custom workloads and data.
@@ -198,10 +217,13 @@ One use case appropriate for this could be a scientific study that needs to run 
 
 Another way to take advantage of the computational power on the network is to run a container or VPS (Virtual Private Server) on top of the shard groups. Thanks to the redundancy and parity blocks - the network allows for the deployment of containers and server instances that never go offline unintentionally.
 
-\begin{center}
-\includegraphics[width=55pt]{domain-registry}
-\end{center}
-\subsection{Domain registry}
+\begin{mdframed}[style=textimage]
+	\includegraphics[width=345pt]{compute}
+\end{mdframed}
+
+\noindent In future milestones, the Unigrid will also support GPU workloads. This means that cycles specifically written for graphical processors will also be handled by the gridnodes on the network. As an even more distant goal and whgen the available technology allows for a working implementation, the network also plans to support quantum cycles - which would involve work specifically designed for quantum processors.
+
+\subsection{Domain Registry}
 Since Unigrid is its own network, users will also be able to secure and register domain names on the network. The registration fees for a domain will in turn be allocated to gridnodes that handle the tasks. Domain names can even be tethered to a a specific Unigrid address - allowing for easy payments to human-readable addressesrather than having to enter a random Unigrid addresses (which is not very readable).
 
 This opens up a market segment on the Unigrid network for external providers to develop domain market systems and websites. Systems like these would allow users to buy and trade Unigrid domain names. The network will also provide reverse proxies for ordinary Internet users to be able to access websites and services hosted on the Unigrid network. Rather than accessing \emph{www.someunigridsite.com}, an ordinary Internet user will be able to access the network via the address \emph{proxy.unigrid.org/- www.someunigridsite.com}.
@@ -210,11 +232,7 @@ According to John Levine at CircleID \cite{john2018} the domain registrar busine
 
 To ease adoption and simplify the process of registering domain names, a simple domain registration interface is planned to be built into the Unigrid wallet and daemon. This will allow users to easily register names directly from the wallet while third party services are developed.
 
-\begin{center}
-\includegraphics[width=55pt]{vpn-connection}
-\end{center}
 \subsection{Migration}
-
 Connecting directly to the ordinary Internet exposes your personal information to external parties. In order to avoid this leaking of personal data, many Internet users use a VPN (Virtual Private Network). This helps to protect your personal data by creating an encrypted tunnel to the Internet. However, the question is - can you fully trust the VPS provider?
 
 When accessing the ordinary Internet via the Unigrid network, a connection is made via a locally running proxy server, assigning a fingerprint to a specific communication channel. A gridnode will pick up this fingerprint and act as the “outlet” for that connection. The data being sent is encrypted. The gridnodes themselves act as a swarm of proxies - meaning nobody actually knows who picks up the data or who is the originating party. This is very different from TOR (onion routing), which sends data via a chain of hops.
@@ -247,18 +265,17 @@ Data on the network is automatically backed up and spread across the network for
 
 On Unigrid your data will always be online and accessible. The network itself will never go offline so you always have access to your data and apps.
 
-\begin{mdframed}[style=textimage]
-	\includegraphics[width=345pt]{foundation}
-\end{mdframed}
 \subsection{Foundational Structure}
 Overseen by the county administrative board of the region, helping to ensure that assets are properly managed.
 
 Developing a public utility under a Swedish foundation that is socially beneficial grants several tax benefits and allows the foundation to minimize tax expenditures, increasing funding for internal development and research sponsorship into the fields of distributed communication and storage.
 
-Investments into high-yield assets with additional returns from the Unigrid network will allow the foundation to be self-funding after the initial public sale.
-\begin{center}
-\includegraphics[width=55pt]{sale-round}
-\end{center}
+\begin{mdframed}[style=textimage]
+	\includegraphics[width=345pt]{foundation}
+\end{mdframed}
+
+\noindent Investments into high-yield assets with additional returns from the Unigrid network will allow the foundation to be self-funding after the initial public sale.
+
 \section{Token Metrics \& Sale}
 The Unigrid Foundation is conducting a series of sales rounds in order to finance initial development of the network. Three sales rounds in total will conducted with an additional angel funding round to accredited investors and venture capital firms. The tokens for the angel round are taken from the 20 million tokens up for sale in the first sales round. Angel investors get a discount and are able to buy these tokens at \$0.75 rather than the \$1.00-\$1.25 sales price specified in the actual round. Also, if the foundation sells all 20 million tokens in the initial angel round, the sales round scheduled for October 2021 will not include sales of any tokens from the foundation. Instead, the foundation will shift it's focus to the second sales round scheduled for October 2022. The following sales rounds are planned:
 
