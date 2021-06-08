@@ -105,7 +105,13 @@
 \end{abstract}
 
 \newpage
-\includegraphics[width=200pt]{problem}
+\begin{center}
+\includegraphics[width=55pt]{centralized}
+\hspace{1.5cm}
+\includegraphics[width=55pt]{unreliable}
+\hspace{1.5cm}
+\includegraphics[width=55pt]{unsecure}
+\end{center}
 \section{Problem}
 The current Internet is dominated by large multi-national conglomerates. With names like Google, Microsoft, and Amazon taking up vast segments of the total market share. Amazon Web Services (AWS) is said to have 49.4\% of the total market share \cite{jeb2019}.
 
@@ -119,6 +125,14 @@ The centralized nature of the resource ownership on the Internet also results in
 In some countries, Internet censorship is so prevalent that the public is limited to what news resources they are allowed to access and view \cite{wiki2021}. The original intention of the Internet was to create an open and globally accessible network, allowing everybody with access to view and take part of that information, regardless of their originating location.
 
 For privacy, cost and security reasons, this situation is not sustainable. Hackers, oppressive governments and monopolizing businesses continuously develop better tools to infringe on your data and privacy - creating a very vulnerable situation.
+
+\begin{center}
+\includegraphics[width=55pt]{anonymous}
+\hspace{1.5cm}
+\includegraphics[width=55pt]{scalability}
+\hspace{1.5cm}
+\includegraphics[width=55pt]{security}
+\end{center}
 
 \section{Background}
 The primary goal of Unigrid is to implement an anonymous and decentralized communication solution that offers data storage and compute cycle utilization. Private individuals and businesses that value privacy or require secure data storage as a use case can take advantage of his feature.
@@ -136,6 +150,11 @@ The Unigrid takes this idea further and implements gridnodes. Gridnodes are scor
 
 With a regular masternode, reward frequency and occurrence is based on a naively calculated list. The network simply stores this list into memory and will cycle through each block to select the next winner. With the Unigrid network and gridnodes, scoring and rewards work differently. For example, when a request is made to store data on the network, there will be a check performed - looking for the next gridnode candidate. This check will see which gridnode has received the last reward plus scan the scores of each gridnode. Once a winner is selected, this gridnode will collect the data submitted and work with the other gridnodes to shard it across the network. This sharding allows the network to scale efficiently.
 
+\begin{center}
+\includegraphics[width=55pt]{efficiency}
+\hspace{1.5cm}
+\includegraphics[width=55pt]{segmented}
+\end{center}
 \subsection{Side chains}
 The Unigrid network places work in appropriate side chains based on the type of work currently being sent by a communicating node. Each side chain is controlled by a group of gridnodes. A side chain is a specialized blockchain with very specific characteristics, optimized for the type of work it is meant for. For example, data storage and compute cycles don't need the brute speed that a direct communication channel requires. Therefore, the Unigrid network treats these workloads differently. The communication side chains are smaller and kept in-memory, using a very fast but less collision resistant hashing algorithm. The blockchains that handle compute cycles and storage, on the other hand, are more resistant to hash collisions - making them very secure. However, they can not handle the same throughput as the in-memory chains using the less resistant hashing variant.
 \begin{mdframed}[style=textimage]
@@ -150,6 +169,13 @@ The Unigrid network, is a perfect solution for handling NFTs and digital assets.
 
 The NFT market has exploded in the past year. According to Joseph Young of Forbes, the market cap has grown an astounding 1758\% \cite{young2021}.
 
+\begin{center}
+\includegraphics[width=55pt]{redundancy}
+\hspace{1.5cm}
+\includegraphics[width=55pt]{tolerance}
+\hspace{1.5cm}
+\includegraphics[width=55pt]{load-balance}
+\end{center}
 \subsection{Sharding \& Parity Blocks}
 In a typical blockchain, data is stored in a vertical structure with each new block being appended to the previous block. However, this is not an ideal solution when you want to create a low latency network capable of fast data access and transfers. The solution to solve this problem on the Unigrid network involves sharding data across multiple blockchains. Furthermore, parity blocks are introduced to achieve redundancy and fault tolerance. The result is a network built for speed, security and scalability.
 
