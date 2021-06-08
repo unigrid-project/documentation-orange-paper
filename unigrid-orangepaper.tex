@@ -216,7 +216,11 @@ To ease adoption and simplify the process of registering domain names, a simple 
 \subsection{Migration}
 Connecting to the Internet exposes personal data about you and your personal information to nefarious parties. To protect yourself from this a lot of people choose to use a VPN(Virtual Private Network). This helps protect your personal data by creating an encrypted tunnel to the Internet.
 
-With the Unigrid network, a connection is made with a proxy and a fingerprint is assigned. A gridnode will pick this up and act as the "outlet" for that connection. With this fingerprint, the network knows this traffic is meant for the network. There is no way to know who the originating user is or where they are from in this method. The data being sent is also encrypted through this proxy tunnel. The gridnodes themselves act as a swarm of proxies, unlike TOR which more resembles a chain.
+Connecting directly to the ordinary Internet exposes your personal information to external parties. In order to avoid this leaking of personal data, many Internet users use a VPN (Virtual Private Network). This helps to protect your personal data by creating an encrypted tunnel to the Internet. However, the question is - can you fully trust the VPS provider?
+
+When accessing the ordinary Internet via the Unigrid network, a connection is made via a locally running proxy server, assigning a fingerprint to a specific communication channel. A gridnode will pick up this fingerprint and act as the “outlet” for that connection. The data being sent is encrypted. The gridnodes themselves act as a swarm of proxies - meaning nobody actually knows who picks up the data or who is the originating party. This is very different from TOR (onion routing), which sends data via a chain of hops.
+
+The anonymous communication layer is one of the first things planned to be developed. This should help give the network recognition and offers a very important use case for new users.
 
 \subsection{Governance}
 Control of the network itself and what is allowed and not allowed will be given to the gridnodes. A voting system will be put in place to allow scrambling of data the network does not deem fit to be on the chain. Any major updates to the network itself will be voted on by the gridnodes as well.
