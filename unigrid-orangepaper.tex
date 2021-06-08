@@ -5,6 +5,7 @@
 \usepackage{amsfonts}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
+\usepackage[affil-it]{authblk}
 \usepackage[table]{xcolor}
 \usepackage{pagecolor}
 \usepackage{afterpage}
@@ -15,7 +16,7 @@
 \graphicspath{ {./images/} }
 \usepackage[pdftex,
     pdfauthor={Evan Green \& Adam Waldenberg, The Unigrid Foundation},
-    pdftitle={Unigrid: A foundation for a decentralized, consensus-driven, segmented blockchain-based Internet},
+    pdftitle={Unigrid: A foundation for a decentralized, consensus-driven, segmented, blockchain-based Internet},
     pdfsubject={Orange Paper},
     pdfkeywords={blockchain;internet;bitcoin;unigrid;sharding;segmentation;consensus;decentralized;governance;gridnode},
     pdfproducer={Latex with hyperref, or other system},
@@ -26,7 +27,10 @@
 \definecolor{txtcolor}{rgb}{0.88,0.88,0.88}
 \hypersetup{colorlinks = true, urlcolor = txtcolor, citecolor = orange, linkcolor = txtcolor}
 
-\author{\emph{Evan Green \& Adam Waldenberg, The Unigrid Foundation}}
+\author{\textit{Evan Green, \href{mailto:evan@unigrid.org}{evan@unigrid.org}}\\
+\textit{Adam Waldenberg, \href{mailto:adam@unigrid.org}{adam@unigrid.org}}}
+\affil{The Unigrid Foundation}
+
 \title{
 	\makebox[\textwidth]{\hspace{600pt}\tikz \fill[orange] (18,1.4) rectangle (0,0);}
 	\vspace{60pt}
@@ -34,7 +38,7 @@
 		\includesvg[height=80pt]{unigrid-wide}
 	\end{center}
 	\vspace{35pt}
-	A foundation for a decentralized, consensus-driven, segmented blockchain-based Internet
+	A foundation for a decentralized, consensus-driven, segmented, blockchain-based Internet
 	\vspace{10pt}
 }
 \date{\emph{Version \gitRel\hspace{5pt}(\today)}}
@@ -200,22 +204,25 @@ Another way to take advantage of the computational power on the network is to ru
 \subsection{Domain registry}
 Since Unigrid is its own network, users will also be able to secure and register domain names on the network. The registration fees for a domain will in turn be allocated to gridnodes that handle the tasks. Domain names can even be tethered to a a specific Unigrid address - allowing for easy payments to human-readable addressesrather than having to enter a random Unigrid addresses (which is not very readable).
 
-This opens up a market segment on the Unigrid network for external providers to develop domain market systems and websites. Systems like these would allow users to buy and trade Unigrid domain names. The network will also provide reverse proxies for ordinary Internet users to be able to access websites and services hosted on the Unigrid network. Rather than accessing \emph{www.someunigridsite.com}, an ordinary Internet user will be able to access the network via\\ \emph{proxy.unigrid.org/www.someunigridsite.com}.
+This opens up a market segment on the Unigrid network for external providers to develop domain market systems and websites. Systems like these would allow users to buy and trade Unigrid domain names. The network will also provide reverse proxies for ordinary Internet users to be able to access websites and services hosted on the Unigrid network. Rather than accessing \emph{www.someunigridsite.com}, an ordinary Internet user will be able to access the network via the address \emph{proxy.unigrid.org/- www.someunigridsite.com}.
 
-According to John Levine at CircleID \cite{john2018} the domain registrar business is at \$3 to \$5 billion per year and growing.
+According to John Levine at CircleID \cite{john2018} the domain registrar business is valued at \$3 to \$5 billion per year and growing.
 
-To ease adoption and simplify the process of registering domain names, a simple domain registration interface is planned to be built into the Unigrid wallet and daemon.
+To ease adoption and simplify the process of registering domain names, a simple domain registration interface is planned to be built into the Unigrid wallet and daemon. This will allow users to easily register names directly from the wallet while third party services are developed.
 
 \begin{center}
 \includegraphics[width=55pt]{vpn-connection}
 \end{center}
 \subsection{Migration}
-Connecting to the Internet exposes personal data about you and your personal information to nefarious parties. To protect yourself from this a lot of people choose to use a VPN(Virtual Private Network). This helps protect your personal data by creating an encrypted tunnel to the Internet.
 
-With the Unigrid network, a connection is made with a proxy and a fingerprint is assigned. A gridnode will pick this up and act as the "outlet" for that connection. With this fingerprint, the network knows this traffic is meant for the network. There is no way to know who the originating user is or where they are from in this method. The data being sent is also encrypted through this proxy tunnel. The gridnodes themselves act as a swarm of proxies, unlike TOR which more resembles a chain.
+Connecting directly to the ordinary Internet exposes your personal information to external parties. In order to avoid this leaking of personal data, many Internet users use a VPN (Virtual Private Network). This helps to protect your personal data by creating an encrypted tunnel to the Internet. However, the question is - can you fully trust the VPS provider?
+
+When accessing the ordinary Internet via the Unigrid network, a connection is made via a locally running proxy server, assigning a fingerprint to a specific communication channel. A gridnode will pick up this fingerprint and act as the “outlet” for that connection. The data being sent is encrypted. The gridnodes themselves act as a swarm of proxies - meaning nobody actually knows who picks up the data or who is the originating party. This is very different from TOR (onion routing), which sends data via a chain of hops.
+
+The anonymous communication layer is one of the first things planned to be developed. This should help give the network recognition and offers a very important use case for new users.
 
 \subsection{Governance}
-Control of the network itself and what is allowed and not allowed will be given to the gridnodes. A voting system will be put in place to allow scrambling of data the network does not deem fit to be on the chain. Any major updates to the network itself will be voted on by the gridnodes as well.
+Control of the network itself and deciding what is allowed and not allowed will be given to the gridnodes and the nodes running on the network. A voting system will be put in place to allow scrambling of data the network does not deem fit to be on the chain. Any major updates to the network itself will be voted on by the gridnodes as well.
 \begin{mdframed}[style=textimage]
 	\includegraphics[width=345pt]{abstract-particles}
 \end{mdframed}
@@ -319,7 +326,7 @@ Since the advent of the Internet in the 1960's \cite{int1997} the Internet has b
 	\end{tabular}
 \end{flushleft}
 
-\vspace{1.5cm}
+\vspace{0.6cm}
 \noindent Gridnodes are the backbone to the network and an integral role in how the system functions. For the services provided, they will be rewarded. According to the research company, Gartner the total market share for IaaS cloud infrastructure in 2019 was \$38.9 billion with a projected growth to \$76.6 billion by 2022 \cite{gartner2019}. If we look at these numbers you can see the potential an open-source decentralized network will play here.
 
 \newpage
