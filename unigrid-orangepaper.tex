@@ -1,16 +1,20 @@
-\documentclass{article}
+\documentclass[a4paper,oneside]{article}
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{amsfonts}
-\usepackage{fancyhdr}
-\pagestyle{fancy}
 \usepackage[affil-it]{authblk}
 \usepackage[table]{xcolor}
 \usepackage{pagecolor}
 \usepackage{afterpage}
 \usepackage{changepage}
 \usepackage[mark]{gitinfo2}
+
+\usepackage[a4paper, includeheadfoot]{geometry}
+\geometry{a4paper, total={210mm,297mm}, left=38mm, right=38mm, top=24mm, bottom=48mm}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
 
 \usepackage{xcolor}
 \graphicspath{ {./images/} }
@@ -50,6 +54,7 @@
 \usepackage[inkscapearea=page]{svg}
 
 \mdfdefinestyle{unigridheader}{
+	userdefinedwidth=381pt,
 	backgroundcolor=headerbg,
 	linecolor=orange,
 	linewidth=3pt,
@@ -76,11 +81,13 @@
 	leftmargin=0
 }
 
+\setlength{\headheight}{70pt}%
 \renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
 \lhead{
 	\begin{mdframed}[style=unigridheader]
 		\begin{flushright}
-			\includesvg[height=28pt]{unigrid-wide}
+			\includesvg[height=30pt]{unigrid-wide}
 		\end{flushright}
 	\end{mdframed}
 }
@@ -88,23 +95,22 @@
 \renewcommand{\familydefault}{\sfdefault}
 \color{txtcolor}
 
-\setlength{\headheight}{40pt}
 \begin{document}
-\setlength{\headheight}{40pt}
 
 \newpagecolor{headerbg}
 \clearpage\maketitle
 \thispagestyle{empty}
 \newpage
-\vspace*{+40pt}
+\vspace*{+34pt}
 \begin{abstract}
 \noindent The original Internet was envisioned to become an open and distributed network that was scalable and fair, allowing access to data and services without surveillance or security concerns. However, in recent years, the Internet has become increasingly centralized, controlled and monopolized by big businesses running huge data centers. This centralization has given big entities and businesses unprecedented control of the traffic and data of the network.
 
 \begin{mdframed}[style=textimage]
-	\includegraphics[width=295pt]{lights}
+	\includegraphics[width=331pt]{lights}
 \end{mdframed}
 
 \noindent With a majority of resources on the Internet owned by a minority of big corporations, these businesses are able to maintain a high cost to value ratio. The centralization and lack of fault tolerance and redundancy makes your personal data less secured. As a remedy to this deteriorating trend, we suggest the inception of a decentralized and consensus-driven segmented blockchain network based on a striped storage solution. The protocol allows for a completely decentralized and secure blockchain-based Internet where any user, including private persons, can host an income-generating service node, aiding the network with compute cycles, bandwidth, and storage space. To allow for complete utilization of the network, an access layer is provided, allowing for the development of protocols, services, and infrastructure.
+\vspace*{+40pt}
 \end{abstract}
 
 \newpage
@@ -124,8 +130,9 @@ The current Internet is dominated by large multi-national conglomerates. Busines
 
 \noindent A near majority of all Internet data is stored on servers owned by a single entity \cite{jeb2019}. As a consequence, this results in much of the current traffic being routed through Amazon’s servers and data centers \cite{jeb2019}. Because of this, important routes often get overloaded during peak hours, slowing down services - resulting in a degraded user experience. In fact, routes regularly become so overloaded that it effectively causes servers on the other end of the communication queue to be unreachable - something most Internet users have experienced. If your provider goes offline or gets disrupted - your service and data becomes unreachable.
 
+\vspace{0.05cm}
 \begin{mdframed}[style=textimage]
-	\includegraphics[width=345pt]{puzzle}
+	\includegraphics[width=381pt]{puzzle}
 \end{mdframed}
 
 \noindent The centralized nature of the resource ownership on the Internet also results in under-utilization of servers, with idle CPU cycles and gigabytes or potentially terabytes of unused storage space on a single server. This is especially true when businesses choose to cost-optimize their operations and rely on their own dedicated servers, rather than relying on the more expensive cloud provider solutions.
@@ -153,7 +160,7 @@ As an example, sensitive documents such as medical records, can be stored on-cha
 \noindent Another example is the growing IoT (Internet of Things) market. On a blockchain, the ledger is tamper-proof, removing the need for absolute trust between two communicating parties. Utilizing a blockchain network like Unigrid adds a layer of trust to the data being transmitted. On top of handling the integrity of the actual data, the network also needs to be capable of scaling without degradation when millions of IoT-connected devices join the network. As mentioned by Shruti Jain of Deloitte \cite{jain2021}, blockchain or distributed ledger technology (DLT) has the potential to help address some of the IoT security and scalability challenges.
 
 \begin{mdframed}[style=textimage]
-	\includegraphics[width=345pt]{communication} 
+	\includegraphics[width=381pt]{communication}
 \end{mdframed}
 
 \subsection{Gridnodes}
@@ -181,8 +188,9 @@ The Unigrid network places blocks in appropriate side chains based on the type o
 \subsection{Data Storage}
 The design of the Unigrid network allows it to store large amounts of data on-chain that can be accessed at any time. The data stored on the network is either public or private. Public data is viewable by anybody with access to the network. Private data, on the other hand, will only be accessible via a private key and has to be decrypted in order to allow access to the data.
 
+\vspace{0.2cm}
 \begin{mdframed}[style=textimage]
-	\includegraphics[width=345pt]{hard-drive}
+	\includegraphics[width=381pt]{hard-drive}
 \end{mdframed}
 
 \noindent Cloud data storage is projected to reach a market size of \$297.54 billion by 2027 \cite{fort2021} and might even grow bigger if networks such as Unigrid reach big general adoption. Non-Fungible Tokens (NFTs) are tokens where only one specific token can be in existence at a given time. These allow for proof of ownership of a digital asset. The problem with the current system is that the only thing being stored on-chain is the actual proof of ownership. The asset itself that an NFT is tethered to is actually stored on a normal web server or some other means of storage. Consequently, if that web server or storage shuts down or is moved, the data for that NFT is lost.
@@ -213,12 +221,13 @@ Sharding is a database architecture pattern related to horizontal partitioning -
 \subsection{Compute Cycles}
 As the network grows and more gridnodes come online, the compute power available on the network will continuously increase. The scoring algorithms on the network will encourage operators to run gridnodes with a lot of resources - resulting in a network with a constantly increasing storage capacity and available computational power. Using Unigrid tokens, organizations and users will be able to rent these resources and use them for custom workloads and data.
 
+\vspace{0.12cm}
 One use case appropriate for this would be a scientific study that needs to run some very complex computationally intensive tasks. In return, the gridnodes offering the service would be awarded a certain amount of Unigrid, as decided by the network. 
 
 Another way to take advantage of the computational power on the network would be to run a container or VPS (Virtual Private Server) on top of the shard groups. Thanks to the redundancy and parity blocks - the network allows for the deployment of containers and server instances that never go offline unintentionally.
 
 \begin{mdframed}[style=textimage]
-	\includegraphics[width=345pt]{compute}
+	\includegraphics[width=381pt]{compute}
 \end{mdframed}
 
 \noindent In future milestones, the Unigrid network will also support GPU workloads. This means that cycles specifically written for graphical processors will also be handled by the gridnodes on the network. As an even more distant goal and when the available technology allows for a working implementation, the foundation also plans to add support for quantum cycles - which would allow the network to process work specifically designed for quantum processors.
@@ -242,11 +251,12 @@ The anonymous communication layer is one of the first milestones planned to be d
 \subsection{Governance}
 Control of the network itself and deciding what is allowed and not is handled by the gridnodes and the nodes running on the network. A voting system similar to the governance system in other cryptocurrency projects will be used to vote on important decisions and spork changes. As soon as the foundation changes certain settings on the network, the gridnodes on the network have a choice to either acceppt or reject the change. These settings allow the network to control it's own behaviour. The foundation can add blocks that should be blacklisted on the network and change a lot of different settings that changes the way the different implementations and algorithms used on the network actually behave.
 
+\vspace{0.05cm}
 Any major updates to the network itself will also be voted on by the gridnodes. This creates a fully decentralized and democratic network that is controlled 
 by it's users - not by a central governing body.
 
 \begin{mdframed}[style=textimage]
-	\includegraphics[width=345pt]{abstract-particles}
+	\includegraphics[width=381pt]{abstract-particles}
 \end{mdframed}
 
 \subsection{Past Decentralization Attempts}
@@ -259,8 +269,9 @@ With Unigrid, anyone will be able to join the network and become a gridnode host
 \subsection{Market Adoption}
 To ensure the financial stability of the the Unigrid Foundation, some departments within the foundation will focus on developing services around or for the Unigrid network. One part of the foundation will work towards developing and providing combined hardware and software solutions that corporations can buy in order to easily get access and contribute to the network. A second part of the foundation will form a legal division. This division will work with the daily legal issues within the foundation but also work towards the goal of supporting start-ups who want to work within the blockchain market. With access to a private data center readily available, the foundation will, as a third service, have the ability to help users contribute to the network by offering data center space for those who can not run gridnodes at home or at their own company. An open VPN service will also be created on the network to gain traction. 
 
+\vspace{0.12cm}
 \begin{mdframed}[style=textimage]
-	\includegraphics[width=345pt]{road}
+	\includegraphics[width=381pt]{road}
 \end{mdframed}
 
 \noindent The Unigrid Foundation will also be working to partner with universities and scientific research organizations. The foundation will allocate a certain percentage of compute cycles and data storage space to these institutions. With many years of teaching experience at a university level available within the foundation, education will be one of the goals with these partnerships. With more knowledge about blockchain at the universities, more students will be able to contribute to the blockchain community as a whole and to the Unigrid network. Since the foundation is based in Gothenburg, close to Chalmers University of Technology, students will also be offered to write their master thesis at the Unigrid Foundation. There are also plans to create grant programs which can be applied to, allowing access to funds from the foundation to further the development and adoption of the network. 
@@ -275,9 +286,9 @@ Data on the network is automatically backed up and spread across the network for
 \subsection{Foundational Structure}
 The foundation will be overseen by the county administrative board of the region, helping to ensure that assets are properly managed and that the foundation charter is adhered to.
 
-
+\vspace{0.05cm}
 \begin{mdframed}[style=textimage]
-	\includegraphics[width=345pt]{foundation}
+	\includegraphics[width=381pt]{foundation}
 \end{mdframed}
 
 \noindent Developing a public utility under a Swedish foundation that is socially beneficial grants several tax benefits and allows the foundation to minimize tax expenditures, increasing funding for internal development and research sponsorship into the fields of distributed communication and storage.
@@ -292,7 +303,7 @@ The Unigrid Foundation is conducting a series of sales rounds in order to financ
 	\hypersetup{colorlinks = true, urlcolor = black, citecolor = black, linkcolor = black}
 	\center \small
 	\begin{tabular}{{lrrr}}
-		\rowcolor{orange}\color{black}Target Date: October 2021\hspace{4.1cm} & \color{black}Option 1 & \color{black}Option 2\\
+		\rowcolor{orange}\color{black}\textbf{Round 1}, Target Date: October 2021\hspace{4cm} & \color{black}Option 1 & \color{black}Option 2\\
 		Tokens                               &  10 000 000 & 10 000 000 \\
 		\rowcolor{headerbgl}Price            &  \$ 1.00    & \$ 1.25 \\
 		Lock Period                          &  1 Year     &  6 Months \\
@@ -305,7 +316,7 @@ The Unigrid Foundation is conducting a series of sales rounds in order to financ
 	\hypersetup{colorlinks = true, urlcolor = black, citecolor = black, linkcolor = black}
 	\center \small
 	\begin{tabular}{lrrrrr}
-		\rowcolor{orange}\color{black}Target Date: October 2022\hspace{2cm} & \color{black}Option 1 & \color{black}Option 2 & \color{black}Option 3\\
+		\rowcolor{orange}\color{black}\textbf{Round 2}, Target Date: October 2022\hspace{1.9cm} & \color{black}Option 1 & \color{black}Option 2 & \color{black}Option 3\\
 		Tokens                               &  15 000 000 & 10 000 000 & 10 000 000 \\
 		\rowcolor{headerbgl}Price            &  \$ 1.50    & \$ 2.50    & \$ 4.00 \\
 		Lock Period                          &  1 Year     &  6 Months  & No Lock-Up \\
@@ -318,7 +329,7 @@ The Unigrid Foundation is conducting a series of sales rounds in order to financ
 	\hypersetup{colorlinks = true, urlcolor = black, citecolor = black, linkcolor = black}
 	\center \small
 	\begin{tabular}{lrrrrr}
-		\rowcolor{orange}\color{black}Target Date: April 2023\hspace{2.4cm} & \color{black}Option 1 & \color{black}Option 2 & \color{black}Option 3\\
+		\rowcolor{orange}\color{black}\textbf{Round 3}, Target Date: April 2023\hspace{2.35cm} & \color{black}Option 1 & \color{black}Option 2 & \color{black}Option 3\\
 		Tokens                               &  20 000 000 & 10 000 000 & 10 000 000 \\
 		\rowcolor{headerbgl}Price            &  \$ 4.00    & \$ 5.00    & \$ 6.00 \\
 		Lock Period                          &  1 Year     &  6 Months  & No Lock-Up \\
@@ -355,6 +366,7 @@ The Unigrid Foundation has defined a number of milestones that should be followe
 \section{Conclusion}
 Since the advent of the Internet in the 1960's \cite{int1997} the Internet can be defined as a collection of nodes (computers) communicating with each other. What The Unigrid Foundation plans is decentralizing these nodes to where anyone can partake in being a host node on the Internet. From the first contact with the network, your data is encrypted and sharded, making it impossible for anyone else to access this data without a key. Browsing across the network is also anonymous - securing your privacy rights.
 
+\vspace{0.1cm}
 \renewcommand{\arraystretch}{1.5}%
 \begin{flushleft}
 	\hypersetup{colorlinks = true, urlcolor = black, citecolor = black, linkcolor = black}
@@ -362,7 +374,7 @@ Since the advent of the Internet in the 1960's \cite{int1997} the Internet can b
 	\begin{tabular}{lrrrrr}
 		\rowcolor{orange}\multicolumn{6}{c}{\color{black} \textbf{Worldwide Cloud Service Revenue Forecast \cite{gartner2019} (Billions of U.S. Dollars)}} \\
 		\rowcolor{orange} & \color{black}2018 & \color{black}2019   & \color{black}2020 & \color{black}2021 & \color{black}2022 \\
-		Business Process Services (BPaaS)                           &  45.8 &  49.3 &  53.1 &  57.0 &  61.1 \\
+		Business Process Services (BPaaS) \hspace{2.3cm}              &  45.8 &  49.3 &  53.1 &  57.0 &  61.1 \\
 		\rowcolor{headerbgl} Application Infrastructure Services (PaaS) &  15.6 &  19.0 &  23.0 &  27.5 &  31.8 \\
 		Application Services (SaaS)                                 &  80.0 &  94.8 & 110.5 & 126.7 & 143.7 \\
 		\rowcolor{headerbgl} Management and Security Services       &  10.5 &  12.2 &  14.1 &  16.0 &  17.9 \\
