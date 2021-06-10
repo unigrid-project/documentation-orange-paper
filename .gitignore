@@ -2,4 +2,6 @@
 *.log
 *.out
 *.pdf
+*.pdf_tex
 *.gz
+*.tex.orig
