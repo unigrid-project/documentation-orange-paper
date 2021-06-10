@@ -188,21 +188,19 @@ The Unigrid network places blocks in appropriate side chains based on the type o
 \subsection{Data Storage}
 The design of the Unigrid network allows it to store large amounts of data on-chain that can be accessed at any time. The data stored on the network is either public or private. Public data is viewable by anybody with access to the network. Private data, on the other hand, will only be accessible via a private key and has to be decrypted in order to allow access to the data.
 
+\noindent Cloud data storage is projected to reach a market size of \$297.54 billion by 2027 \cite{fort2021} and might even grow bigger if networks such as Unigrid reach big general adoption. Non-Fungible Tokens (NFTs) are tokens where only one specific token can be in existence at a given time. These allow for proof of ownership of a digital asset. The problem with the current system is that the only thing being stored on-chain is the actual proof of ownership. The asset itself that an NFT is tethered to is actually stored on a normal web server or some other means of storage. Consequently, if that web server or storage shuts down or is moved, the data for that NFT is lost.
+
 \vspace{0.2cm}
 \begin{mdframed}[style=textimage]
 	\includegraphics[width=381pt]{hard-drive}
 \end{mdframed}
 
-\noindent Cloud data storage is projected to reach a market size of \$297.54 billion by 2027 \cite{fort2021} and might even grow bigger if networks such as Unigrid reach big general adoption. Non-Fungible Tokens (NFTs) are tokens where only one specific token can be in existence at a given time. These allow for proof of ownership of a digital asset. The problem with the current system is that the only thing being stored on-chain is the actual proof of ownership. The asset itself that an NFT is tethered to is actually stored on a normal web server or some other means of storage. Consequently, if that web server or storage shuts down or is moved, the data for that NFT is lost.
-
-The Unigrid network, is a ideal solution for handling NFTs and digital assets. Thanks to the redundancy, fault-tolerance and side chains of the network, the actual asset data can be stored in a way that ensures it can never be removed or lost by accident. This provides more long-term solution to where assets, that in some cases cost millions of dollars, are permanently and securely stored.
+\noindent The Unigrid network, is a ideal solution for handling NFTs and digital assets. Thanks to the redundancy, fault-tolerance and side chains of the network, the actual asset data can be stored in a way that ensures it can never be removed or lost by accident. This provides more long-term solution to where assets, that in some cases cost millions of dollars, are permanently and securely stored.
 
 The NFT market has exploded in the past year. According to Joseph Young of Forbes, the market cap has grown an astounding 1758\% \cite{young2021}.
 
 \subsection{Sharding \& Parity Blocks}
 In a typical blockchain, data is stored in a vertical structure with each new block being appended to the previous block. However, this is not an ideal solution when you want to create a low latency network capable of fast data access and transfers. The solution to solve this problem on the Unigrid network involves sharding data across multiple blockchains. Furthermore, parity blocks are introduced to achieve redundancy and fault tolerance. The result is a network built for speed, security and scalability.
-
-Sharding is a database architecture pattern related to horizontal partitioning - the practice of separating one table’s rows into multiple different tables, known as partitions \cite{mark2019}. Data on the Unigrid network will be sharded across nodes into group swarms called shard groups. This allows the network to become a self-replicating CDN (Content Delivery Network) where data is often pulled from the most optimal location. This minimizes the network latency currently experienced on the modern web where you may be pulling data from a webpage in one centrally installed location.
 
 \begin{center}
 \vspace{0.1cm}
@@ -216,21 +214,23 @@ Sharding is a database architecture pattern related to horizontal partitioning -
 \hspace{8pt}\emph{Redundancy}\hspace{38pt}\emph{Fault-Tolerance}\hspace{30pt}\emph{Load Balancing}
 \end{center}
 
-\noindent A video streaming service would be able to take advantage of the network and the available speeds and fault-tolerance. As the videos stored on the network would be sharded and spread out on the network, users using the service would always load content from the fastest gridnode swarm with the lowest latency. The implementation needed from the actual video service would be simpler and could rely on the built in redundancy and fault-tolerance of the network, meaning the time and resources needed to implement such as service would also be far lower when compared to a more traditional solution.
+\noindent Sharding is a database architecture pattern related to horizontal partitioning - the practice of separating one table’s rows into multiple different tables, known as partitions \cite{mark2019}. Data on the Unigrid network will be sharded across nodes into group swarms called shard groups. This allows the network to become a self-replicating CDN (Content Delivery Network) where data is often pulled from the most optimal location. This minimizes the network latency currently experienced on the modern web where you may be pulling data from a webpage in one centrally installed location.
+
+A video streaming service would be able to take advantage of the network and the available speeds and fault-tolerance. As the videos stored on the network would be sharded and spread out on the network, users using the service would always load content from the fastest gridnode swarm with the lowest latency. The implementation needed from the actual video service would be simpler and could rely on the built in redundancy and fault-tolerance of the network, meaning the time and resources needed to implement such as service would also be far lower when compared to a more traditional solution.
 
 \subsection{Compute Cycles}
 As the network grows and more gridnodes come online, the compute power available on the network will continuously increase. The scoring algorithms on the network will encourage operators to run gridnodes with a lot of resources - resulting in a network with a constantly increasing storage capacity and available computational power. Using Unigrid tokens, organizations and users will be able to rent these resources and use them for custom workloads and data.
 
 \vspace{0.12cm}
-One use case appropriate for this would be a scientific study that needs to run some very complex computationally intensive tasks. In return, the gridnodes offering the service would be awarded a certain amount of Unigrid, as decided by the network. 
-
-Another way to take advantage of the computational power on the network would be to run a container or VPS (Virtual Private Server) on top of the shard groups. Thanks to the redundancy and parity blocks - the network allows for the deployment of containers and server instances that never go offline unintentionally.
-
 \begin{mdframed}[style=textimage]
 	\includegraphics[width=381pt]{compute}
 \end{mdframed}
 
-\noindent In future milestones, the Unigrid network will also support GPU workloads. This means that cycles specifically written for graphical processors will also be handled by the gridnodes on the network. As an even more distant goal and when the available technology allows for a working implementation, the foundation also plans to add support for quantum cycles - which would allow the network to process work specifically designed for quantum processors.
+\noindent One use case appropriate for this would be a scientific study that needs to run some very complex computationally intensive tasks. In return, the gridnodes offering the service would be awarded a certain amount of Unigrid, as decided by the network. 
+
+Another way to take advantage of the computational power on the network would be to run a container or VPS (Virtual Private Server) on top of the shard groups. Thanks to the redundancy and parity blocks - the network allows for the deployment of containers and server instances that never go offline unintentionally.
+
+In future milestones, the Unigrid network will also support GPU workloads. This means that cycles specifically written for graphical processors will also be handled by the gridnodes on the network. As an even more distant goal and when the available technology allows for a working implementation, the foundation also plans to add support for quantum cycles - which would allow the network to process work specifically designed for quantum processors.
 
 \subsection{Domain Registry}
 Since Unigrid is its own network, users will also be able to secure and register domain names on the network. The registration fees for a domain will, in turn, be allocated to gridnodes that handle these registrations and the storage of this data. Domain names can even be tethered to a specific Unigrid address - allowing for easy payments to human-readable names, rather than having to enter random Unigrid addresses (which are not nearly as readable).
@@ -257,12 +257,12 @@ The anonymous communication layer is one of the first milestones planned to be d
 Control of the network itself and deciding what is allowed and not is handled by the gridnodes and the nodes running on the network. A voting system similar to the governance system in other cryptocurrency projects will be used to vote on important decisions and spork changes. As soon as the foundation changes certain settings on the network, the gridnodes on the network have a choice to either acceppt or reject the change. These settings allow the network to control it's own behaviour. The foundation can add blocks that should be blacklisted on the network and change a lot of different settings that changes the way the different implementations and algorithms used on the network actually behave.
 
 \vspace{0.05cm}
-Any major updates to the network itself will also be voted on by the gridnodes. This creates a fully decentralized and democratic network that is controlled 
-by it's users - not by a central governing body.
-
 \begin{mdframed}[style=textimage]
 	\includegraphics[width=381pt]{abstract-particles}
 \end{mdframed}
+
+\noindent Any major updates to the network itself will also be voted on by the gridnodes. This creates a fully decentralized and democratic network that is controlled 
+by it's users - not by a central governing body.
 
 \subsection{Past Decentralization Attempts}
 Many projects claim decentralization, but in reality most require specialized hardware and do not allow nodes to democratically contribute to the network - some even require written applications and employ a vetting process.
@@ -286,7 +286,7 @@ The foundation plan to organize hackathons and similar events to promote growth 
 \subsection{Competitive Advantage}
 The Unigrid network will keep the cost of data storage and data processing to a minimum. With gridnodes constantly competing for work, costs will be drastically lower than alternative services.
 
-Data on the network is automatically backed up and spread across the network for redundancy. If one gridnode goes down, it's data is accessible via other nodes in the shard group. Consequently, the data is always online and accessible. The network itself will never go offline, allowing continuous and uninterrupted access to your data and apps.
+\noindent Data on the network is automatically backed up and spread across the network for redundancy. If one gridnode goes down, it's data is accessible via other nodes in the shard group. Consequently, the data is always online and accessible. The network itself will never go offline, allowing continuous and uninterrupted access to your data and apps.
 
 \subsection{Foundational Structure}
 The foundation will be overseen by the county administrative board of the region, helping to ensure that assets are properly managed and that the foundation charter is adhered to.
@@ -345,7 +345,7 @@ The Unigrid Foundation is conducting a series of sales rounds in order to financ
 \vspace{0.6cm}
 \noindent Any tokens not sold in each round will be placed under the care of the foundation for future use. Because of the proof of stake nature of the  network, investments for a single entity are capped at three million tokens per investor per round, with a single entity allowed to hold at most 10\% of the total supply.
 
-\noindent Tokens will start being unlocked and accessible when the first official exchange listing of Unigrid occurs. The unlocked amounts and frequencey will follow the specified schedule.
+\noindent Tokens will start being unlocked and accessible when the first official exchange listing of Unigrid occurs. The unlocked amounts and frequency will follow the specified schedule.
 
 The biggest investors of The Unigrid Foundation will, at the discretion of the foundation, be offered a board seat on the foundation board. This gives bigger investors insight into the dealings of the foundation and allows them to be part of the decision-making process at the board.
 
@@ -369,7 +369,7 @@ The Unigrid Foundation has defined a number of milestones that should be followe
 \noindent Rather than being a list of tasks, the above milestones is a list of goals that the foundation wants to achieve. While the list may still change, the foundation plans to target these goals in the above specified order.
 
 \section{Conclusion}
-Since the advent of the Internet in the 1960's \cite{int1997} the Internet can be defined as a collection of nodes (computers) communicating with each other. What The Unigrid Foundation plans is decentralizing these nodes to where anyone can partake in being a host node on the Internet. From the first contact with the network, your data is encrypted and sharded, making it impossible for anyone else to access this data without a key. Browsing across the network is also anonymous - securing your privacy rights.
+Since the advent of the Internet in the 1960's \cite{int1997} the Internet can be defined as a collection of nodes (computers) communicating with each other. The Unigrid Foundation aims to decentralize and load-balance these nodes, allowing anyone to partake in being a host node on the Internet. From the first contact with the network, your data is encrypted and sharded, making it impossible for anyone else to access this data without a key. Browsing across the network is also anonymous - securing your privacy rights.
 
 \vspace{0.1cm}
 \renewcommand{\arraystretch}{1.5}%
@@ -389,7 +389,7 @@ Since the advent of the Internet in the 1960's \cite{int1997} the Internet can b
 \end{flushleft}
 
 \vspace{0.6cm}
-\noindent Gridnodes are the backbone to the network and an integral role in how the system functions. For the services provided, they will be rewarded. According to the research company Gartner, the total market share for IaaS cloud infrastructure in 2019 was \$38.9 billion with a projected growth to \$76.6 billion by 2022 \cite{gartner2019}. The potential market share for the Unigrid network is enormous as it can potentially offer benefits, functionality and services currently not available with any other alternative.
+\noindent Gridnodes are the backbone to the network and an integral part of how the system functions. For the services provided, they will be rewarded. According to the research company Gartner, the total market share for IaaS cloud infrastructure in 2019 was \$38.9 billion with a projected growth to \$76.6 billion by 2022 \cite{gartner2019}. The potential market share for the Unigrid network is enormous as it can potentially offer benefits, functionality and services currently not available with any other alternative.
 
 \section{Closing Thoughts}
 This paper covers some of the features of the Unigrid network and why the foundation thinks they are essential for a future Internet that is healthy, stable and scalable. Many of the topics covered only skim the surface of and do not explain many of the intricate details of the underlying implementations. For additional information and for further details on how the network functions on a theoretical level, the base technical Unigrid white paper \cite{wp2021} broadly describes how the foundation plans to implement much of the functionality discussed in this orange paper.
