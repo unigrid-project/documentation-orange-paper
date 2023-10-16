@@ -142,6 +142,20 @@ In some countries, Internet censorship is so prevalent that the public is limite
 
 For privacy, cost and security reasons, this situation is not sustainable. Hackers, oppressive governments and monopolizing businesses continuously develop better tools that infringe on your data and privacy - creating a very vulnerable situation.
 
+\begin{center}
+	\includegraphics{adam-evan}
+\end{center}
+
+\section{Team}
+Unigrid was the brainchild of Adam Waldenberg and Evan Green, luminaries in the fields of software development, enterprise applications, and marketing. With a cumulative experience of over /50 years in programming, their portfolio is as vast as it is varied, spanning from intricate enterprise applications to immersive games and user-friendly frontends.
+
+Adam, serving as the CTO of Unigrid, brings a unique blend of academic and practical prowess to the table. With over a decade spent imparting knowledge and tutoring at Chalmers University of Technology, he has shaped the minds of many budding tech enthusiasts. Further solidifying his reputation in the tech community, Adam has been at the helm of a data center nestled in the heart of Gothenburg since late 2015, showcasing his commitment to infrastructure and the backend intricacies that are so pivotal to the digital world.
+
+Evan Green, the CEO of Unigrid, has achievements that are no less remarkable. Beyond his expertise in software development, he has masterfully led marketing campaigns for some of the world's top Fortune 500 companies. As the chief executive, he steers the overall direction and strategy of Unigrid, ensuring its growth and stability. His experience gives him a unique perspective, blending technical acumen with a deep understanding of market dynamics and consumer behavior.
+
+Yet, the strength of Unigrid doesn't solely rest on these two visionaries. The project is bolstered by a diverse and talented team comprising developers, strategists, and experts from various domains. Partner companies like ValueX \cite{valuex2023} and NFMedia \cite{nfmedia2023} further elevate Unigrid's capabilities. These collaborations bring invaluable insights into business decisions and aid in the multifaceted development processes. It's this collective effort, led by CEO Evan Green and CTO Adam Waldenberg but supported by a wide-ranging team, that positions Unigrid for a bright and innovative future.
+
+
 \section{Discussion}
 The primary goal of Unigrid is to implement an anonymous and decentralized communication solution that offers data storage and compute cycle utilization. Private individuals and businesses that value privacy or require secure data storage can take advantage of this feature.
 
@@ -158,7 +172,11 @@ As an example, sensitive documents such as medical records, can be stored on-cha
 \hspace{0pt}\emph{Anonymity}\hspace{49pt}\emph{Scalability}\hspace{58pt}\emph{Security}\hspace{25pt}
 \end{center}
 
-\noindent Another example is the growing IoT (Internet of Things) market. On a blockchain, the ledger is tamper-proof, removing the need for absolute trust between two communicating parties. Utilizing a blockchain network like Unigrid adds a layer of trust to the data being transmitted. On top of handling the integrity of the actual data, the network also needs to be capable of scaling without degradation when millions of IoT-connected devices join the network. As mentioned by Shruti Jain of Deloitte \cite{jain2021}, blockchain or distributed ledger technology (DLT) has the potential to help address some of the IoT security and scalability challenges.
+\noindent The Internet of Things (IoT) market is undergoing rapid growth, introducing a wealth of opportunities for innovation and improved connectivity. However, this expansion is not without its challenges. A pressing issue in the IoT realm is ensuring the security and integrity of data as devices, often from different manufacturers and utilizing distinct protocols, exchange information. Traditional security models sometimes struggle to offer foolproof solutions in such a complex environment.
+
+Blockchain technology emerges as a beacon in this scenario. Within a blockchain framework, the ledger is meticulously maintained to be secure, with each entry being resistant to unauthorized alterations. This decentralized approach effectively removes the conventional need for absolute trust between communicating devices. When IoT systems integrate with a blockchain network, such as Unigrid, they inherit an augmented layer of security, ensuring that the data not only remains trustworthy but also significantly less vulnerable to potential breaches.
+
+\noindent The sheer volume of devices connecting to IoT presents another challenge: scalability. It's not just about preserving the integrity of data; the network must also support vast numbers of devices without compromising performance or speed. A surge in the number of IoT devices means the infrastructure must adapt quickly and efficiently. As noted by Shruti Jain from Deloitte \cite{jain2021}, blockchain and distributed ledger technology (DLT) present promising avenues to tackle these IoT security and scalability issues, ensuring a more interconnected and secure future.
 
 \begin{mdframed}[style=textimage]
 	\includegraphics[width=381pt]{communication}
@@ -233,15 +251,6 @@ Another way to take advantage of the computational power on the network would be
 
 In future milestones, the Unigrid network will also support GPU workloads. This means that cycles specifically written for graphical processors will also be handled by the gridnodes on the network. As an even more distant goal and when the available technology allows for a working implementation, the foundation also plans to add support for quantum cycles - which would allow the network to process work specifically designed for quantum processors.
 
-\subsection{Domain Registry}
-Since Unigrid is its own network, users will also be able to secure and register domain names on the network. The registration fees for a domain will, in turn, be allocated to gridnodes that handle these registrations and the storage of this data. Domain names can even be tethered to a specific Unigrid address - allowing for easy payments to human-readable names, rather than having to enter random Unigrid addresses (which are not nearly as readable).
-
-This opens up a market segment on the Unigrid network for external providers, or entities controlled by The Unigrid Foundation, to develop domain market systems and websites. Systems like these would allow users to buy and trade Unigrid domain names. The network will also provide reverse proxies for ordinary Internet users to be able to access websites and services hosted on the Unigrid network. Rather than accessing \emph{www.someunigridsite.com}, an ordinary Internet user will be able to access the network via the address \emph{proxy.unigrid.org/- www.someunigridsite.com}.
-
-According to John Levine at CircleID \cite{john2018} the domain registrar business is valued at \$3 to \$5 billion per year and growing.
-
-To ease adoption and simplify the process of registering domain names, a simple domain registration interface is planned to be built into the Unigrid wallet and daemon. This will allow users to easily register names directly from the wallet while third party services are developed.
-
 \subsection{Migration}
 Connecting directly to the ordinary Internet exposes your personal information to external parties. In order to avoid this leaking of personal data, many Internet users use a VPN (Virtual Private Network). This helps to protect your personal data by creating an encrypted tunnel to the Internet. However, the question is - can you fully trust the VPS provider?
 
@@ -265,11 +274,11 @@ Control of the network itself and deciding what is allowed and not is handled by
 \noindent Any major updates to the network itself will also be voted on by the gridnodes. This creates a fully decentralized and democratic network that is controlled by its users - not by a central governing body.
 
 \subsection{Past Decentralization Attempts}
-Many projects claim decentralization, but in reality most require specialized hardware and do not allow nodes to democratically contribute to the network - some even require written applications and employ a vetting process.
+Numerous projects in the digital landscape champion the notion of decentralization, promoting it as a key feature of their networks. However, upon closer examination, it becomes evident that the majority have limitations that deviate from the core principles of true decentralization. Many such projects necessitate the use of specialized hardware, creating barriers to entry for the average user. Furthermore, instead of promoting an open and inclusive environment, they restrict participation by implementing systems like written applications and rigorous vetting processes.
 
-\noindent This effectively moves the centralization to another point of failure rather than solving the underlying problem.
+This approach does not genuinely eliminate centralization; it merely shifts it. Rather than distributing power and control across the network, they simply relocate the centralization to a different point, inadvertently introducing new potential vulnerabilities and points of failure. This contradicts the essence of decentralization, which is to prevent the concentration of power and to eliminate single points of failure.
 
-With Unigrid, anyone will be able to join the network and become a gridnode host. This in turn democratizes the network - giving each gridnode a vote on proposals and changes.
+Unigrid stands out by taking a fundamentally different approach. It envisions a system where barriers are minimized, and inclusivity is maximized. With Unigrid, participation isn't just a possibility—it's an invitation. Anyone, regardless of their technical background or resources, can join the network and take on the role of a gridnode host. This not only broadens the base of participants but also strengthens the network's resilience and reach. More importantly, it genuinely democratizes the system. Every gridnode is empowered with a voice, allowing them to actively participate in decision-making by voting on various proposals and network changes. This ensures that the network evolves in a manner that is in the best interest of its entire community, not just a select few.
 
 \subsection{Market Adoption}
 To ensure the financial stability of the the Unigrid Foundation, some departments within the foundation will focus on developing services around or for the Unigrid network. One part of the foundation will work towards developing and providing combined hardware and software solutions that corporations can buy in order to easily get access and contribute to the network. A second part of the foundation will form a legal division. This division will work with the daily legal issues within the foundation but also work towards the goal of supporting start-ups who want to work within the blockchain market. With access to a private data center readily available, the foundation will, as a third service, have the ability to help users contribute to the network by offering data center space for those who can not run gridnodes at home or at their own company. An open VPN service will also be created on the network to gain traction. 
@@ -301,20 +310,48 @@ The foundation will be overseen by the county administrative board of the region
 Investments into high-yield assets with additional returns from the Unigrid network will allow the foundation to be self-funding after the initial public sales.
 
 \subsection{Sale Participation \& Early Token Holders}
-The Unigrid project is currently in its early stages, and The Unigrid Foundation, a recently established organization, handles all token sales. Despite its youth, the project has garnered significant interest. In the event that the foundation sells all the reserved tokens to accredited investors and VC firms before the scheduled sales date for each round, it will enable early token holders from the community to participate and offer their tokens for sale in the upcoming rounds. This provides an opportunity for additional investors to enter the picture, although the quantity of tokens available (approximately 6.4 million) is relatively small.
+The Unigrid project, a visionary undertaking in the decentralized landscape, is currently in its early stages, laying the groundwork for what could be a transformative initiative. As it navigates the initial challenges and milestones, The Unigrid Foundation plays a crucial role in its trajectory. This recently established organization, formed with a vision to foster transparency and ethical practices, is at the helm of all token sales, ensuring that they are conducted with integrity and efficiency.
 
-The sales rounds are open to almost everyone, irrespective of their country of residence. However, it is important to note that the foundation adheres to Swedish law and actively combats money laundering. Consequently, a vetting process incorporating KYC (know your customer) functionality is in place to ensure that both buyers and sellers meet the eligibility criteria for participation in the sale.
+The true essence of the Unigrid project lies not just in its technology but in its approach to decision-making. Rather than relying on a centralized few, the project embraces the principles of decentralization in its governance. Which partners to collaborate with, and how tokens are allocated, are critical choices that shape the project's future. Remarkably, these decisions are not taken behind closed doors. Instead, they are decided by the community, the very heart of Unigrid. Through governance votes, every participant has a voice, reflecting the project's commitment to collective wisdom and inclusive decision-making.
 
-\section{Milestones}
-The Unigrid Foundation has defined a number of milestones that should be followed when developing the future network. The foundation plans to continuously develop and deploy the network. Having an active community with a live network running allows for the developers to identify potential problems on the network and continuously tests the efficiency and scalability of the implemented solutions.
+By integrating a blend of technological innovation with democratic governance the network exemplifies a forward-thinking approach, setting a standard for other decentralized endeavours to follow.
+
+\newpage
+\section{Tokenomics}
+Throughout the evolution of Unigrid, our tokenomics have undergone meticulous refinement across several iterations. This continuous improvement process has been enhanced by our collaboration with trusted partners, ValueX and NFMedia. Their insights and expertise have played a pivotal role in shaping a robust and resilient tokenomic framework.
+
+The primary objective behind our tokenomics has always been to establish a resilient ecosystem. Protecting the market is a top priority, ensuring a stable environment that is resistant to manipulative practices and unforeseen market disruptions.
+
+The value of our token isn't solely monetary; it represents the utility and functionality within the Unigrid system. By developing a tokenomic structure that promotes stability, we aim to ensure that the token remains consistently reliable in fulfilling its intended purpose within our network.
+
+\begin{center}
+	\includesvg[height=250pt]{tokenomics}
+\end{center}
+
+Furthermore, our gridnode operators are essential pillars of the Unigrid ecosystem. Their continuous efforts and contributions are invaluable, and our tokenomics are thus designed to recognize and reward their commitment. This approach ensures they are adequately incentivized and that their interests align with the overall health and growth of the network.
+
+\noindent In essence, through iterative design and with the collaboration of partners like ValueX and NFMedia, our tokenomics have been crafted to prioritize the stability and well-being of the market, the utility of the token, and the prosperity of the gridnode operators.
+
+\section{Milestones \& Roadmap}
+The Unigrid Foundation, with a vision for a seamless and efficient future network, has laid out a roadmap comprising several milestones. These milestones serve as guiding markers, providing direction and clarity for the network's development journey. The foundation is not just focused on creation; it's equally committed to the network's ongoing evolution. By maintaining an active community and ensuring a live network is always operational, the foundation facilitates real-time monitoring. This approach empowers developers, allowing them to pinpoint any emerging issues promptly. Furthermore, it provides an ongoing platform to assess the efficiency, adaptability, and scalability of the solutions in place, ensuring that the network not only meets but exceeds the demands of its users.
+
+\vspace{0.05cm}
+\begin{center}
+	\includegraphics[width=381pt]{roadmap}
+\end{center}
 
 \begin{itemize}
-  \item New "simple" wallet based on Java
-  \item Auto updates
-  \item Relayed anonymous Internet access
-  \item New governance system
-  \item Data storage
-  \item Compute work (CPU)
+  \item Q2 2022 New JavaFX wallet
+  \item Q1 2023 Hedgehog
+  \item Q2 2023 Hedgehog live
+  \item Q4 2023 Data storage
+  \item Q1 2024 Hedgehog live
+  \item Q2-Q3 2024 CPU compute
+  \item Q4 2024 GPU compute
+\end{itemize}
+
+\noindent The following milestones are some secondary goals we are planning or already working on in order to demonstrate the liability of the network.
+\begin{itemize}
   \item Technology demonstration of "Hello world" running on the network
   \item Compute work (GPU)
   \item Technology demonstration of an FTP server running on the network
@@ -322,30 +359,73 @@ The Unigrid Foundation has defined a number of milestones that should be followe
   \item Technology demonstration of SETI@Home running on the network
 \end{itemize}
 
-\noindent Rather than being a list of tasks, the above milestones is a list of goals that the foundation wants to achieve. While the list may still change, the foundation plans to target these goals in the above specified order.
+\noindent Rather than being a list of tasks, the above milestones is a list of goals that the foundation wants to achieve. While the list may still change, the foundation plans to target these goals.
+
+As part of its expanding ecosystem, Unigrid is actively working on crafting a suite of web frontends to provide users seamless access to network storage and its myriad functionalities. Among these innovations is the Unigrid Drive, a cutting-edge product akin to Google Drive, designed to empower end-users to effortlessly store their data within the Unigrid network.
+
+\section{Press Coverage \& Social Change}
+The Unigrid Foundation recently won a court case in Sweden against the county of Västra Götaland, which is responsible for overseeing the registration of foundations. The crux of the matter revolved around the classification of cryptocurrencies as assets for foundations. Specifically, the county argued that merely separating crypto assets for a foundation did not fulfill the requisite duration requirement for the foundation's purpose. However, the Unigrid Foundation contended and successfully established in court that cryptocurrencies should be recognized as an accepted asset class during the formation of foundations~\cite{decentralized-internet,linkedin-paulk,linkedin-valuexag}.
+
+This victory is seen as a major accomplishment not only for the Unigrid Foundation but also in paving the way for the future registration of foundations, potentially altering how crypto assets are perceived and handled in legal and foundational settings in Sweden and possibly beyond~\cite{linkedin-valuexag}.
+
+\begin{center}
+\vspace{0.1cm}
+\href{https://www.cloudcomputing-insider.de/unigrid-plant-europaweite-cloud-auf-blockchain-basis-a-8514f7f959be74ec0a64e77ea064a007/}{\includegraphics[width=90pt]{logo-cci}}
+\hspace{1cm}
+\href{https://cointelegraph.com/news/how-a-blockchain-network-plans-to-tackle-the-internets-major-shortcomings}{\includegraphics[width=90pt]{logo-ct}}
+\hspace{1cm}
+\href{https://cryptodaily.co.uk/2021/11/unigrid-next-internet-revolution}{\includegraphics[width=90pt]{logo-cryptodaily}}
+\vspace{0.1cm}
+\end{center}
+
+\noindent Unigrid, aiming to disrupt the traditional internet infrastructure by leveraging blockchain technology, has been covered by various media outlets. In an article by Cointelegraph, it is mentioned that Unigrid seeks to broaden internet access by reducing costs through blockchain, targeting a substantial market share in cloud computing~\cite{cointelegraph}. CryptoDaily has covered Unigrid's vision for an internet without borders, emphasizing privacy protection~\cite{cryptodaily1}. Moreover, another piece in CryptoDaily highlighted a significant investment commitment, underscoring the transformative power of Unigrid's decentralized storage offering~\cite{cryptodaily2}. In Germany, CloudComputing-Insider reported Unigrid's ambition to connect 10,000 European data centers using blockchain technology, offering a decentralized cloud solution~\cite{germanpress}.
+
+\begin{center}
+\vspace{0.35cm}
+\href{https://news.bitcoin.com/unigrid-secures-25m-investment-commitment-from-gem-digital-partners-wesendit-targets-cloud-giants/}{\includegraphics[width=90pt]{logo-bitcoin}}
+\vspace{0.3cm}
+\end{center}
+
+\noindent Unigrid has successfully secured a substantial investment commitment of \$25 million from GEM Digital Limited, marking a significant milestone in its journey. This financial backing is anticipated to catalyze Unigrid's market positioning and foster new strategic partnerships, notably with WeSendit, a pioneering file transfer service specializing in anonymous data transfer and decentralized storage solutions. The investment from GEM Digital Limited is not only a testament to Unigrid's innovative approach in leveraging blockchain technology to develop a decentralized and anonymous Internet but also a strong endorsement of its potential to revolutionize the internet infrastructure~\cite{bitcoincom,blockchair,problockchain}.
+
+
 
 \section{Conclusion}
 Since the advent of the Internet in the 1960's \cite{int1997} the Internet can be defined as a collection of nodes (computers) communicating with each other. The Unigrid Foundation aims to decentralize and load-balance these nodes, allowing anyone to partake in being a host node on the Internet. From the first contact with the network, your data is encrypted and sharded, making it impossible for anyone else to access this data without a key. Browsing across the network is also anonymous - securing your privacy rights.
 
 \vspace{0.1cm}
-\renewcommand{\arraystretch}{1.5}%
+\renewcommand{\arraystretch}{1.6}%
 \begin{flushleft}
 	\hypersetup{colorlinks = true, urlcolor = black, citecolor = black, linkcolor = black}
 	\center \small
 	\begin{tabular}{lrrrrr}
 		\rowcolor{orange}\multicolumn{6}{c}{\color{black} \textbf{Worldwide Cloud Service Revenue Forecast \cite{gartner2019} (Billions of U.S. Dollars)}} \\
-		\rowcolor{orange} & \color{black}2018 & \color{black}2019   & \color{black}2020 & \color{black}2021 & \color{black}2022 \\
-		Business Process Services (BPaaS) \hspace{2.3cm}              &  45.8 &  49.3 &  53.1 &  57.0 &  61.1 \\
-		\rowcolor{headerbgl} Application Infrastructure Services (PaaS) &  15.6 &  19.0 &  23.0 &  27.5 &  31.8 \\
-		Application Services (SaaS)                                 &  80.0 &  94.8 & 110.5 & 126.7 & 143.7 \\
-		\rowcolor{headerbgl} Management and Security Services       &  10.5 &  12.2 &  14.1 &  16.0 &  17.9 \\
-		System Infrastructure Services (IaaS)                       &  30.5 &  38.9 &  49.1 &  61.9 &  76.6 \\
-		\rowcolor{headerbgl} Total Market                           & 182.4 & 214.3 & 249.8 & 289.1 & 331.2
+		\rowcolor{orange} & \color{black}2020 & \color{black}2021 & \color{black}2022 & \color{black}2023 & \color{black}2024 \\
+		Business Process Services (BPaaS) \hspace{2.3cm}              &  53.1 &  57.0 &  59.9 & 65.2 & 71 \\
+		\rowcolor{headerbgl} Application Infrastructure Services (PaaS) & 23.0 &  27.5 &  112 & 139 & 170.4 \\
+		Application Services (SaaS)                                 & 110.5 & 126.7 & 167.3 & 197.3 & 232.3 \\
+		\rowcolor{headerbgl} Management and Security Services       &  14.1 &  16.0 &  34.5 & 42.4 & 51.9 \\
+		System Infrastructure Services (IaaS)                       &  49.1 &  61.9 &  114.8 & 150.3 & 195.4 \\
+		\rowcolor{headerbgl} Total Market                           & 249.8 & 289.1 & 490 & 597.3 & 774.6
 	\end{tabular}
 \end{flushleft}
 
 \vspace{0.6cm}
-\noindent Gridnodes are the backbone to the network and an integral part of how the system functions. For the services provided, they will be rewarded. According to the research company Gartner, the total market share for IaaS cloud infrastructure in 2019 was \$38.9 billion with a projected growth to \$76.6 billion by 2022 \cite{gartner2019}. The potential market share for the Unigrid network is enormous as it can potentially offer benefits, functionality and services currently not available with any other alternative.
+\noindent Gridnodes serve as the foundational pillars of the network, driving its functionality and ensuring seamless operations. Their critical role in the system comes with a well-deserved reward for the services they provide.
+
+The global cloud service landscape has been experiencing a transformative growth phase. Based on the data from research firm Gartner, the worldwide cloud service revenue is set to grow significantly across various sectors. A closer look reveals the following insights:
+
+\begin{itemize}
+    \item Business Process Services (BPaaS) revenue, which was at \$53.1 billion in 2020, is projected to reach \$71 billion by 2024.
+    \item Application Infrastructure Services (PaaS) has seen a surge from \$23 billion in 2020 to an anticipated \$170.4 billion in 2024.
+    \item Application Services (SaaS) too is on an upward trajectory, expected to grow from \$110.5 billion in 2020 to \$232.3 billion by 2024.
+    \item Management and Security Services are not far behind, with projections indicating a rise from \$14.1 billion in 2020 to \$51.9 billion in 2024.
+    \item However, the most significant growth can be observed in the System Infrastructure Services (IaaS) sector. From \$49.1 billion in 2020, it is forecasted to reach a staggering \$195.4 billion by 2024.
+    \item Overall, the total market is anticipated to expand from \$249.8 billion in 2020 to \$774.6 billion by 2024.
+\end{itemize}
+
+Given the substantial growth in the System Infrastructure Services (IaaS) sector — from \$38.9 billion in 2019 to a projected \$195.4 billion by 2024 — it's evident that the potential market share for the Unigrid network is vast. Unigrid is uniquely positioned to offer unmatched benefits, functionalities, and services that currently have no parallels in the market.
+
 
 \section{Closing Thoughts}
 This paper covers some of the features of the Unigrid network and why the foundation thinks they are essential for a future Internet that is healthy, stable and scalable. Many of the topics covered only skim the surface of and do not explain many of the intricate details of the underlying implementations. For additional information and for further details on how the network functions on a theoretical level, the base technical Unigrid white paper \cite{wp2021} broadly describes how the foundation plans to implement much of the functionality discussed in this orange paper.
@@ -412,5 +492,76 @@ This paper covers some of the features of the Unigrid network and why the founda
     \emph{"Internet censorship in China"},
     \href{https://www.wikipedia.org/wiki/Internet_censorship_in_China}{www.wikipedia.org},
     2021.
+
+\bibitem{valuex2023}
+	ValueX,
+	\emph{We empower projects to become successful businesses},
+	\href{https://www.valuex.at}{www.valuex.at},
+	2023.
+
+\bibitem{nfmedia2023}
+	NFMedia,
+	\emph{Invest in your Future},
+	\href{https://www.nfmedia.org}{www.nfmedia.org},
+	2023.
+
+\bibitem{decentralized-internet}
+	Decentralized Internet,
+	\emph{The Unigrid Foundation wins court decision},
+	2023,
+	\url{https://www.decentralized-internet.com/unigrid-foundation-wins-court-decision}.
+
+\bibitem{linkedin-paulk}
+	Paul K.,
+	\emph{The Unigrid Foundation wins court decision},
+	2023,
+	\url{https://www.linkedin.com/pulse/unigrid-foundation-wins-court-decision-paul-k}.
+
+\bibitem{linkedin-valuexag}
+	Valuex AG,
+	\emph{The Unigrid Foundation wins court decision},
+	2023,
+	\url{https://www.linkedin.com/posts/valuex-ag_unigrid-foundation-wins-court-decision}.
+
+
+\bibitem{cointelegraph}
+	Cointelegraph,
+	\emph{How a blockchain network plans to tackle the internet's challenges},
+	\url{https://cointelegraph.com/news/how-a-blockchain-network-plans-to-tackle-the-internet-s-challenges}.
+
+\bibitem{cryptodaily1}
+	CryptoDaily,
+	\emph{What Makes Unigrid "The Next Internet Revolution"?},
+	\url{https://cryptodaily.co.uk/2023/07/what-makes-unigrid-the-next-internet-revolution}.
+
+\bibitem{cryptodaily2}
+	CryptoDaily,
+	\emph{Unigrid Secures \$25M Investment Commitment from GEM Digital, Partners with WeSendit},
+	\url{https://cryptodaily.co.uk/2023/08/unigrid-secures-25m-investment}.
+
+\bibitem{germanpress}
+	CloudComputing-Insider,
+	\emph{Unigrid plant europaweite Cloud auf Blockchain-Basis},
+	\url{https://www.cloudcomputing-insider.de/unigrid-plant-europaweite-cloud-auf-blockchain-basis-a-1041942}.
+
+\bibitem{bitcoincom}
+	news.bitcoin.com,
+	\emph{Unigrid Secures \$25M Investment Commitment from GEM Digital},
+	\url{https://news.bitcoin.com/unigrid-secures-25m-investment-commitment-from-gem-digital\\-partners-with-wesendit}.
+
+\bibitem{blockchair}
+	blockchair.com,
+	\emph{Unigrid Secures \$25M Investment Commitment from GEM Digital},
+	\url{https://blockchair.com/press-releases/unigrid-secures-25m-investment-commitment-from-gem-digital\\-partners-with-wesendit}.
+
+\bibitem{problockchain}
+	pro-blockchain.com,
+	\emph{Unigrid Secures \$25M Investment Commitment from GEM Digital},
+	\url{https://pro-blockchain.com/unigrid-secures-25m-investment-commitment-from-gem-digital\\-partners-with-wesendit}.
+
+\end{thebibliography}
+
+\end{document}
+
 \end{thebibliography}
 \end{document}
