@@ -340,6 +340,9 @@ Who can do what on the network is the basis on which legal responsibility can be
 \subsection{Gridnode Incentives}
 Gridnodes are rewarded for the service they provide (see Gridnodes and Tokenomics). For storage, the incentives build on mechanisms the node software already has. Each gridnode holds at most one piece of any chunk, and only as much as its quota allows, although until collateral is enforced one operator can run many gridnodes. Gridnodes check each other's claims with random spot checks, and the network repairs whatever a dishonest gridnode drops. Planned on top of this are collateral bound to each gridnode's key, so that running many gridnodes costs stake that can be lost; a reputation built from failed spot checks and refused stores; and payment for storage held over time, settled on the network's ledger. The aim is that storing data honestly pays better than any way of cheating.
 
+\subsection{Why Java}
+Hedgehog, the node software, is written in Java, and the choice is deliberate. Java remains one of the most widely used languages for server and infrastructure software: Apache Kafka is written mainly in Java, and Apache Cassandra and the Ethereum client Besu entirely \cite{kafkaRepo,cassandraRepo,besuDocs}. Its long-term support releases receive years of updates: Java 25, released in September 2025, is supported until at least September 2030, with extended support until 2033 \cite{oracleJavaRoadmap}. Few languages have a larger pool of developers. Memory safety protects nodes that must parse data sent by strangers. Hedgehog ships as one executable per platform for Linux, macOS and Windows, a launcher built with GraalVM Native Image that carries its own Java runtime, so operators install nothing else \cite{graalvmNativeImage}. Languages such as Rust or Go have strengths of their own, but the storage format does not depend on the language, so other implementations can join the network beside this one.
+
 \subsection{Foundational Structure}
 The foundation will be overseen by the county administrative board of the region, helping to ensure that assets are properly managed and that the foundation charter is adhered to.
 
@@ -656,6 +659,41 @@ This paper covers some of the features of the Unigrid network and why the founda
 	SFS 1994:1220, chapter 9, section 1,
 	\href{https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/stiftelselag-19941220_sfs-1994-1220/}{www.riksdagen.se},
 	1994.
+
+\bibitem{kafkaRepo}
+	The Apache Software Foundation,
+	\emph{"Apache Kafka source repository"},
+	language statistics Java 90\%, Scala 8\%, accessed 13 October 2026,
+	\href{https://github.com/apache/kafka}{github.com},
+	2026.
+
+\bibitem{cassandraRepo}
+	The Apache Software Foundation,
+	\emph{"Apache Cassandra source repository"},
+	language statistics Java 97\%, accessed 13 October 2026,
+	\href{https://github.com/apache/cassandra}{github.com},
+	2026.
+
+\bibitem{besuDocs}
+	Besu project, LF Decentralized Trust,
+	\emph{"Besu Ethereum client"},
+	formerly Hyperledger Besu, accessed 13 October 2026,
+	\href{https://docs.besu-eth.org/}{docs.besu-eth.org},
+	2026.
+
+\bibitem{oracleJavaRoadmap}
+	Oracle,
+	\emph{"Oracle Java SE Support Roadmap"},
+	accessed 13 October 2026,
+	\href{https://www.oracle.com/java/technologies/java-se-support-roadmap.html}{www.oracle.com},
+	2026.
+
+\bibitem{graalvmNativeImage}
+	Oracle, GraalVM project,
+	\emph{"Native Image"},
+	GraalVM for JDK 25 Reference Manual,
+	\href{https://www.graalvm.org/jdk25/reference-manual/native-image/}{www.graalvm.org},
+	2025.
 
 \end{thebibliography}
 
