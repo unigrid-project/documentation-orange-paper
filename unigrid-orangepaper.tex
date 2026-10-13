@@ -321,6 +321,19 @@ Accountability & One company to hold liable, with compliance certifications & No
 
 \noindent The difference that matters is structural. A cloud provider can let customers encrypt their own data, but it still holds the account: it can close it, delete the data, or be compelled to hand over what it holds. Unigrid takes those powers away by construction. No gridnode, operator or the foundation holds a key or an account, and no single company keeps the network running. A provider whose business is holding its customers' data cannot offer that without giving up the business.
 
+\subsection{Privacy by Design}
+Privacy-enhancing technologies go further than anonymization, which strips names from data but often leaves it possible to re-identify. Unigrid storage builds privacy into its structure:
+
+\begin{itemize}
+	\item \textbf{Encryption at the source.} Files are encrypted on the owner's node, and gridnodes only ever hold ciphertext.
+	\item \textbf{Data minimization.} The network keeps no accounts, owner records or file names.
+	\item \textbf{Unlinkability.} The pieces of one file are scattered over unrelated gridnodes, and the network keeps no record of which belong together.
+	\item \textbf{Access by capability.} The fingerprint is the only right to a file, and nobody else can grant or revoke it.
+	\item \textbf{Erasure.} A signed delete tells every gridnode that holds a piece of the file to drop it, and destroying the fingerprint leaves any copy that remains unreadable.
+\end{itemize}
+
+\noindent These properties answer the call of the GDPR for data protection by design and by default \cite{gdpr2016}. For the European digital single market they make Unigrid a framework in which data rights are enforced by the protocol rather than promised in a provider's policy, something that platforms built on collecting and analyzing data cannot easily copy.
+
 \subsection{Foundational Structure}
 The foundation will be overseen by the county administrative board of the region, helping to ensure that assets are properly managed and that the foundation charter is adhered to.
 
@@ -623,6 +636,13 @@ This paper covers some of the features of the Unigrid network and why the founda
 	OJ L, 2023/2854, 22.12.2023, Article 29,
 	\href{https://eur-lex.europa.eu/eli/reg/2023/2854/oj}{eur-lex.europa.eu},
 	2023.
+
+\bibitem{gdpr2016}
+	European Parliament and Council of the European Union,
+	\emph{"Regulation (EU) 2016/679, General Data Protection Regulation"},
+	OJ L 119, 4.5.2016, pp.~1--88, Article 25,
+	\href{https://eur-lex.europa.eu/eli/reg/2016/679/oj}{eur-lex.europa.eu},
+	2016.
 
 \end{thebibliography}
 
