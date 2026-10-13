@@ -297,6 +297,30 @@ The Unigrid network will keep the cost of data storage and data processing to a 
 
 \noindent Data on the network is encrypted, coded with redundancy and spread across the gridnodes. If gridnodes go down, their share of the data is rebuilt from the others in each group, and a file survives the loss of a large share of the gridnodes that hold it. No single machine or company can take the data offline.
 
+\subsection{Compared With Cloud Storage}
+Cloud object storage such as Amazon S3 is mature, fast and backed by contracts. Unigrid storage starts from a different premise: that nobody but the owner should be able to read, remove or withhold a file. The table below compares the two at a high level, including where the cloud is ahead today.
+
+{\renewcommand{\arraystretch}{1.4}
+\begin{center}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.5cm}>{\raggedright\arraybackslash}p{4.65cm}>{\raggedright\arraybackslash}p{4.65cm}}
+\rowcolor{orange} & \color{black}\textbf{Cloud object storage} & \color{black}\textbf{Unigrid storage} \\
+Who can read a file & The provider, which encrypts and decrypts on its side, unless the customer encrypts before upload and keeps the keys away from it \cite{awsS3encryption,awsS3cse} & Only the holder of the file's fingerprint. Files are always encrypted before they leave the owner's node \\
+\rowcolor{headerbgl} Who can delete or block it & The provider, for example by closing an account, and anyone with the account's credentials & Only the fingerprint holder. There is no account to close \\
+Identity needed & An account, usually with payment details & None: one random secret per file \\
+\rowcolor{headerbgl} Disclosure orders & A US provider must comply with lawful US orders for data in its possession, custody or control, wherever the data is stored \cite{usc2713} & No operator holds a readable file or its key \\
+If the operator leaves & The data depends on one company & The file lives on while enough gridnodes remain \\
+\rowcolor{headerbgl} Lock-in & The provider's interface and pricing; EU rules end switching charges from 2027 \cite{dataact2023} & An open protocol and open-source node software \\
+\rowcolor{orange} \multicolumn{3}{l}{\color{black}\textbf{Where the cloud is ahead today}} \\
+Durability & Designed for 99.999999999\,\% durability of objects over a year \cite{awsS3durability} & Analyzed, not yet measured at scale \\
+\rowcolor{headerbgl} Residency & The customer picks a region & Not yet: gridnodes may run anywhere \\
+Accountability & One company to hold liable, with compliance certifications & No single operator; the foundation sets parameters only \\
+\rowcolor{headerbgl} Speed and tooling & Low latency and broad tool support & Bounded by the gridnodes and the uploader's bandwidth; an S3-style interface is planned \\
+\end{tabular}
+\end{center}}
+
+\noindent The difference that matters is structural. A cloud provider can let customers encrypt their own data, but it still holds the account: it can close it, delete the data, or be compelled to hand over what it holds. Unigrid takes those powers away by construction. No gridnode, operator or the foundation holds a key or an account, and no single company keeps the network running. A provider whose business is holding its customers' data cannot offer that without giving up the business.
+
 \subsection{Foundational Structure}
 The foundation will be overseen by the county administrative board of the region, helping to ensure that assets are properly managed and that the foundation charter is adhered to.
 
@@ -564,6 +588,41 @@ This paper covers some of the features of the Unigrid network and why the founda
 	\emph{"Sharded and redundant storage on the Unigrid Network"},
 	\href{https://github.com/unigrid-project/hedgehog/tree/master/documentation/storage-white-paper}{github.com},
 	2026.
+
+\bibitem{awsS3encryption}
+	Amazon Web Services,
+	\emph{"Protecting data with encryption"},
+	Amazon Simple Storage Service User Guide, accessed 13 October 2026,
+	\href{https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingEncryption.html}{docs.aws.amazon.com},
+	2026.
+
+\bibitem{awsS3cse}
+	Amazon Web Services,
+	\emph{"Protecting data by using client-side encryption"},
+	Amazon Simple Storage Service User Guide, accessed 13 October 2026,
+	\href{https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingClientSideEncryption.html}{docs.aws.amazon.com},
+	2026.
+
+\bibitem{awsS3durability}
+	Amazon Web Services,
+	\emph{"Data protection in Amazon S3"},
+	Amazon Simple Storage Service User Guide, accessed 13 October 2026,
+	\href{https://docs.aws.amazon.com/AmazonS3/latest/userguide/DataDurability.html}{docs.aws.amazon.com},
+	2026.
+
+\bibitem{usc2713}
+	United States Congress,
+	\emph{"18 U.S.C. \S~2713: Required preservation and disclosure of communications and records"},
+	added by the CLOUD Act, Pub. L. 115--141, div.~V, 23 March 2018,
+	\href{https://www.law.cornell.edu/uscode/text/18/2713}{www.law.cornell.edu},
+	2018.
+
+\bibitem{dataact2023}
+	European Parliament and Council of the European Union,
+	\emph{"Regulation (EU) 2023/2854 on harmonised rules on fair access to and use of data (Data Act)"},
+	OJ L, 2023/2854, 22.12.2023, Article 29,
+	\href{https://eur-lex.europa.eu/eli/reg/2023/2854/oj}{eur-lex.europa.eu},
+	2023.
 
 \end{thebibliography}
 
