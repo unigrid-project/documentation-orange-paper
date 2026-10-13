@@ -159,7 +159,7 @@ Yet, the strength of Unigrid doesn't solely rest on these two visionaries. The p
 \section{Discussion}
 The primary goal of Unigrid is to implement an anonymous and decentralized communication solution that offers data storage and compute cycle utilization. Private individuals and businesses that value privacy or require secure data storage can take advantage of this feature.
 
-As an example, sensitive documents such as medical records, can be stored on-chain and only shared with selected individuals or entities. The data can be shared using a key that has an expiration timer, meaning that the sharing party never has to worry about the risk that the data will be exposed or accessed by an unwanted party. It should be the owning individual or business that controls how their private data is accessed and shared. It should never be in the control of a third party - something that is usually the case today. When the data is controlled by a third party, the risk of information leaks increases dramatically. Sometimes data is stolen by hackers, other times it is leaked or shared on purpose (in secrecy or otherwise). Whatever the reason - the Unigrid network gives the control back to the user or the party that actually owns the data.
+As an example, sensitive documents such as medical records can be stored on the network in encrypted form, so that only whoever holds a file's key, its fingerprint, can read them. Today, sharing a fingerprint shares full control of the file, the right to delete it included; read-only and expiring access are planned on top of it. It should be the owning individual or business that controls how their private data is accessed and shared. It should never be in the control of a third party - something that is usually the case today. When the data is controlled by a third party, the risk of information leaks increases dramatically. Sometimes data is stolen by hackers, other times it is leaked or shared on purpose (in secrecy or otherwise). Whatever the reason - the Unigrid network gives the control back to the user or the party that actually owns the data.
 
 \begin{center}
 \includegraphics[width=45pt]{anonymous}
@@ -187,7 +187,7 @@ A gridnode is similar in function to a masternode as initially conceived by the 
 
 The Unigrid takes this idea further and implements gridnodes. Gridnodes are scored by the quality of the service they provide to the network and its nodes. For example, latency, the amount of available storage capacity, processing speed and network bandwidth are all taken into account. Each gridnode is then scored based on how they rank compared to other gridnodes.
 
-With a regular masternode, reward frequency and occurrence is based on a naively calculated list. The network simply stores this list into memory and will cycle through each block to select the next winner. With the Unigrid network and gridnodes, scoring and rewards work differently. For example, when a request is made to store data on the network, there will be a check performed - looking for the next gridnode candidate. This check will see which gridnode has received the last reward plus scan the scores of each gridnode. Once a winner is selected, this gridnode will collect the data submitted and work with the other gridnodes to shard it across the network. This sharding allows the network to scale efficiently.
+With a regular masternode, reward frequency and occurrence is based on a naively calculated list. The network simply stores this list into memory and will cycle through each block to select the next winner. With the Unigrid network and gridnodes, scoring and rewards are planned to work differently, taking into account which gridnode received the last reward and the scores of each gridnode. Where data is stored does not depend on such a winner. The owner's own node encrypts a file, cuts it into pieces and sends each piece to gridnodes chosen by a hash of the piece's name, so no gridnode ever receives a whole file and the network scales with the number of gridnodes (see Data Storage).
 
 \subsection{Side Chains}
 The Unigrid network places blocks in appropriate side chains based on the type of work currently being sent by a communicating node. Each side chain is controlled by a group of gridnodes. A side chain is a specialized blockchain with very specific characteristics, optimized for the type of work it is meant for. For example, data storage and compute cycles don't need the brute speed that a direct communication channel requires. Therefore, the Unigrid network treats these workloads differently. The communication side chains are smaller and kept in-memory, using a very fast but less collision resistant hashing algorithm. The blockchains that handle compute cycles and storage, on the other hand, are more resistant to hash collisions - making them very secure. However, they can not handle the same throughput as the in-memory chains using the less resistant hashing variant.
@@ -205,7 +205,7 @@ The Unigrid network places blocks in appropriate side chains based on the type o
 \noindent The Unigrid network can create side chains on demand. The network continously rebalances, with blockchains being created, removed and restructured as the members of them and their data changes. This is possible because the network uses parity blocks and thus has the ability to rebuild side chains and throw away stale blocks.
 
 \subsection{Data Storage}
-The design of the Unigrid network allows it to store large amounts of data on-chain that can be accessed at any time. The data stored on the network is either public or private. Public data is viewable by anybody with access to the network. Private data, on the other hand, will only be accessible via a private key and has to be decrypted in order to allow access to the data.
+The Unigrid network stores files on its gridnodes in a way that is trust-minimized and verifiable: no single gridnode has to be trusted with a file, and anyone can check that what a gridnode holds is genuine. A file is encrypted on its owner's own node before anything leaves it. One random secret, the fingerprint, both locates and decrypts the file, and the network keeps no other record of who stored what. The encrypted file is cut into chunks and protected by two layers of erasure coding: an outer layer that only the owner can see, and an inner layer that lets the gridnodes check and rebuild every chunk on their own, without the owner and without learning which chunks belong together. The design, its analysis and its known limits are described in the storage white paper \cite{storage2026}.
 
 \noindent Cloud data storage is projected to reach a market size of \$297.54 billion by 2027 \cite{fort2021} and might even grow bigger if networks such as Unigrid reach big general adoption. Non-Fungible Tokens (NFTs) are tokens where only one specific token can be in existence at a given time. These allow for proof of ownership of a digital asset. The problem with the current system is that the only thing being stored on-chain is the actual proof of ownership. The asset itself that an NFT is tethered to is actually stored on a normal web server or some other means of storage. Consequently, if that web server or storage shuts down or is moved, the data for that NFT is lost.
 
@@ -214,12 +214,12 @@ The design of the Unigrid network allows it to store large amounts of data on-ch
 	\includegraphics[width=381pt]{hard-drive}
 \end{mdframed}
 
-\noindent The Unigrid network, is a ideal solution for handling NFTs and digital assets. Thanks to the redundancy, fault-tolerance and side chains of the network, the actual asset data can be stored in a way that ensures it can never be removed or lost by accident. This provides more long-term solution to where assets, that in some cases cost millions of dollars, are permanently and securely stored.
+\noindent The Unigrid network is well suited to NFTs and other digital assets. Because the gridnodes repair lost pieces on their own, the asset data survives the loss of a large share of the machines that hold it, and only the holder of its fingerprint can remove it. This gives assets, that in some cases cost millions of dollars, a more durable home than a single web server.
 
 The NFT market has exploded in the past year. According to Joseph Young of Forbes, the market cap has grown an astounding 1758\% \cite{young2021}.
 
 \subsection{Sharding \& Parity Blocks}
-In a typical blockchain, data is stored in a vertical structure with each new block being appended to the previous block. However, this is not an ideal solution when you want to create a low latency network capable of fast data access and transfers. The solution to solve this problem on the Unigrid network involves sharding data across multiple blockchains. Furthermore, parity blocks are introduced to achieve redundancy and fault tolerance. The result is a network built for speed, security and scalability.
+Keeping a full copy of every file on many machines is wasteful, and keeping it on one is fragile. The Unigrid network cuts each encrypted file into chunks of one mebibyte and each chunk into fragments, and adds parity: extra pieces computed from the others, so that any 16 of a chunk's 24 fragments rebuild it. A file costs about 2.3 times its size on the network and survives far more loss than three full copies would. The result is a network built for durability, privacy and scalability.
 
 \begin{center}
 \vspace{0.1cm}
@@ -233,9 +233,9 @@ In a typical blockchain, data is stored in a vertical structure with each new bl
 \hspace{8pt}\emph{Redundancy}\hspace{38pt}\emph{Fault-Tolerance}\hspace{30pt}\emph{Load Balancing}
 \end{center}
 
-\noindent Sharding is a database architecture pattern related to horizontal partitioning - the practice of separating one table’s rows into multiple different tables, known as partitions \cite{mark2019}. Data on the Unigrid network will be sharded across nodes into group swarms called shard groups. This allows the network to become a self-replicating CDN (Content Delivery Network) where data is often pulled from the most optimal location. This minimizes the network latency currently experienced on the modern web where you may be pulling data from a webpage in one centrally installed location.
+\noindent Sharding is a database architecture pattern related to horizontal partitioning - the practice of separating one table’s rows into multiple different tables, known as partitions \cite{mark2019}. On the Unigrid network, the fragments of each chunk are spread over a group of gridnodes chosen by a hash of the chunk's name. Every node can work out where a chunk lives without a directory, and the chunks of one file land on unrelated gridnodes. The gridnodes of each group take turns to count the fragments that remain and rebuild the missing ones once too many are gone, so the data stays alive while its owner is offline.
 
-A video streaming service would be able to take advantage of the network and the available speeds and fault-tolerance. As the videos stored on the network would be sharded and spread out on the network, users using the service would always load content from the fastest gridnode swarm with the lowest latency. The implementation needed from the actual video service would be simpler and could rely on the built in redundancy and fault-tolerance of the network, meaning the time and resources needed to implement such as service would also be far lower when compared to a more traditional solution.
+A video streaming service could build on this redundancy. A reader asks a few more gridnodes than it needs, 18 for the 16 fragments of a chunk, and uses the first answers, so one slow or missing gridnode does not hold it up. The service can rely on the network's own repair instead of running replication of its own, which makes it simpler and cheaper to build than a more traditional solution.
 
 \subsection{Compute Cycles}
 As the network grows and more gridnodes come online, the compute power available on the network will continuously increase. The scoring algorithms on the network will encourage operators to run gridnodes with a lot of resources - resulting in a network with a constantly increasing storage capacity and available computational power. Using Unigrid tokens, organizations and users will be able to rent these resources and use them for custom workloads and data.
@@ -295,7 +295,7 @@ The foundation plan to organize hackathons and similar events to promote growth 
 \subsection{Competitive Advantage}
 The Unigrid network will keep the cost of data storage and data processing to a minimum. With gridnodes constantly competing for work, costs will be drastically lower than alternative services.
 
-\noindent Data on the network is automatically backed up and spread across the network for redundancy. If one gridnode goes down, its data is accessible via other nodes in the shard group. Consequently, the data is always online and accessible. The network itself will never go offline, allowing continuous and uninterrupted access to your data and apps.
+\noindent Data on the network is encrypted, coded with redundancy and spread across the gridnodes. If gridnodes go down, their share of the data is rebuilt from the others in each group, and a file survives the loss of a large share of the gridnodes that hold it. No single machine or company can take the data offline.
 
 \subsection{Foundational Structure}
 The foundation will be overseen by the county administrative board of the region, helping to ensure that assets are properly managed and that the foundation charter is adhered to.
@@ -558,6 +558,12 @@ This paper covers some of the features of the Unigrid network and why the founda
 	pro-blockchain.com,
 	\emph{Unigrid Secures \$25M Investment Commitment from GEM Digital},
 	\url{https://pro-blockchain.com/unigrid-secures-25m-investment-commitment-from-gem-digital\\-partners-with-wesendit}.
+
+\bibitem{storage2026}
+	Adam Waldenberg, Stiftelsen The Unigrid Foundation,
+	\emph{"Sharded and redundant storage on the Unigrid Network"},
+	\href{https://github.com/unigrid-project/hedgehog/tree/master/documentation/storage-white-paper}{github.com},
+	2026.
 
 \end{thebibliography}
 
