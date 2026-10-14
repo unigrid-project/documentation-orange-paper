@@ -51,7 +51,7 @@
 
 \usepackage[framemethod=tikz]{mdframed}
 \usepackage[inkscapearea=page]{svg}
-\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{shapes.geometric, arrows.meta, calc}
 
 \definecolor{roadmapline}{rgb}{0.33,0.36,0.52}
 \definecolor{roadmapdate}{rgb}{0.70,0.87,0.94}
@@ -61,8 +61,20 @@
 	delivered/.style={minimum width=27mm, text width=23mm},
 	upcoming/.style={minimum width=38mm, text width=34mm},
 	milestonelink/.style={draw=txtcolor, dashed},
-	milestonedot/.style={diamond, fill=txtcolor, inner sep=0.7pt}
+	milestonedot/.style={diamond, fill=txtcolor, inner sep=0.7pt},
+	economycycle/.style={draw=roadmapline, line width=2.5mm},
+	economyhub/.style={circle, fill=headerbgl, draw=orange, line width=1.8mm, minimum size=36mm},
+	economytag/.style={fill=orange, rounded corners=1.5mm, text=black, font=\tiny\bfseries, inner xsep=2mm, inner ysep=1.2mm},
+	economyactor/.style={circle, fill=orange, draw=txtcolor, line width=1.4mm, minimum size=21.5mm, inner sep=0pt, text=black, font=\scriptsize\bfseries, path picture={\draw[txtcolor, line width=0.25mm] (path picture bounding box.center) circle (8.4mm);}},
+	economyhalo/.style={draw=roadmapline, line width=0.35mm},
+	economyflow/.style={draw=orange, line width=1.1pt, line cap=round, dash pattern=on 0pt off 2.4pt, -{Latex[length=2.2mm, width=2.2mm]}},
+	economylabel/.style={text=txtcolor, font=\scriptsize, text width=19mm, align=left, execute at begin node={\hyphenpenalty=10000\relax}},
+	economycard/.style={draw=roadmapline, fill=headerbgl, rounded corners=2pt, anchor=north west, text=txtcolor, font=\scriptsize, inner sep=2.2mm, execute at begin node={\hyphenpenalty=10000\relax}},
+	economystep/.style={-{Latex[length=1.8mm, width=1.8mm]}, draw=orange, line width=1pt}
 }
+\newcommand{\economyverb}[1]{{\color{orange}\bfseries #1}}
+\newcommand{\economyhalo}[4]{\draw[economyhalo] ($(#1) + (#2:#4)$) arc[start angle=#2, end angle=#3, radius=#4]; \fill[roadmapline] ($(#1) + (#3:#4)$) circle (0.7);}
+\newcommand{\economystepcard}[5]{\node[economycard] (#1) at (#2) {\parbox[t][19mm]{24.6mm}{\raggedright{\Large\color{orange}\bfseries #3}\hspace{1.5mm}{\footnotesize\bfseries\MakeUppercase{#4}}\\[1.2mm]#5}};}
 \newcommand{\milestone}[5]{\node[milestone, #1] (#2) at (#3) {{\large #4}\\[0.5mm]{\scriptsize\MakeUppercase{#5}}};}
 \newcommand{\milestonelink}[2]{\draw[milestonelink] (#1.east) to[out=0, in=180] (#2.west); \node[milestonedot] at (#1.east) {}; \node[milestonedot] at (#2.west) {};}
 
@@ -378,6 +390,83 @@ Furthermore, our gridnode operators are essential pillars of the Unigrid ecosyst
 Tokens held on the earlier Unigrid blockchain, the legacy chain, are not left behind. Its balances have been captured in a snapshot signed by the foundation, which every Hedgehog node can check for itself. The ledger of Hedgehog, now in development, is built to let holders claim those balances with the keys of their legacy wallets.
 
 \noindent In essence, through iterative design and with the collaboration of partners like ValueX and NFMedia, our tokenomics have been crafted to prioritize the stability and well-being of the market, the utility of the token, and the prosperity of the gridnode operators.
+
+\subsection{Economic Model}
+In business terms, the Unigrid network is a marketplace for storage, bandwidth and computing power. Customers pay for the capacity they use, independent operators supply it, and the Unigrid token is the currency in which every payment, deposit and fee is made. The diagram shows how the token moves between them.
+
+\vspace{0.05cm}
+\begin{center}
+\begin{tikzpicture}[x=1mm, y=1mm]
+	\draw[economycycle] (0, 0) circle (27);
+	\node[economyhub] (hub) at (27, 0) {};
+	\node at ([yshift=3mm]hub.center) {\includesvg[width=24mm]{unigrid-wide}};
+	\node[economytag] at ([yshift=-5mm]hub.center) {LOCKED TOKENS};
+	\node[economyactor] (users) at (130:27) {USERS};
+	\node[economyactor] (gridnodes) at (250:27) {GRIDNODES};
+	\node[economyactor] (validators) at (63, 32) {VALIDATORS};
+	\economyhalo{users}{75}{190}{14.5}
+	\economyhalo{gridnodes}{190}{305}{14.5}
+	\economyhalo{validators}{-75}{60}{13}
+	\economyhalo{hub}{-75}{25}{22.5}
+
+	\draw[economyflow] (107:33) arc[start angle=107, end angle=38, radius=33];
+	\node[economylabel, anchor=south] at (74:35) {\economyverb{Users pay} for services in tokens};
+	\draw[economyflow] (227:33) arc[start angle=227, end angle=153, radius=33];
+	\node[economylabel, anchor=east, align=right] at (180:34.5) {\economyverb{Gridnodes deliver} storage, bandwidth and compute};
+	\draw[economyflow] (-47:21) arc[start angle=-47, end angle=-82, radius=21];
+	\node[economylabel, text width=16mm] at (2, -12) {\economyverb{Gridnodes earn} the fees};
+	\draw[economyflow] (273:33) arc[start angle=273, end angle=322, radius=33];
+	\node[economylabel, anchor=north west] at (300:37) {\economyverb{Gridnodes lock} collateral, a security deposit};
+
+	\draw[economyflow] ($(validators)!13.5mm!(hub) + (-1.7, 1.9)$) -- ($(hub)!20mm!(validators) + (-1.7, 1.9)$);
+	\node[economylabel, anchor=east, align=right] at (51, 36) {\economyverb{Validators settle} and record payments};
+	\draw[economyflow] ($(hub)!20mm!(validators) + (1.7, -1.9)$) -- ($(validators)!13.5mm!(hub) + (1.7, -1.9)$);
+	\node[economylabel, anchor=north west] at (55, 14) {\economyverb{Validators earn} transaction fees};
+\end{tikzpicture}
+\end{center}
+
+{\renewcommand{\arraystretch}{1.4}
+\begin{center}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{3.1cm}}
+\rowcolor{orange} \color{black}\textbf{Participant} & \color{black}\textbf{Puts in} & \color{black}\textbf{Gets out} & \color{black}\textbf{Comparable to} \\
+Users & Fees for storage, bandwidth and compute & The service & Customers of a cloud provider \\
+\rowcolor{headerbgl} Gridnodes & Capacity, and tokens locked as collateral & The fees for the work they do & Suppliers who post a performance bond \\
+Validators, backed by token holders & Keep the ledger of payments correct & Transaction fees & A clearing house that settles payments \\
+\end{tabular}
+\end{center}}
+
+\noindent A payment is meant to move through the network in four steps, so that suppliers are paid for work done rather than work promised, and cheating costs more than it can earn (see Gridnode Incentives).
+
+\begin{center}
+\begin{tikzpicture}[x=1mm, y=1mm]
+	\economystepcard{pay}{0, 0}{1}{Pay}{A customer buys tokens and pays for a service, such as storing a file for a year.}
+	\economystepcard{hold}{34, 0}{2}{Hold}{The network holds the payment and releases it to the gridnodes as they deliver.}
+	\economystepcard{secure}{68, 0}{3}{Secure}{Each gridnode locks collateral, which it loses if it fails the network's checks.}
+	\economystepcard{settle}{102, 0}{4}{Settle}{Validators record every payment on the ledger and earn a fee for it.}
+	\draw[economystep] (pay.east) -- (hold.west);
+	\draw[economystep] (hold.east) -- (secure.west);
+	\draw[economystep] (secure.east) -- (settle.west);
+\end{tikzpicture}
+\end{center}
+
+\noindent The design ties demand for the token to real use of the network. Customers need tokens to pay for services, and every gridnode that joins locks tokens away as collateral, taking them out of circulation. The more the network is used and the more capacity it adds, the more tokens it needs.
+
+The service is meant to cost less than the cloud for three reasons:
+
+\begin{center}
+\begin{tikzpicture}[x=1mm, y=1mm]
+	\foreach \name/\x/\title/\body in {
+		margin/0/No middleman/Fees go straight to the operators who do the work{,} with no provider margin in between.,
+		idle/45.5/Idle hardware/Much of the capacity comes from servers that are already paid for and partly idle (see Problem).,
+		competition/91/Open competition/Gridnodes compete for work{,} which keeps prices down (see Competitive Advantage).} {
+		\node[economycard] (\name) at (\x, 0) {\parbox[t][14mm]{37.2mm}{\raggedright{\footnotesize\bfseries\color{orange}\title}\\[1.2mm]\body}};
+		\draw[orange, line width=1mm] ([xshift=1pt]\name.north west) -- ([xshift=-1pt]\name.north east);
+	}
+\end{tikzpicture}
+\end{center}
+
+None of this is part of the node software yet. The ledger, now in development, is to settle transfers and fees first, and collateral and payment for storage are planned to follow (see Milestones \& Roadmap). Until then, network storage has no payment: each gridnode is limited only by its own quota.
 
 \section{Milestones \& Roadmap}
 The Unigrid Foundation, with a vision for a seamless and efficient future network, has laid out a roadmap comprising several milestones. These milestones serve as guiding markers, providing direction and clarity for the network's development journey. The foundation is not just focused on creation; it's equally committed to the network's ongoing evolution. By maintaining an active community and ensuring a live network is always operational, the foundation facilitates real-time monitoring. This approach empowers developers, allowing them to pinpoint any emerging issues promptly. Furthermore, it provides an ongoing platform to assess the efficiency, adaptability, and scalability of the solutions in place, ensuring that the network not only meets but exceeds the demands of its users.
