@@ -115,7 +115,7 @@
 
 \newpage
 \section{Problem}
-The current Internet is dominated by large multi-national conglomerates. Businesses like Google, Microsoft, and Amazon take up vast segments of the total market share. Amazon Web Services (AWS) has a dominate position, having nearly 50\% of that total market share \cite{jeb2019}.
+The current Internet is dominated by large multi-national conglomerates. Amazon, Microsoft and Google together held 63\% of the worldwide market for cloud infrastructure services in the second quarter of 2026, a market worth \$143 billion that quarter alone. Amazon Web Services (AWS) held the largest share, 28\% \cite{synergy2026}.
 
 \begin{center}
 \includegraphics[width=45pt]{centralized}
@@ -128,7 +128,7 @@ The current Internet is dominated by large multi-national conglomerates. Busines
 \hspace{0pt}\emph{Centralized}\hspace{50pt}\emph{Unreliable}\hspace{54pt}\emph{Unsecure}\hspace{24pt}
 \end{center}
 
-\noindent A near majority of all Internet data is stored on servers owned by a single entity \cite{jeb2019}. As a consequence, this results in much of the current traffic being routed through Amazon’s servers and data centers \cite{jeb2019}. Because of this, important routes often get overloaded during peak hours, slowing down services - resulting in a degraded user experience. In fact, routes regularly become so overloaded that it effectively causes servers on the other end of the communication queue to be unreachable - something most Internet users have experienced. If your provider goes offline or gets disrupted - your service and data becomes unreachable.
+\noindent With so much of the Internet running in the data centers of a few providers, much of its traffic is routed through them. Important routes often get overloaded during peak hours, slowing down services - resulting in a degraded user experience. When one of these providers fails, services that have nothing else in common go down together. In October 2025, a fault in the DNS management of Amazon DynamoDB disrupted the largest AWS region, in Northern Virginia, for more than fourteen hours \cite{awsOutage2025}. A month later, Cloudflare, which many websites rely on to reach their users, suffered what it called its worst outage since 2019 \cite{cloudflare2025}. If your provider goes offline or gets disrupted - your service and data become unreachable.
 
 \vspace{0.05cm}
 \begin{mdframed}[style=textimage]
@@ -137,7 +137,7 @@ The current Internet is dominated by large multi-national conglomerates. Busines
 
 \noindent The centralized nature of the resource ownership on the Internet also results in under-utilization of servers, with idle CPU cycles and gigabytes or potentially terabytes of unused storage space on a single server. This is especially true when businesses choose to cost-optimize their operations and rely on their own dedicated servers, rather than relying on the more expensive cloud provider solutions.
 
-In some countries, Internet censorship is so prevalent that the public is limited to what news resources they are allowed to access and view \cite{wiki2021}. The original intention of the Internet was to create an open and globally accessible network, allowing everybody with access to view and take part of that information, regardless of their originating location.
+Internet freedom has declined worldwide for fifteen years in a row, and in countries such as China and Myanmar, censorship is so prevalent that the public is limited to the news sources it is allowed to access and view \cite{freedomhouse2025}. The original intention of the Internet was to create an open and globally accessible network, allowing everybody with access to view and take part of that information, regardless of their originating location.
 
 For privacy, cost and security reasons, this situation is not sustainable. Hackers, oppressive governments and monopolizing businesses continuously develop better tools that infringe on your data and privacy - creating a very vulnerable situation.
 
@@ -157,7 +157,7 @@ As an example, sensitive documents such as medical records can be stored on the 
 \hspace{0pt}\emph{Anonymity}\hspace{49pt}\emph{Scalability}\hspace{58pt}\emph{Security}\hspace{25pt}
 \end{center}
 
-\noindent The Internet of Things (IoT) market is undergoing rapid growth, introducing a wealth of opportunities for innovation and improved connectivity. However, this expansion is not without its challenges. A pressing issue in the IoT realm is ensuring the security and integrity of data as devices, often from different manufacturers and utilizing distinct protocols, exchange information. Traditional security models sometimes struggle to offer foolproof solutions in such a complex environment.
+\noindent The Internet of Things (IoT) is growing rapidly: the number of connected IoT devices reached about 21 billion at the end of 2025 and is expected to reach 39 billion by 2030 \cite{iotanalytics2025}. This growth introduces a wealth of opportunities for innovation and improved connectivity. However, this expansion is not without its challenges. A pressing issue in the IoT realm is ensuring the security and integrity of data as devices, often from different manufacturers and utilizing distinct protocols, exchange information. Traditional security models sometimes struggle to offer foolproof solutions in such a complex environment.
 
 Blockchain technology emerges as a beacon in this scenario. Within a blockchain framework, the ledger is meticulously maintained to be secure, with each entry being resistant to unauthorized alterations. This decentralized approach effectively removes the conventional need for absolute trust between communicating devices. When IoT systems integrate with a blockchain network, such as Unigrid, they inherit an augmented layer of security, ensuring that the data not only remains trustworthy but also significantly less vulnerable to potential breaches.
 
@@ -192,7 +192,7 @@ The Unigrid network places blocks in appropriate side chains based on the type o
 \subsection{Data Storage}
 The Unigrid network stores files on its gridnodes in a way that is trust-minimized and verifiable: no single gridnode has to be trusted with a file, and anyone can check that what a gridnode holds is genuine. A file is encrypted on its owner's own node before anything leaves it. One random secret, the fingerprint, both locates and decrypts the file, and the network keeps no other record of who stored what. The encrypted file is cut into chunks and protected by two layers of erasure coding: an outer layer whose structure only the owner knows, and an inner layer that lets the gridnodes check and rebuild every chunk on their own, without the owner and, except in short stripes, without learning which chunks belong together. The design, its analysis and its known limits are described in the storage white paper \cite{storage2026}.
 
-\noindent Cloud data storage is projected to reach a market size of \$297.54 billion by 2027 \cite{fort2021} and might even grow bigger if networks such as Unigrid reach big general adoption. Non-Fungible Tokens (NFTs) are tokens where only one specific token can be in existence at a given time. These allow for proof of ownership of a digital asset. The problem with the current system is that the only thing being stored on-chain is the actual proof of ownership. The asset itself that an NFT is tethered to is actually stored on a normal web server or some other means of storage. Consequently, if that web server or storage shuts down or is moved, the data for that NFT is lost.
+\noindent The cloud storage market was worth an estimated \$161 billion in 2025 and is projected to reach \$810 billion by 2034 \cite{fort2026}. It might grow even bigger if networks such as Unigrid reach general adoption. Non-Fungible Tokens (NFTs) are tokens where only one specific token can be in existence at a given time. These allow for proof of ownership of a digital asset. The problem with the current system is that the only thing being stored on-chain is the actual proof of ownership. The asset itself that an NFT is tethered to is actually stored on a normal web server or some other means of storage. Consequently, if that web server or storage shuts down or is moved, the data for that NFT is lost.
 
 \vspace{0.2cm}
 \begin{mdframed}[style=textimage]
@@ -201,7 +201,7 @@ The Unigrid network stores files on its gridnodes in a way that is trust-minimiz
 
 \noindent The Unigrid network is well suited to NFTs and other digital assets. Because the gridnodes repair lost pieces on their own, the asset data survives the loss of a large share of the machines that hold it, and nobody without its fingerprint can remove it. Until read-only access exists, though, sharing an asset's fingerprint also shares the right to delete it. This gives assets, which in some cases cost millions of dollars, a more durable home than a single web server.
 
-The NFT market has exploded in the past year. According to Joseph Young of Forbes, the market cap has grown an astounding 1758\% \cite{young2021}.
+The NFT market has cooled since the boom of 2021, but it remains large: NFT sales came to about \$5.6 billion in 2025, down 37\% from the year before \cite{cointelegraphNft2025}. Every one of those assets still needs somewhere to live.
 
 \subsection{Sharding \& Parity Blocks}
 Keeping a full copy of every file on many machines is wasteful, and keeping it on one is fragile. The Unigrid network cuts each encrypted file into chunks of one mebibyte and each chunk into fragments, and adds parity at both levels: extra pieces computed from the others. A file gains half as many parity chunks as it has data chunks, and any 16 of a chunk's 24 fragments rebuild it. A file costs about 2.3 times its size on the network and survives far more loss than three full copies would. The result is a network built for durability, privacy and scalability.
@@ -475,11 +475,12 @@ This paper covers some of the features of the Unigrid network and why the founda
     \href{https://www.internetsociety.org/internet/history-internet/brief-history-internet}{www.internetsociety.org},
     1997.
 
-\bibitem{fort2021}
+\bibitem{fort2026}
     Fortune Business Insights,
-    \emph{"Cloud Storage Market Size"},
+    \emph{"Cloud Storage Market Size, Share \& Industry Analysis"},
+    report FBI102773, last updated 28 September 2026,
     \href{https://www.fortunebusinessinsights.com/cloud-storage-market-102773}{www.fortunebusinessinsights.com},
-    2021.
+    2026.
 
 \bibitem{gartner2019}
     Gartner, Gartner,
@@ -487,24 +488,31 @@ This paper covers some of the features of the Unigrid network and why the founda
     \href{https://www.gartner.com/en/newsroom/press-releases/2019-04-02-gartner-forecasts-worldwide-public-cloud-revenue-to-g}{www.gartner.com},
     2019.
 
-\bibitem{john2018}
-    John Levine, CircleID,
-    \emph{"How Big Is The Domain Business"},
-    \href{https://www.circleid.com/posts/20180813_how_big_is_the_domain_business/}{www.circleid.com},
-    2018.
+\bibitem{synergy2026}
+    Synergy Research Group,
+    \emph{"Q2 Cloud Market Passes \$143 Billion; Highest Growth Rate in Eight Years"},
+    30 July 2026,
+    \href{https://www.srgresearch.com/articles/q2-cloud-market-passes-143-billion-highest-growth-rate-in-eight-years}{www.srgresearch.com},
+    2026.
 
-\bibitem{jeb2019}
-    Jeb Su, Forbes,
-    \emph{"Amazon Owns Nearly Half Of The Public-Cloud Infrastructure Market Worth Over \$32 Billion: Report"},
-    \href{https://www.forbes.com/sites/jeanbaptiste/2019/08/02/amazon-owns-nearly-half-of-the-public-cloud-infrastructure-market-worth-over-32-billion-report/ }{www.forbes.com},
-    2019.
+\bibitem{awsOutage2025}
+    Amazon Web Services,
+    \emph{"Summary of the Amazon DynamoDB Service Disruption in the Northern Virginia (US-EAST-1) Region"},
+    \href{https://aws.amazon.com/message/101925/}{aws.amazon.com},
+    2025.
 
-\bibitem{young2021}
-    Joseph Young, Forbes,
-    \emph{"NFT Market Rages On: NFTs Market Cap Grow 1,785\% In 2021 As Demand Explodes"},
-    \href{https://www.forbes.com/sites/youngjoseph/2021/03/29/nft-market-rages-on-nfts-market-cap-grow-1785-in-2021-as-demand-explodes/
-}{www.gartner.com},
-    2021.
+\bibitem{cloudflare2025}
+    Matthew Prince, Cloudflare,
+    \emph{"Cloudflare outage on November 18, 2025"},
+    \href{https://blog.cloudflare.com/18-november-2025-outage/}{blog.cloudflare.com},
+    2025.
+
+\bibitem{cointelegraphNft2025}
+    Ezra Reguerra, Cointelegraph,
+    \emph{"More NFTs, less money: Supply rose to 1.3B as sales fell 37\% in 2025"},
+    31 December 2025,
+    \href{https://cointelegraph.com/news/nft-supply-growth-sales-decline-2025}{cointelegraph.com},
+    2025.
 
 \bibitem{mark2019}
     Mark Drake ,Digital Ocean,
@@ -518,11 +526,19 @@ This paper covers some of the features of the Unigrid network and why the founda
     \href{https://www2.deloitte.com/ch/en/pages/innovation/articles/blockchain-accelerate-iot-adoption.html}{www.deloitte.com},
     2021.
 
-\bibitem{wiki2021}
-    Wikipedia,
-    \emph{"Internet censorship in China"},
-    \href{https://www.wikipedia.org/wiki/Internet_censorship_in_China}{www.wikipedia.org},
-    2021.
+\bibitem{iotanalytics2025}
+    Satyajit Sinha, IoT Analytics,
+    \emph{"State of IoT 2025: Number of connected IoT devices growing 14\% to 21.1 billion globally"},
+    28 October 2025,
+    \href{https://iot-analytics.com/number-connected-iot-devices/}{iot-analytics.com},
+    2025.
+
+\bibitem{freedomhouse2025}
+    Freedom House,
+    \emph{"Freedom on the Net 2025: An Uncertain Future for the Global Internet"},
+    13 November 2025,
+    \href{https://freedomhouse.org/article/new-report-persistent-authoritarian-repression-and-backsliding-democracies-drive-15th}{freedomhouse.org},
+    2025.
 
 \bibitem{valuex2023}
 	ValueX,
