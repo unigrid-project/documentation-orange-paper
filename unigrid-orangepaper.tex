@@ -3,7 +3,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{amsfonts}
-\usepackage[affil-it]{authblk}
 \usepackage[table]{xcolor}
 \usepackage{pagecolor}
 \usepackage{afterpage}
@@ -31,21 +30,6 @@
 \definecolor{txtcolor}{rgb}{0.88,0.88,0.88}
 \hypersetup{colorlinks = true, urlcolor = txtcolor, citecolor = orange, linkcolor = txtcolor}
 
-\author{\textit{Adam Waldenberg, \href{mailto:adam.waldenberg@gmail.com}{adam.waldenberg@gmail.com}}}
-\affil{Stiftelsen The Unigrid Foundation, \href{mailto:info@unigridfoundation.se}{info@unigridfoundation.se}}
-
-\title{
-	\makebox[\textwidth]{\hspace{600pt}\tikz \fill[orange] (18,1.4) rectangle (0,0);}
-	\vspace{60pt}
-	\begin{center}
-		\includesvg[height=80pt]{unigrid-wide}
-	\end{center}
-	\vspace{35pt}
-	\textbf{The Next Internet Revolution}
-	\vspace{10pt}
-}
-\date{\emph{Version \gitRel\hspace{5pt}(\gitCommitterDate)}}
-
 \definecolor{headerbg}{rgb}{0,0,0.18}
 \definecolor{headerbgl}{rgb}{0.07,0.07,0.24}
 
@@ -70,7 +54,10 @@
 	economyflow/.style={draw=orange, line width=1.1pt, line cap=round, dash pattern=on 0pt off 2.4pt, -{Latex[length=2.2mm, width=2.2mm]}},
 	economylabel/.style={text=txtcolor, font=\scriptsize, text width=19mm, align=left, execute at begin node={\hyphenpenalty=10000\relax}},
 	economycard/.style={draw=roadmapline, fill=headerbgl, rounded corners=2pt, anchor=north west, text=txtcolor, font=\scriptsize, inner sep=2.2mm, execute at begin node={\hyphenpenalty=10000\relax}},
-	economystep/.style={-{Latex[length=1.8mm, width=1.8mm]}, draw=orange, line width=1pt}
+	economystep/.style={-{Latex[length=1.8mm, width=1.8mm]}, draw=orange, line width=1pt},
+	forecastbar0/.style={fill=#1, draw=#1},
+	forecastbar1/.style={forecastbar0=#1!60!headerbg},
+	forecastvalue/.style={anchor=south, text=txtcolor, font=\scriptsize, inner sep=1.2pt}
 }
 \newcommand{\economyverb}[1]{{\color{orange}\bfseries #1}}
 \newcommand{\economyhalo}[4]{\draw[economyhalo] ($(#1) + (#2:#4)$) arc[start angle=#2, end angle=#3, radius=#4]; \fill[roadmapline] ($(#1) + (#3:#4)$) circle (0.7);}
@@ -123,9 +110,48 @@
 \begin{document}
 
 \newpagecolor{headerbg}
-\clearpage\maketitle
-\thispagestyle{empty}
-\newpage
+\begin{titlepage}
+\begin{tikzpicture}[remember picture, overlay, x=1mm, y=1mm, shift={(current page.south west)}]
+	\pgfmathsetseed{2021}
+	\foreach \i in {0,...,15} \foreach \j in {0,...,9} {
+		\pgfmathsetmacro{\px}{\i * 15 - 8 + 4 * rand}
+		\pgfmathsetmacro{\py}{300 - \j * 13 + 5 * sin(\i * 35 + \j * 50) + 3 * rand}
+		\coordinate (cover-\i-\j) at (\px, \py);
+	}
+	\foreach \i in {0,...,15} \foreach \j in {0,...,9} {
+		\pgfmathsetmacro{\fade}{0.75 - \j * 0.075}
+		\pgfmathtruncatemacro{\right}{\i + 1}
+		\pgfmathtruncatemacro{\below}{\j + 1}
+		\pgfmathtruncatemacro{\diagonal}{rnd < 0.45}
+		\pgfmathtruncatemacro{\gridnode}{rnd < 0.1}
+		\ifnum\i<15 \draw[roadmapline, line width=0.3pt, opacity=\fade] (cover-\i-\j) -- (cover-\right-\j); \fi
+		\ifnum\j<9
+			\draw[roadmapline, line width=0.3pt, opacity=\fade] (cover-\i-\j) -- (cover-\i-\below);
+			\ifnum\i<15 \ifnum\diagonal=1 \draw[roadmapline, line width=0.3pt, opacity=\fade] (cover-\i-\j) -- (cover-\right-\below); \fi \fi
+		\fi
+		\ifnum\gridnode=1
+			\fill[orange, opacity=0.2 * \fade] (cover-\i-\j) circle (2.6);
+			\fill[orange, opacity=\fade + 0.25] (cover-\i-\j) circle (1.1);
+		\else
+			\fill[txtcolor, opacity=\fade] (cover-\i-\j) circle (0.5);
+		\fi
+	}
+	\foreach \peer in {9-2, 11-4, 12-2, 9-4, 10-5} \draw[orange, line width=0.6pt, opacity=0.8] (cover-10-3) -- (cover-\peer);
+	\foreach \radius/\strength in {6/0.55, 11/0.35, 17/0.2, 24/0.1} \draw[orange, line width=0.4mm, opacity=\strength] (cover-10-3) circle (\radius);
+	\fill[orange] (cover-10-3) circle (2.8);
+
+	\node[anchor=south west, inner sep=0pt] at (25, 150) {\includesvg[height=22mm]{unigrid-wide}};
+	\fill[orange] (168, 156) rectangle (211, 166);
+	\fill[orange] (25, 132.4) rectangle (37, 133.6);
+	\node[anchor=west, text=orange, font=\small\bfseries] at (39, 133) {ORANGE PAPER};
+	\node[anchor=north west, text=txtcolor, font=\fontsize{32}{37}\selectfont\bfseries, align=left, inner sep=0pt] at (25, 125) {The Next\\Internet Revolution};
+	\node[anchor=north west, text=roadmapdate, font=\large, text width=150mm, inner sep=0pt] at (25, 92) {A decentralized, encrypted network for storage, bandwidth and, in time, compute};
+
+	\fill[orange] (25, 52.4) rectangle (65, 53.6);
+	\node[anchor=north west, text=txtcolor, font=\small, align=left, inner sep=0pt] at (25, 47) {\textit{Adam Waldenberg}, \href{mailto:adam.waldenberg@gmail.com}{adam.waldenberg@gmail.com}\\[1mm]\textit{Stiftelsen The Unigrid Foundation}, \href{mailto:info@unigridfoundation.se}{info@unigridfoundation.se}\\[3mm]\textit{Version \gitRel\hspace{5pt}(\gitCommitterDate)}};
+\end{tikzpicture}
+\end{titlepage}
+\setcounter{page}{2}
 \vspace*{+34pt}
 \begin{abstract}
 \noindent The original Internet was envisioned to become an open and distributed network that was scalable and fair, allowing access to data and services without surveillance or security concerns. However, in recent years, the Internet has become increasingly centralized, controlled and monopolized by big businesses running huge data centers. This centralization has given big entities and businesses unprecedented control of the traffic and data of the network.
@@ -394,7 +420,7 @@ Tokens held on the earlier Unigrid blockchain, the legacy chain, are not left be
 \subsection{Economic Model}
 In business terms, the Unigrid network is a marketplace for storage, bandwidth and computing power. Customers pay for the capacity they use, independent operators supply it, and the Unigrid token is the currency in which every payment, deposit and fee is made. The diagram shows how the token moves between them.
 
-\vspace{0.05cm}
+\vspace{0.6cm}
 \begin{center}
 \begin{tikzpicture}[x=1mm, y=1mm]
 	\draw[economycycle] (0, 0) circle (27);
@@ -424,6 +450,7 @@ In business terms, the Unigrid network is a marketplace for storage, bandwidth a
 	\node[economylabel, anchor=north west] at (55, 14) {\economyverb{Validators earn} transaction fees};
 \end{tikzpicture}
 \end{center}
+\vspace{0.6cm}
 
 {\renewcommand{\arraystretch}{1.4}
 \begin{center}
@@ -536,7 +563,7 @@ This victory was seen as a major accomplishment not only for the Unigrid Foundat
 \vspace{0.1cm}
 \href{https://www.cloudcomputing-insider.de/unigrid-plant-europaweite-cloud-auf-blockchain-basis-a-8514f7f959be74ec0a64e77ea064a007/}{\includegraphics[width=90pt]{logo-cci}}
 \hspace{1cm}
-\href{https://cointelegraph.com/news/how-a-blockchain-network-plans-to-tackle-the-internets-major-shortcomings}{\includegraphics[width=90pt]{logo-ct}}
+\href{https://web.archive.org/web/20211210102013/https://cointelegraph.com/news/how-a-blockchain-network-plans-to-tackle-the-internets-major-shortcomings}{\includegraphics[width=90pt]{logo-ct}}
 \hspace{1cm}
 \href{https://cryptodaily.co.uk/2021/11/unigrid-next-internet-revolution}{\includegraphics[width=90pt]{logo-cryptodaily}}
 \vspace{0.1cm}
@@ -557,36 +584,56 @@ This victory was seen as a major accomplishment not only for the Unigrid Foundat
 \section{Conclusion}
 Since the advent of the Internet in the 1960s \cite{int1997}, the Internet can be defined as a collection of nodes (computers) communicating with each other. The Unigrid Foundation aims to decentralize and load-balance these nodes, allowing anyone to partake in being a host node on the Internet. From the first contact with the network, your data is encrypted and sharded, making it impossible for anyone else to access this data without a key. Browsing through the network keeps your traffic away from any single provider, and making it anonymous is the next goal - securing your privacy rights.
 
-\vspace{0.1cm}
-\renewcommand{\arraystretch}{1.6}%
-\begin{flushleft}
-	\hypersetup{colorlinks = true, urlcolor = black, citecolor = black, linkcolor = black}
-	\center \small
-	\begin{tabular}{lrrrr}
-		\rowcolor{orange}\multicolumn{5}{c}{\color{black} \textbf{Worldwide Public Cloud End-User Spending \cite{gartner2024} (Billions of U.S. Dollars)}} \\
-		\rowcolor{orange} & \color{black}2024 & \color{black}Growth & \color{black}2025 & \color{black}Growth \\
-		Application Infrastructure Services (PaaS) \hspace{1.2cm}      & 171.6 & 19.1\% & 208.6 & 21.6\% \\
-		\rowcolor{headerbgl} Application Services (SaaS)                & 250.8 & 18.1\% & 299.1 & 19.2\% \\
-		Desktop as a Service (DaaS)                                     &   3.5 &  7.7\% &   3.8 & 11.1\% \\
-		\rowcolor{headerbgl} System Infrastructure Services (IaaS)      & 169.8 & 21.3\% & 211.9 & 24.8\% \\
-		Total Market                                                    & 595.7 & 19.2\% & 723.4 & 21.5\%
-	\end{tabular}
-\end{flushleft}
+\vspace{0.2cm}
+\begin{center}
+\begin{tikzpicture}[x=1mm, y=0.036mm]
+	\node[anchor=west, text=txtcolor, font=\small\bfseries] at (0, 1800) {Worldwide public cloud spending forecast, billions of U.S. dollars};
+	\draw[forecastbar0=roadmapdate] (0, 1600) rectangle (3, 1690);
+	\node[anchor=west, text=txtcolor, font=\scriptsize] at (4, 1645) {Total public cloud};
+	\draw[forecastbar0=orange] (32, 1600) rectangle (35, 1690);
+	\node[anchor=west, text=txtcolor, font=\scriptsize] at (36, 1645) {IaaS};
+	\draw[forecastbar1=roadmapdate] (48, 1600) rectangle (49.5, 1690);
+	\draw[forecastbar1=orange] (49.5, 1600) rectangle (51, 1690);
+	\node[anchor=west, text=txtcolor, font=\scriptsize] at (52, 1645) {Estimate (e)};
+
+	\foreach \level/\label in {500/500, 1000/{1,000}} {
+		\draw[roadmapline, dashed, opacity=0.6] (8, \level) -- (127, \level);
+		\node[anchor=east, text=roadmapline, font=\scriptsize] at (8, \level) {\label};
+	}
+	\foreach \x/\year/\total/\totallabel/\totalestimate/\iaas/\iaaslabel/\iaasestimate in {
+		12/2025/852/852/0/222.2/222.2/0,
+		43/2026/1030/{1,030}/0/287.3/287.3/0,
+		74/2027/1226/{1,226}\,e/1/359.9/359.9/0,
+		105/2028/1459/{1,459}\,e/1/450.6/450.6\,e/1} {
+		\draw[forecastbar\totalestimate=roadmapdate] (\x, 0) rectangle (\x + 10.5, \total);
+		\node[forecastvalue] at (\x + 5.25, \total) {\totallabel};
+		\draw[forecastbar\iaasestimate=orange] (\x + 11.5, 0) rectangle (\x + 22, \iaas);
+		\node[forecastvalue] at (\x + 16.75, \iaas) {\iaaslabel};
+		\node[anchor=north, text=txtcolor, font=\footnotesize\bfseries] at (\x + 11, -40) {\year};
+	}
+	\draw[txtcolor, line width=0.5pt] (8, 0) -- (127, 0);
+\end{tikzpicture}
+\end{center}
+
+{\renewcommand{\arraystretch}{1.4}
+\begin{center}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{4.4cm}rrrr}
+\rowcolor{orange} \leavevmode\color{black}\textbf{Billions of U.S. dollars} & \color{black}\textbf{2025} & \color{black}\textbf{2026} & \color{black}\textbf{2027} & \color{black}\textbf{2028} \\
+Total public cloud \cite{gartnerCloud2025} & 852 & 1,030 & 1,226\,e & 1,459\,e \\
+\rowcolor{headerbgl} \hspace{3mm}Growth & & 20.9\% & 19.0\%\,e & 19.0\%\,e \\
+IaaS \cite{gartner2026} & 222.2 & 287.3 & 359.9 & 450.6\,e \\
+\rowcolor{headerbgl} \hspace{3mm}Growth & 25.3\% & 29.3\% & 25.2\% & 25.2\%\,e \\
+\end{tabular}
+
+\vspace{0.15cm}
+\parbox{\linewidth}{\footnotesize e: estimate, drawn in a darker shade. The 2025 total is the base of Gartner's forecast for 2026; the totals for 2027 and 2028 extend Gartner's five-year growth rate of 19.0\%, and IaaS in 2028 its growth of 25.2\% in 2027.}
+\end{center}}
 
 \vspace{0.6cm}
 \noindent Gridnodes serve as the foundational pillars of the network, driving its functionality and ensuring seamless operations. Their critical role in the system is meant to come with a well-deserved reward for the services they provide.
 
-The global cloud service landscape is in a phase of rapid growth. According to research firm Gartner, worldwide end-user spending on public cloud services grew 19.2\% to \$595.7 billion in 2024 and was forecast to grow 21.5\% to \$723.4 billion in 2025 \cite{gartner2024}. A closer look reveals the following:
-
-\begin{itemize}
-    \item Application Infrastructure Services (PaaS) was forecast to grow from \$171.6 billion in 2024 to \$208.6 billion in 2025.
-    \item Application Services (SaaS), the largest segment, was forecast to grow from \$250.8 billion to \$299.1 billion.
-    \item Desktop as a Service (DaaS) stays small, at a forecast \$3.8 billion in 2025.
-    \item System Infrastructure Services (IaaS) was forecast to grow the fastest, by 24.8\% to \$211.9 billion in 2025.
-    \item Overall, the total market was forecast to expand from \$595.7 billion in 2024 to \$723.4 billion in 2025.
-\end{itemize}
-
-The growth in infrastructure continues. In August 2026, Gartner forecast that worldwide spending on IaaS would grow 29.3\% to \$287.3 billion in 2026 and reach \$359.9 billion in 2027 \cite{gartner2026}. With infrastructure, the part of the market that Unigrid addresses most directly, growing this fast, it's evident that the potential market share for the Unigrid network is vast. Unigrid is uniquely positioned to offer unmatched benefits, functionalities, and services that currently have no parallels in the market.
+The global cloud service landscape is in a phase of rapid growth. Gartner forecasts worldwide spending on public cloud services to grow 20.9\% to \$1.03 trillion in 2026, and to keep growing by about 19\% a year through 2029 \cite{gartnerCloud2025}, which would bring it close to \$1.46 trillion in 2028. Infrastructure grows faster still. In August 2026, Gartner forecast that worldwide spending on IaaS would grow 29.3\% to \$287.3 billion in 2026 and reach \$359.9 billion in 2027 \cite{gartner2026}. With infrastructure, the part of the market that Unigrid addresses most directly, growing this fast, it's evident that the potential market share for the Unigrid network is vast. Unigrid is uniquely positioned to offer unmatched benefits, functionalities, and services that currently have no parallels in the market.
 
 
 \section{Closing Thoughts}
@@ -613,12 +660,12 @@ This paper covers some of the features of the Unigrid network and why the founda
     \href{https://www.fortunebusinessinsights.com/cloud-storage-market-102773}{www.fortunebusinessinsights.com},
     2026.
 
-\bibitem{gartner2024}
+\bibitem{gartnerCloud2025}
     Gartner,
-    \emph{"Gartner Forecasts Worldwide Public Cloud End-User Spending to Total \$723 Billion in 2025"},
-    19 November 2024,
-    \href{https://www.gartner.com/en/newsroom/press-releases/2024-11-19-gartner-forecasts-worldwide-public-cloud-end-user-spending-to-total-723-billion-dollars-in-2025}{www.gartner.com},
-    2024.
+    \emph{"Forecast: Public Cloud Services by Vertical Industry Market, Worldwide, 2023-2029, 3Q25"},
+    summary, 8 December 2025,
+    \href{https://www.gartner.com/en/documents/7259330}{www.gartner.com},
+    2025.
 
 \bibitem{gartner2026}
     Gartner,
@@ -712,8 +759,9 @@ This paper covers some of the features of the Unigrid network and why the founda
 
 \bibitem{cointelegraph}
 	Cointelegraph,
-	\emph{How a blockchain network plans to tackle the internet's challenges},
-	\url{https://cointelegraph.com/news/how-a-blockchain-network-plans-to-tackle-the-internet-s-challenges}.
+	\emph{How a blockchain network plans to tackle the internet's major shortcomings},
+	10 December 2021, archived by the Internet Archive,
+	\href{https://web.archive.org/web/20211210102013/https://cointelegraph.com/news/how-a-blockchain-network-plans-to-tackle-the-internets-major-shortcomings}{web.archive.org}.
 
 \bibitem{cryptodaily1}
 	CryptoDaily,
