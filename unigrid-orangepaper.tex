@@ -51,6 +51,20 @@
 
 \usepackage[framemethod=tikz]{mdframed}
 \usepackage[inkscapearea=page]{svg}
+\usetikzlibrary{shapes.geometric}
+
+\definecolor{roadmapline}{rgb}{0.33,0.36,0.52}
+\definecolor{roadmapdate}{rgb}{0.70,0.87,0.94}
+
+\tikzset{
+	milestone/.style={draw=roadmapline, fill=headerbgl, rounded corners=2pt, minimum height=15mm, align=center, text=txtcolor, execute at begin node={\hyphenpenalty=10000\relax}},
+	delivered/.style={minimum width=27mm, text width=23mm},
+	upcoming/.style={minimum width=38mm, text width=34mm},
+	milestonelink/.style={draw=txtcolor, dashed},
+	milestonedot/.style={diamond, fill=txtcolor, inner sep=0.7pt}
+}
+\newcommand{\milestone}[5]{\node[milestone, #1] (#2) at (#3) {{\large #4}\\[0.5mm]{\scriptsize\MakeUppercase{#5}}};}
+\newcommand{\milestonelink}[2]{\draw[milestonelink] (#1.east) to[out=0, in=180] (#2.west); \node[milestonedot] at (#1.east) {}; \node[milestonedot] at (#2.west) {};}
 
 \mdfdefinestyle{unigridheader}{
 	userdefinedwidth=381pt,
@@ -370,23 +384,51 @@ The Unigrid Foundation, with a vision for a seamless and efficient future networ
 
 \vspace{0.05cm}
 \begin{center}
-	\includegraphics[width=381pt]{roadmap}
+\begin{tikzpicture}[x=1mm, y=1mm]
+	\node[anchor=west, text=orange, font=\footnotesize\bfseries] at (0, 11) {DELIVERED};
+	\milestone{delivered}{d1}{13.5, 0}{\color{roadmapdate}Q2 2022}{Janus desktop wallet}
+	\milestone{delivered}{d2}{49, -5}{\color{roadmapdate}Q2 2023}{First Hedgehog releases}
+	\milestone{delivered}{d3}{84.5, 0}{\color{roadmapdate}Q3 2026}{Hedgehog 0.0.8}
+	\milestone{delivered}{d4}{120, -5}{\color{roadmapdate}Q4 2026}{Janus Control Center}
+	\milestonelink{d1}{d2}
+	\milestonelink{d2}{d3}
+	\milestonelink{d3}{d4}
+
+	\node[anchor=west, text=orange, font=\footnotesize\bfseries] at (0, -21) {NEXT};
+	\milestone{upcoming}{n1}{19, -32}{\color{roadmapdate}Built}{Network storage release}
+	\milestone{upcoming}{n2}{66.75, -37}{\color{orange}In development}{Proxy and side chains}
+	\milestone{upcoming}{n3}{114.5, -32}{\color{orange}In development}{Ledger and consensus}
+	\milestone{upcoming}{n4}{19, -55}{\color{txtcolor}Planned}{Collateral and incentives}
+	\milestone{upcoming}{n5}{66.75, -60}{\color{txtcolor}Planned}{S3-style access to storage}
+	\milestone{upcoming}{n6}{114.5, -55}{\color{txtcolor}Planned}{CPU and GPU compute}
+	\milestonelink{n1}{n2}
+	\milestonelink{n2}{n3}
+	\milestonelink{n4}{n5}
+	\milestonelink{n5}{n6}
+\end{tikzpicture}
 \end{center}
 
+\noindent Delivered so far:
 \begin{itemize}
-  \item Q2 2022 New JavaFX wallet
-  \item Q1 2023 Hedgehog
-  \item Q2 2023 Hedgehog live
-  \item Q4 2023 Data storage
-  \item Q1 2024 Hedgehog live
-  \item Q2-Q3 2024 CPU compute
-  \item Q4 2024 GPU compute
+  \item Q2 2022: Janus, a desktop wallet for the legacy chain, built with JavaFX.
+  \item Q2 2023: the first releases of Hedgehog, 0.0.1 to 0.0.7, with gridnode sporks, peer-to-peer distribution and a REST interface.
+  \item Q3 2026: Hedgehog 0.0.8, built on Java 25 with one executable per platform, signed releases, sporks that need two of the foundation's four keys, and a signed snapshot of the legacy chain.
+  \item Q4 2026: Janus 2.0, the Unigrid Control Center, with Hedgehog as its only backend.
+\end{itemize}
+
+\noindent Next, in order of readiness:
+\begin{itemize}
+  \item Network storage is built and merged into Hedgehog, and is switched on by a storage spork once it is released.
+  \item A SOCKS5 proxy and the communication side chains it runs on, hosted by shard groups of gridnodes, are in development.
+  \item The ledger is in development: transfers, fees and claims of legacy balances first, then consensus and networking.
+  \item Collateral bound to each gridnode, and incentives for storage, are planned.
+  \item Access to network storage through an S3-style interface is planned.
+  \item Compute on the CPU, followed by the GPU, is planned.
 \end{itemize}
 
 \noindent The following milestones are some secondary goals we are planning or already working on in order to demonstrate the liability of the network.
 \begin{itemize}
   \item Technology demonstration of "Hello world" running on the network
-  \item Compute work (GPU)
   \item Technology demonstration of an FTP server running on the network
   \item Domain name service
   \item Technology demonstration of SETI@Home running on the network
@@ -394,7 +436,7 @@ The Unigrid Foundation, with a vision for a seamless and efficient future networ
 
 \noindent Rather than being a list of tasks, the above milestones is a list of goals that the foundation wants to achieve. While the list may still change, the foundation plans to target these goals.
 
-As part of its expanding ecosystem, Unigrid is actively working on crafting a suite of web frontends to provide users seamless access to network storage and its myriad functionalities. Among these innovations is the Unigrid Drive, a cutting-edge product akin to Google Drive, designed to empower end-users to effortlessly store their data within the Unigrid network.
+As part of its expanding ecosystem, Unigrid is building frontends that give users seamless access to network storage. Janus, the Unigrid Control Center, is the desktop frontend to Hedgehog. Planned beside it is the Unigrid Drive, a product akin to Google Drive, designed to let end-users store their data on the Unigrid network with ease.
 
 \section{Press Coverage \& Social Change}
 The Unigrid Foundation recently won a court case in Sweden against the county of Västra Götaland, which is responsible for overseeing the registration of foundations. The crux of the matter revolved around the classification of cryptocurrencies as assets for foundations. Specifically, the county argued that merely separating crypto assets for a foundation did not fulfill the requisite duration requirement for the foundation's purpose. However, the Unigrid Foundation contended and successfully established in court that cryptocurrencies should be recognized as an accepted asset class during the formation of foundations~\cite{decentralized-internet,linkedin-paulk,linkedin-valuexag}.
