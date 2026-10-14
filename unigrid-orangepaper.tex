@@ -466,7 +466,7 @@ The service is meant to cost less than the cloud for three reasons:
 \end{tikzpicture}
 \end{center}
 
-None of this is part of the node software yet. The ledger, now in development, is to settle transfers and fees first, and collateral and payment for storage are planned to follow (see Milestones \& Roadmap). Until then, network storage has no payment: each gridnode is limited only by its own quota.
+The building blocks of this model are already written. Network storage, with a quota for each gridnode and the spot checks that catch a gridnode that drops data, is built and merged into Hedgehog. The core of the ledger is written too: account balances, a voted set of validators, and blocks that count only once more than two thirds of them have signed. The work now is to join these into the full model, with transfers and fees on the ledger first and collateral and payment for storage after them (see Milestones \& Roadmap).
 
 \section{Milestones \& Roadmap}
 The Unigrid Foundation, with a vision for a seamless and efficient future network, has laid out a roadmap comprising several milestones. These milestones serve as guiding markers, providing direction and clarity for the network's development journey. The foundation is not just focused on creation; it's equally committed to the network's ongoing evolution. By maintaining an active community and ensuring a live network is always operational, the foundation facilitates real-time monitoring. This approach empowers developers, allowing them to pinpoint any emerging issues promptly. Furthermore, it provides an ongoing platform to assess the efficiency, adaptability, and scalability of the solutions in place, ensuring that the network not only meets but exceeds the demands of its users.
