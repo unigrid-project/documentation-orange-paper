@@ -413,7 +413,7 @@ The value of our token isn't solely monetary; it represents the utility and func
 
 Furthermore, our gridnode operators are essential pillars of the Unigrid ecosystem. Their continuous efforts and contributions are invaluable, and our tokenomics are thus designed to recognize and reward their commitment. This approach ensures they are adequately incentivized and that their interests align with the overall health and growth of the network.
 
-Tokens held on the earlier Unigrid blockchain, the legacy chain, are not left behind. Its balances have been captured in a snapshot signed by the foundation, which every Hedgehog node can check for itself. The ledger of Hedgehog, now in development, is built to let holders claim those balances with the keys of their legacy wallets.
+Tokens held on the earlier Unigrid blockchain, the legacy chain, are not left behind. Its balances have been captured in a snapshot signed by the foundation, which every Hedgehog node can check for itself. The ledger of Hedgehog lets holders claim those balances with the keys of their legacy wallets.
 
 \noindent In essence, through iterative design and with the collaboration of partners like ValueX and NFMedia, our tokenomics have been crafted to prioritize the stability and well-being of the market, the utility of the token, and the prosperity of the gridnode operators.
 
@@ -493,7 +493,7 @@ The service is meant to cost less than the cloud for three reasons:
 \end{tikzpicture}
 \end{center}
 
-The building blocks of this model are already written. Network storage, with a quota for each gridnode and the spot checks that catch a gridnode that drops data, is built and merged into Hedgehog. The core of the ledger is written too: account balances, a voted set of validators, and blocks that count only once more than two thirds of them have signed. The work now is to join these into the full model, with transfers and fees on the ledger first and collateral and payment for storage after them (see Milestones \& Roadmap).
+The building blocks of this model are already written. Network storage, with a quota for each gridnode and the spot checks that catch a gridnode that drops data, is built and merged into Hedgehog. So is the ledger: account balances, transfers and fees, claims of legacy balances, a voted set of validators, and blocks that count only once more than two thirds of them have signed. The work now is to join these into the full model, with collateral and payment for storage (see Milestones \& Roadmap).
 
 \section{Milestones \& Roadmap}
 The Unigrid Foundation, with a vision for a seamless and efficient future network, has laid out a roadmap comprising several milestones. These milestones serve as guiding markers, providing direction and clarity for the network's development journey. The foundation is not just focused on creation; it's equally committed to the network's ongoing evolution. By maintaining an active community and ensuring a live network is always operational, the foundation facilitates real-time monitoring. This approach empowers developers, allowing them to pinpoint any emerging issues promptly. Furthermore, it provides an ongoing platform to assess the efficiency, adaptability, and scalability of the solutions in place, ensuring that the network not only meets but exceeds the demands of its users.
@@ -513,7 +513,7 @@ The Unigrid Foundation, with a vision for a seamless and efficient future networ
 	\node[anchor=west, text=orange, font=\footnotesize\bfseries] at (0, -21) {NEXT};
 	\milestone{upcoming}{n1}{19, -32}{\color{roadmapdate}Built}{Network storage release}
 	\milestone{upcoming}{n2}{66.75, -37}{\color{orange}In development}{Proxy and side chains}
-	\milestone{upcoming}{n3}{114.5, -32}{\color{orange}In development}{Ledger and consensus}
+	\milestone{upcoming}{n3}{114.5, -32}{\color{roadmapdate}Built}{Ledger and consensus}
 	\milestone{upcoming}{n4}{19, -55}{\color{txtcolor}Planned}{Collateral and incentives}
 	\milestone{upcoming}{n5}{66.75, -60}{\color{txtcolor}Planned}{S3-style access to storage}
 	\milestone{upcoming}{n6}{114.5, -55}{\color{txtcolor}Planned}{CPU and GPU compute}
@@ -535,8 +535,8 @@ The Unigrid Foundation, with a vision for a seamless and efficient future networ
 \noindent Next, in order of readiness:
 \begin{itemize}
   \item Network storage is built and merged into Hedgehog, and is switched on by a storage spork once it is released.
+  \item The ledger is built and merged into Hedgehog, with transfers, fees, claims of legacy balances, consensus and networking.
   \item A SOCKS5 proxy and the communication side chains it runs on, hosted by shard groups of gridnodes, are in development.
-  \item The ledger is in development: transfers, fees and claims of legacy balances first, then consensus and networking.
   \item Collateral bound to each gridnode, and incentives for storage, are planned.
   \item Access to network storage through an S3-style interface is planned.
   \item Compute on the CPU, followed by the GPU, is planned.
